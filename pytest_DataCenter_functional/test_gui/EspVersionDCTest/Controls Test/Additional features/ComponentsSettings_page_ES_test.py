@@ -1,0 +1,96 @@
+# Third party packages
+import allure
+import pytest
+import pytest_check as check
+from pywinauto.keyboard import send_keys
+
+# My packages
+from DataCenter.buttons import ComponentsSettingsPage
+
+
+@pytest.fixture(scope="class")
+def handle(start_fast_test_page_es):
+    send_keys("{VK_MENU down}Y4Y04{VK_MENU up}")
+    app = start_fast_test_page_es
+    handle = app.window(name_re="DataCenter*")
+    yield handle
+
+
+@pytest.mark.order(1)
+@allure.epic("ESP Controls Test")
+@allure.feature("Additional features")
+@pytest.mark.testGUI_TestControlsES
+@pytest.mark.testGUI_EspVersionDCTest_ControlsTest_Additionalfeatures
+@allure.story("тест главного окна настройки компонентов")
+class TestComponentsSettingsPage:
+    def test_cancel_button(self, handle):
+        cancel_button = (
+            handle.by(name=ComponentsSettingsPage.cancel_button["title_es"])
+            .find()
+            .window_text()
+        )
+        check.equal(cancel_button, "Cancelar")
+
+    def test_apply_button(self, handle):
+        apply_button = (
+            handle.by(name=ComponentsSettingsPage.apply_button["title_es"])
+            .find()
+            .window_text()
+        )
+        check.equal(apply_button, "Aplicar")
+
+    def test_check_connection(self, handle):
+        check_connection = (
+            handle.by(name=ComponentsSettingsPage.check_connection["title_es"])
+            .find()
+            .window_text()
+        )
+        check.equal(check_connection, "Probar conexión")
+
+    def test_unified_storage_settings(self, handle):
+        unified_storage_settings = (
+            handle.by(name=ComponentsSettingsPage.unified_storage_settings["title_es"])
+            .find()
+            .window_text()
+        )
+        check.equal(unified_storage_settings, "Ajustes de Unified Storage")
+
+    def test_display_of_company_data(self, handle):
+        display_of_company_data = (
+            handle.by(name=ComponentsSettingsPage.display_of_company_data["title_es"])
+            .find()
+            .window_text()
+        )
+        check.equal(display_of_company_data, "Visualización de los datos de la empresa")
+
+    def test_proxy_server_settings(self, handle):
+        proxy_server_settings = (
+            handle.by(name=ComponentsSettingsPage.proxy_server_settings["title_es"])
+            .find()
+            .window_text()
+        )
+        check.equal(proxy_server_settings, "Ajustes del servidor proxy ")
+
+    def test_display_logo(self, handle):
+        display_logo = (
+            handle.by(name=ComponentsSettingsPage.display_logo["title_es"])
+            .find()
+            .window_text()
+        )
+        check.equal(display_logo, "Mostrar el logotipo")
+
+    def test_display_icon(self, handle):
+        display_icon = (
+            handle.by(name=ComponentsSettingsPage.display_icon["title_es"])
+            .find()
+            .window_text()
+        )
+        check.equal(display_icon, "Mostrar el icono")
+
+    def test_use_proxy(self, handle):
+        use_proxy = (
+            handle.by(name=ComponentsSettingsPage.use_proxy["title_es"])
+            .find()
+            .window_text()
+        )
+        check.equal(use_proxy, "Usar proxy")

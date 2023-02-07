@@ -1,0 +1,27 @@
+version: '2'
+
+services:
+
+  sql2017-Spec:
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    environment:
+      - SA_PASSWORD=saSA123#$$%^&_+|"%:\./''''~-`<>
+      - ACCEPT_EULA=Y
+    ports:
+      - "14177:1433"
+
+  sql2019-Spec:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      - SA_PASSWORD=saSA123#$$%^&_+|"%:\./''''~-`<>
+      - ACCEPT_EULA=Y
+    ports:
+      - "14199:1433"
+
+  sql2022-Spec:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      - SA_PASSWORD=saSA123#$$%^&_+|"%:\./''''~-`<>
+      - ACCEPT_EULA=Y
+    ports:
+      - "14222:1433"

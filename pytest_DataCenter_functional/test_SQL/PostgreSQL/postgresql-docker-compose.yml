@@ -1,0 +1,43 @@
+version: '2.5'
+
+services:
+
+  postgres11:
+    image: postgres:11
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=Passw0rd
+    ports:
+      - "5411:5432"
+
+  postgres12:
+    image: postgres:12
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=Passw0rd
+    ports:
+      - "5412:5432"
+
+  postgres13:
+    image: postgres:13
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=Passw0rd
+    ports:
+      - "5413:5432"
+
+  postgres14:
+    image: postgres:14
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=Passw0rd
+    ports:
+      - "5414:5432"
+
+  postgres15:
+    image: postgres:15
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=Passw0rd
+    ports:
+      - "5415:5432"

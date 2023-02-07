@@ -1,0 +1,21 @@
+[tool.pytest.ini_options]
+addopts = "-ra -p no:faulthandler -vv -s"
+log_format = "[%(asctime)s] %(levelname)s/%(processName)s [%(filename)s LINE:%(lineno)d] %(message)s"
+log_date_format = "%Y-%m-%d %H:%M:%S"
+
+markers = [
+    "testRESTAPI: проверка запросов по REST API",
+]
+
+[tool.isort]
+profile = "black"
+sections = ["FUTURE", "STDLIB", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]
+known_firstparty = [
+    "DataCenter",
+    "pytest_DataCenter_functional.test_REST_API.tools",
+    "pytest_DataCenter_functional.test_gui",
+    "pytest_DataCenter_functional.test_SQL",
+]
+import_heading_firstparty = "My packages"
+import_heading_stdlib = "Standart libraries"
+import_heading_thirdparty = "Third party packages"

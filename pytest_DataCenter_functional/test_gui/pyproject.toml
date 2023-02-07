@@ -1,0 +1,61 @@
+[tool.pytest.ini_options]
+addopts = "-ra -p no:faulthandler -vv -s"
+log_format = "[%(asctime)s] %(levelname)s/%(processName)s [%(filename)s LINE:%(lineno)d] %(message)s"
+log_date_format = "%Y-%m-%d %H:%M:%S"
+
+markers = [
+    "testGUI_VariousIndependentTests_CheckServerLogLevel: тестирование уровня логирования сервера ДЦ",
+    "testGUI_VariousIndependentTests_ConfiguringEmailNotificationAddresses: тестирование настройки адресов почтовых уведомлений",
+
+
+
+    "testGUI_TestScreensRU: тест скринов консоли дц (русская версия)",
+    "testGUI_RusVersionDCTest_ScreensTest_Additionalfeatures: тест закладки Additional features (русская версия)",
+    "testGUI_RusVersionDCTest_ScreensTest_Licenses: тест закладки Licenses (русская версия)",
+    "testGUI_RusVersionDCTest_ScreensTest_Management: тест закладки Management (русская версия)",
+    "testGUI_RusVersionDCTest_ScreensTest_Settings: тест закладки Settings (русская версия)",
+
+    "testGUI_TestScreensEN: тест скринов консоли дц (английская версия)",
+    "testGUI_EngVersionDCTest_ScreensTest_Additionalfeatures: тест закладки Additional features (английская версия)",
+    "testGUI_EngVersionDCTest_ScreensTest_Licenses: тест закладки Licenses (английская версия)",
+    "testGUI_EngVersionDCTest_ScreensTest_Management: тест закладки Management (английская версия)",
+    "testGUI_EngVersionDCTest_ScreensTest_Settings: тест закладки Settings (английская версия)",
+
+    "testGUI_TestScreensES: тест скринов консоли дц (испанская версия)",
+    "testGUI_EspVersionDCTest_ScreensTest_Additionalfeatures: тест закладки Additional features (испанская версия)",
+    "testGUI_EspVersionDCTest_ScreensTest_Licenses: тест закладки Licenses (испанская версия)",
+    "testGUI_EspVersionDCTest_ScreensTest_Management: тест закладки Management (испанская версия)",
+    "testGUI_EspVersionDCTest_ScreensTest_Settings: тест закладки Settings (испанская версия)",
+
+
+    "testGUI_TestControlsRU: тест консоли дц (русская версия)",
+    "testGUI_RusVersionDCTest_ControlsTest_Additionalfeatures: тест закладки Additional features (русская версия)",
+    "testGUI_RusVersionDCTest_ControlsTest_Licenses: тест закладки Licenses (русская версия)",
+    "testGUI_RusVersionDCTest_ControlsTest_Management: тест закладки Management (русская версия)",
+    "testGUI_RusVersionDCTest_ControlsTest_Settings: тест закладки Settings (русская версия)",
+
+    "testGUI_TestControlsEN: тест консоли дц (английская версия)",
+    "testGUI_EngVersionDCTest_ControlsTest_Additionalfeatures: тест закладки Additional features (английская версия)",
+    "testGUI_EngVersionDCTest_ControlsTest_Licenses: тест закладки Licenses (английская версия)",
+    "testGUI_EngVersionDCTest_ControlsTest_Management: тест закладки Management (английская версия)",
+    "testGUI_EngVersionDCTest_ControlsTest_Settings: тест закладки Settings (английская версия)",
+
+    "testGUI_TestControlsES: тест консоли дц (испанская версия)",
+    "testGUI_EspVersionDCTest_ControlsTest_Additionalfeatures: тест закладки Additional features (испанская версия)",
+    "testGUI_EspVersionDCTest_ControlsTest_Licenses: тест закладки Licenses (испанская версия)",
+    "testGUI_EspVersionDCTest_ControlsTest_Management: тест закладки Management (испанская версия)",
+    "testGUI_EspVersionDCTest_ControlsTest_Settings: тест закладки Settings (испанская версия)",
+]
+
+[tool.isort]
+profile = "black"
+sections = ["FUTURE", "STDLIB", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]
+known_firstparty = [
+    "DataCenter",
+    "pytest_DataCenter_functional.test_REST_API.tools",
+    "pytest_DataCenter_functional.test_gui",
+    "pytest_DataCenter_functional.test_SQL",
+]
+import_heading_firstparty = "My packages"
+import_heading_stdlib = "Standart libraries"
+import_heading_thirdparty = "Third party packages"

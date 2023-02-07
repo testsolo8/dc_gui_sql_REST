@@ -1,0 +1,43 @@
+version: '2.5'
+
+services:
+
+  postgres11-Spec:
+    image: postgres:11
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=saSA123#$$%^&_+|"%:\./''''~-`<>
+    ports:
+      - "54111:5432"
+
+  postgres12-Spec:
+    image: postgres:12
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=saSA123#$$%^&_+|"%:\./''''~-`<>
+    ports:
+      - "54122:5432"
+
+  postgres13-Spec:
+    image: postgres:13
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=saSA123#$$%^&_+|"%:\./''''~-`<>
+    ports:
+      - "54133:5432"
+
+  postgres14-Spec:
+    image: postgres:14
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=saSA123#$$%^&_+|"%:\./''''~-`<>
+    ports:
+      - "54144:5432"
+
+  postgres15-Spec:
+    image: postgres:15
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=saSA123#$$%^&_+|"%:\./''''~-`<>
+    ports:
+      - "54155:5432"
