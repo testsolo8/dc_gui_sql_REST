@@ -257,27 +257,28 @@ class TestCreatePostgreSQLOperationsLoggingDB:
                 logging.debug(ex)
         with check.check:
             assert_that(exist_db).described_as("Нет БД").is_true()
-        start_time = time.time()
-        while time.time() - start_time < 120:
-            try:
-                engine = create_engine(
-                    f"postgresql://{username}:{password}@{sql_serv_addr}:{port}/{db_name}"
-                )
-                list_of_tables = inspect(engine).get_table_names()
-                if not list_of_tables:
-                    time.sleep(10)
-                    continue
-                if len(list_of_tables) < 8:
-                    time.sleep(10)
-                else:
-                    logging.info("Корректное кол-во таблиц в БД Operations Logging")
-                    break
-            except Exception as ex:
-                logging.debug(ex)
-        with check.check:
-            assert_that(list_of_tables).described_as(
-                "Нет таблиц по умолчанию"
-            ).is_equal_to(operations_logging_postgresql)
+        if exist_db is True:
+            start_time = time.time()
+            while time.time() - start_time < 120:
+                try:
+                    engine = create_engine(
+                        f"postgresql://{username}:{password}@{sql_serv_addr}:{port}/{db_name}"
+                    )
+                    list_of_tables = inspect(engine).get_table_names()
+                    if not list_of_tables:
+                        time.sleep(10)
+                        continue
+                    if len(list_of_tables) < 8:
+                        time.sleep(10)
+                    else:
+                        logging.info("Корректное кол-во таблиц в БД Operations Logging")
+                        break
+                except Exception as ex:
+                    logging.debug(ex)
+            with check.check:
+                assert_that(list_of_tables).described_as(
+                    "Нет таблиц по умолчанию"
+                ).is_equal_to(operations_logging_postgresql)
         delete_postgres_DB(sql_serv_addr, port, username, password, db_name)
 
 
@@ -407,25 +408,26 @@ class TestCreatePostgreSQLOperationsLoggingDBWithSpecSymbol:
                 logging.debug(ex)
         with check.check:
             assert_that(exist_db).described_as("Нет БД").is_true()
-        start_time = time.time()
-        while time.time() - start_time < 120:
-            try:
-                engine = create_engine(
-                    f"postgresql://{username}:{password}@{sql_serv_addr}:{port}/{db_name}"
-                )
-                list_of_tables = inspect(engine).get_table_names()
-                if not list_of_tables:
-                    time.sleep(10)
-                    continue
-                if len(list_of_tables) < 8:
-                    time.sleep(10)
-                else:
-                    logging.info("Корректное кол-во таблиц в БД Operations Logging")
-                    break
-            except Exception as ex:
-                logging.debug(ex)
-        with check.check:
-            assert_that(list_of_tables).described_as(
-                "Нет таблиц по умолчанию"
-            ).is_equal_to(operations_logging_postgresql)
+        if exist_db is True:
+            start_time = time.time()
+            while time.time() - start_time < 120:
+                try:
+                    engine = create_engine(
+                        f"postgresql://{username}:{password}@{sql_serv_addr}:{port}/{db_name}"
+                    )
+                    list_of_tables = inspect(engine).get_table_names()
+                    if not list_of_tables:
+                        time.sleep(10)
+                        continue
+                    if len(list_of_tables) < 8:
+                        time.sleep(10)
+                    else:
+                        logging.info("Корректное кол-во таблиц в БД Operations Logging")
+                        break
+                except Exception as ex:
+                    logging.debug(ex)
+            with check.check:
+                assert_that(list_of_tables).described_as(
+                    "Нет таблиц по умолчанию"
+                ).is_equal_to(operations_logging_postgresql)
         delete_postgres_DB(sql_serv_addr, port, username, password, db_name)

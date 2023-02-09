@@ -168,27 +168,28 @@ class TestCreateMSSQLTaskManagementDB:
                 logging.debug(ex)
         with check.check:
             assert_that(rows).described_as("Нет БД").contains(db_name)
-        start_time = time.time()
-        while time.time() - start_time < 120:
-            try:
-                engine = create_engine(
-                    f"mssql+pyodbc://{username}:{password}@{sql_serv_addr}/{db_name}?driver=ODBC+Driver+17+for+SQL+Server"
-                )
-                list_of_tables = inspect(engine).get_table_names()
-                if not list_of_tables:
-                    time.sleep(10)
-                    continue
-                if len(list_of_tables) < 17:
-                    time.sleep(10)
-                else:
-                    logging.info("Корректное кол-во таблиц в БД Task Management")
-                    break
-            except Exception as ex:
-                logging.debug(ex)
-        with check.check:
-            assert_that(list_of_tables).described_as(
-                "Нет таблиц по умолчанию"
-            ).is_equal_to(task_management_mssql)
+        if rows:
+            start_time = time.time()
+            while time.time() - start_time < 120:
+                try:
+                    engine = create_engine(
+                        f"mssql+pyodbc://{username}:{password}@{sql_serv_addr}/{db_name}?driver=ODBC+Driver+17+for+SQL+Server"
+                    )
+                    list_of_tables = inspect(engine).get_table_names()
+                    if not list_of_tables:
+                        time.sleep(10)
+                        continue
+                    if len(list_of_tables) < 17:
+                        time.sleep(10)
+                    else:
+                        logging.info("Корректное кол-во таблиц в БД Task Management")
+                        break
+                except Exception as ex:
+                    logging.debug(ex)
+            with check.check:
+                assert_that(list_of_tables).described_as(
+                    "Нет таблиц по умолчанию"
+                ).is_equal_to(task_management_mssql)
         delete_mssql_DB(sql_serv_addr, username, password, db_name)
 
 
@@ -281,25 +282,26 @@ class TestCreateMSSQLTaskManagementDBWithSpecSymbol:
                 logging.debug(ex)
         with check.check:
             assert_that(rows).described_as("Нет БД").contains(db_name)
-        start_time = time.time()
-        while time.time() - start_time < 120:
-            try:
-                engine = create_engine(
-                    f"mssql+pyodbc://{username}:{password}@{sql_serv_addr}/{db_name}?driver=ODBC+Driver+17+for+SQL+Server"
-                )
-                list_of_tables = inspect(engine).get_table_names()
-                if not list_of_tables:
-                    time.sleep(10)
-                    continue
-                if len(list_of_tables) < 17:
-                    time.sleep(10)
-                else:
-                    logging.info("Корректное кол-во таблиц в БД Task Management")
-                    break
-            except Exception as ex:
-                logging.debug(ex)
-        with check.check:
-            assert_that(list_of_tables).described_as(
-                "Нет таблиц по умолчанию"
-            ).is_equal_to(task_management_mssql)
+        if rows:
+            start_time = time.time()
+            while time.time() - start_time < 120:
+                try:
+                    engine = create_engine(
+                        f"mssql+pyodbc://{username}:{password}@{sql_serv_addr}/{db_name}?driver=ODBC+Driver+17+for+SQL+Server"
+                    )
+                    list_of_tables = inspect(engine).get_table_names()
+                    if not list_of_tables:
+                        time.sleep(10)
+                        continue
+                    if len(list_of_tables) < 17:
+                        time.sleep(10)
+                    else:
+                        logging.info("Корректное кол-во таблиц в БД Task Management")
+                        break
+                except Exception as ex:
+                    logging.debug(ex)
+            with check.check:
+                assert_that(list_of_tables).described_as(
+                    "Нет таблиц по умолчанию"
+                ).is_equal_to(task_management_mssql)
         delete_mssql_DB(sql_serv_addr, username, password, db_name)
