@@ -40,9 +40,7 @@ class TestLicensesByComponents:
     @pytest.mark.skip(reason="в текущей реализации среды для тестов не реализовано")
     def test_count_of_license_not_empty(self):
         data_dict = r.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
-        assert len(parsed_data) >= 1
+        assert len(data_dict) >= 1
 
     @pytest.mark.skip(reason="в текущей реализации среды для тестов не реализовано")
     def test_schema(self):

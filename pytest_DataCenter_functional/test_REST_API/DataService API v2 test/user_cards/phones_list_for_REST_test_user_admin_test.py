@@ -38,103 +38,93 @@ class TestPhonesListForUser:
     @allure.title("Телефонный номер 1")
     def test_phone_number_1(self, dc_api: DcApiWithToken):
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Идентификатор документа в индексе"):
             check.equal(
-                parsed_data["data"][0]["docID"], "01279DC6-381E-4F6A-9E86-60AEA3514067"
+                data_dict["data"][0]["docID"], "01279DC6-381E-4F6A-9E86-60AEA3514067"
             )
         with allure.step("Отображать в шапке"):
-            check.is_none(parsed_data["data"][0]["inHeader"])
+            check.is_none(data_dict["data"][0]["inHeader"])
         with allure.step("Идентификатор телефона"):
-            check.equal(parsed_data["data"][0]["phoneID"], 3)
+            check.equal(data_dict["data"][0]["phoneID"], 3)
         with allure.step("Номер телефона"):
-            check.equal(parsed_data["data"][0]["phoneNumber"], "+34234234234234")
+            check.equal(data_dict["data"][0]["phoneNumber"], "+34234234234234")
         with allure.step("Тип номера телефона"):
-            check.equal(parsed_data["data"][0]["phoneType"], 1)
+            check.equal(data_dict["data"][0]["phoneType"], 1)
         with allure.step("UDL документа"):
             check.equal(
-                parsed_data["data"][0]["signID"], "01279DC6-381E-4F6A-9E86-60AEA3514067"
+                data_dict["data"][0]["signID"], "01279DC6-381E-4F6A-9E86-60AEA3514067"
             )
 
     @allure.title("Телефонный номер 2")
     def test_phone_number_2(self, dc_api: DcApiWithToken):
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Идентификатор документа в индексе"):
-            check.is_none(parsed_data["data"][1]["docID"])
+            check.is_none(data_dict["data"][1]["docID"])
         with allure.step("Отображать в шапке"):
-            check.is_none(parsed_data["data"][1]["inHeader"])
+            check.is_none(data_dict["data"][1]["inHeader"])
         with allure.step("Идентификатор телефона"):
-            check.equal(parsed_data["data"][1]["phoneID"], 2)
+            check.equal(data_dict["data"][1]["phoneID"], 2)
         with allure.step("Номер телефона"):
-            check.equal(parsed_data["data"][1]["phoneNumber"], "+345345345345553")
+            check.equal(data_dict["data"][1]["phoneNumber"], "+345345345345553")
         with allure.step("Тип номера телефона"):
-            check.equal(parsed_data["data"][1]["phoneType"], 1)
+            check.equal(data_dict["data"][1]["phoneType"], 1)
         with allure.step("UDL документа"):
-            check.is_none(parsed_data["data"][1]["signID"])
+            check.is_none(data_dict["data"][1]["signID"])
 
     @allure.title("Телефонный номер 3")
     def test_phone_number_3(self, dc_api: DcApiWithToken):
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Идентификатор документа в индексе"):
-            check.is_none(parsed_data["data"][2]["docID"])
+            check.is_none(data_dict["data"][2]["docID"])
         with allure.step("Отображать в шапке"):
-            check.is_true(parsed_data["data"][2]["inHeader"])
+            check.is_true(data_dict["data"][2]["inHeader"])
         with allure.step("Идентификатор телефона"):
-            check.equal(parsed_data["data"][2]["phoneID"], 1)
+            check.equal(data_dict["data"][2]["phoneID"], 1)
         with allure.step("Номер телефона"):
-            check.equal(parsed_data["data"][2]["phoneNumber"], "+435345234523452345")
+            check.equal(data_dict["data"][2]["phoneNumber"], "+435345234523452345")
         with allure.step("Тип номера телефона"):
-            check.equal(parsed_data["data"][2]["phoneType"], 2)
+            check.equal(data_dict["data"][2]["phoneType"], 2)
         with allure.step("UDL документа"):
-            check.is_none(parsed_data["data"][2]["signID"])
+            check.is_none(data_dict["data"][2]["signID"])
 
     @allure.title("Телефонный номер 4 cellphone")
     def test_phone_number_4_cellphone(self, dc_api: DcApiWithToken):
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Идентификатор документа в индексе"):
             check.equal(
-                parsed_data["data"][3]["docID"], "01279DC6-381E-4F6A-9E86-60AEA3514067"
+                data_dict["data"][3]["docID"], "01279DC6-381E-4F6A-9E86-60AEA3514067"
             )
         with allure.step("Отображать в шапке"):
-            check.is_none(parsed_data["data"][3]["inHeader"])
+            check.is_none(data_dict["data"][3]["inHeader"])
         with allure.step("Идентификатор телефона"):
-            check.equal(parsed_data["data"][3]["phoneID"], 4)
+            check.equal(data_dict["data"][3]["phoneID"], 4)
         with allure.step("Номер телефона"):
-            check.equal(parsed_data["data"][3]["phoneNumber"], "cellphone")
+            check.equal(data_dict["data"][3]["phoneNumber"], "cellphone")
         with allure.step("Тип номера телефона"):
-            check.equal(parsed_data["data"][3]["phoneType"], 1)
+            check.equal(data_dict["data"][3]["phoneType"], 1)
         with allure.step("UDL документа"):
             check.equal(
-                parsed_data["data"][3]["signID"], "01279DC6-381E-4F6A-9E86-60AEA3514067"
+                data_dict["data"][3]["signID"], "01279DC6-381E-4F6A-9E86-60AEA3514067"
             )
 
     @allure.title("Телефонный номер 5 home")
     def test_phone_number_5_home(self, dc_api: DcApiWithToken):
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Идентификатор документа в индексе"):
             check.equal(
-                parsed_data["data"][4]["docID"], "01279DC6-381E-4F6A-9E86-60AEA3514067"
+                data_dict["data"][4]["docID"], "01279DC6-381E-4F6A-9E86-60AEA3514067"
             )
         with allure.step("Отображать в шапке"):
-            check.is_none(parsed_data["data"][4]["inHeader"])
+            check.is_none(data_dict["data"][4]["inHeader"])
         with allure.step("Идентификатор телефона"):
-            check.equal(parsed_data["data"][4]["phoneID"], 5)
+            check.equal(data_dict["data"][4]["phoneID"], 5)
         with allure.step("Номер телефона"):
-            check.equal(parsed_data["data"][4]["phoneNumber"], "home")
+            check.equal(data_dict["data"][4]["phoneNumber"], "home")
         with allure.step("Тип номера телефона"):
-            check.equal(parsed_data["data"][4]["phoneType"], 1)
+            check.equal(data_dict["data"][4]["phoneType"], 1)
         with allure.step("UDL документа"):
             check.equal(
-                parsed_data["data"][4]["signID"], "01279DC6-381E-4F6A-9E86-60AEA3514067"
+                data_dict["data"][4]["signID"], "01279DC6-381E-4F6A-9E86-60AEA3514067"
             )
 
     @allure.title("Проверка возвращаемой схемы JSON")

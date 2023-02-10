@@ -41,9 +41,7 @@ class TestGetOperatingModeSelectedServerGroup:
     @allure.title("Режим работы сервера EndpointController")
     def test_working_mode2(self):
         data_dict = r.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
-        assert parsed_data["Mode"] == 2
+        assert data_dict["Mode"] == 2
 
     @allure.title("Проверка возвращаемой схемы JSON")
     def test_schema(self):

@@ -32,16 +32,16 @@ def test_response_time(dc_api: DcApiWithToken):
 def test_sort_by_addressID_DESC(dc_api: DcApiWithToken):
     data_dict = dc_api.req_get(URL_TAIL).json()
     data_str = json.dumps(data_dict)
-    parsed_data = json.loads(data_str)
-    assert parsed_data["data"][0]["address"] == 167772795
-    assert parsed_data["data"][0]["addressID"] == 10804
-    assert parsed_data["data"][0]["addressType"] == 1
-    assert parsed_data["data"][0]["dNS"] == "MSQ-PC-293.minsk.searchinform.net"
-    assert parsed_data["data"][0]["displayName"] == "Митько Максим"
-    assert parsed_data["data"][0]["domain"] == "minsk.searchinform.net"
-    assert parsed_data["data"][0]["groupName"] == "Минск"
-    assert parsed_data["data"][0]["lastActive"] is not None
-    assert parsed_data["data"][0]["principalName"] == "m.mitsko@minsk.searchinform.net"
+    data_dict = json.loads(data_str)
+    assert data_dict["data"][0]["address"] == 167772795
+    assert data_dict["data"][0]["addressID"] == 10804
+    assert data_dict["data"][0]["addressType"] == 1
+    assert data_dict["data"][0]["dNS"] == "MSQ-PC-293.minsk.searchinform.net"
+    assert data_dict["data"][0]["displayName"] == "Митько Максим"
+    assert data_dict["data"][0]["domain"] == "minsk.searchinform.net"
+    assert data_dict["data"][0]["groupName"] == "Минск"
+    assert data_dict["data"][0]["lastActive"] is not None
+    assert data_dict["data"][0]["principalName"] == "m.mitsko@minsk.searchinform.net"
 
 
 def test_schema(dc_api: DcApiWithToken):

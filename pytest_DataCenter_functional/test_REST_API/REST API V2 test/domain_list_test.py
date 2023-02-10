@@ -40,48 +40,42 @@ class TestDomainList:
     @allure.title("Домен autotest.lan")
     def test_domain_autotest(self):
         data_dict = r.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Последняя синхронизация"):
             check.greater(
-                datetime.utcfromtimestamp(parsed_data["Domains"][2]["LastSync"]),
+                datetime.utcfromtimestamp(data_dict["Domains"][2]["LastSync"]),
                 datetime.utcfromtimestamp(1660867202),
             )
         with allure.step("Имя домена"):
-            check.equal(parsed_data["Domains"][2]["Domain"], "autotest.lan")
+            check.equal(data_dict["Domains"][2]["Domain"], "autotest.lan")
         with allure.step("GUID"):
             check.equal(
-                parsed_data["Domains"][2]["GUID"],
+                data_dict["Domains"][2]["GUID"],
                 "{BC925BAC-F94F-405D-B94B-5FE29498645C}",
             )
 
     @allure.title("Домен WorkGroups")
     def test_domain_internal(self):
         data_dict = r.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Последняя синхронизация"):
-            check.is_(type(parsed_data["Domains"][1]["LastSync"]), int)
+            check.is_(type(data_dict["Domains"][1]["LastSync"]), int)
         with allure.step("Имя домена"):
-            check.equal(parsed_data["Domains"][1]["Domain"], "WorkGroups")
+            check.equal(data_dict["Domains"][1]["Domain"], "WorkGroups")
         with allure.step("GUID"):
             check.equal(
-                parsed_data["Domains"][1]["GUID"],
+                data_dict["Domains"][1]["GUID"],
                 "{576F726B-0000-0000-0000-47726F757073}",
             )
 
     @allure.title("Домен Internal.ISC")
     def test_domain_internal(self):
         data_dict = r.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Последняя синхронизация"):
-            check.is_(type(parsed_data["Domains"][0]["LastSync"]), int)
+            check.is_(type(data_dict["Domains"][0]["LastSync"]), int)
         with allure.step("Имя домена"):
-            check.equal(parsed_data["Domains"][0]["Domain"], "Internal.ISC")
+            check.equal(data_dict["Domains"][0]["Domain"], "Internal.ISC")
         with allure.step("GUID"):
             check.equal(
-                parsed_data["Domains"][0]["GUID"],
+                data_dict["Domains"][0]["GUID"],
                 "{58416765-6E74-0000-0000-47726F757073}",
             )
 

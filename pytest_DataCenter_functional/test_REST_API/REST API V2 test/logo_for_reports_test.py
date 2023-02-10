@@ -38,14 +38,12 @@ class TestLogoForReports:
     @allure.title("Логотип отчетов (иконка включена, логотип включен)")
     def test_logo(self):
         data_dict = r.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Название компании"):
-            check.equal(parsed_data["CompanyName"], "SearchInform")
+            check.equal(data_dict["CompanyName"], "SearchInform")
         with allure.step("Логотип компании"):
-            check.is_true(parsed_data["ViewLogo"])
+            check.is_true(data_dict["ViewLogo"])
         with allure.step("Иконка компании"):
-            check.is_true(parsed_data["ViewIcon"])
+            check.is_true(data_dict["ViewIcon"])
 
     @allure.title("Проверка возвращаемой схемы JSON")
     def test_schema(self):

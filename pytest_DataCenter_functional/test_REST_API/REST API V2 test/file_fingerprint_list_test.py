@@ -37,39 +37,35 @@ class TestfileFingerprintList:
     @pytest.mark.skip(reason="в текущей реализации среды для тестов не реализовано")
     def test_response_array_0(self):
         data_dict = r.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
-        check.equal(parsed_data[0]["FileID"], "{142D4028-A7B0-C83B-A2DF-000256E7B562}")
+        check.equal(data_dict[0]["FileID"], "{142D4028-A7B0-C83B-A2DF-000256E7B562}")
         check.equal(
-            parsed_data[0]["FileName"],
+            data_dict[0]["FileName"],
             "C:\\Users\\m.bondar\\Documents\\Документы для фингерпринтов\\SHYAM - PASSPORT1.pdf",
         )
         check.equal(
-            parsed_data[0]["BinHashe"],
+            data_dict[0]["BinHashe"],
             "maam5korhkpqsstz3b2bp1b4vknoqynehdsafwzawgqfasxupi3op1wc0ui2odkgolwrs1eet2d2"
             "aa4bsl1f3bxaxg1m2skibr1zsmxafq1d4wodpqq50knpgpdcjpeo130hvezo3cyvuo3d0uf5zyjls"
             "um4y5g41051nyyuaxak13jbp5jkk35st5uhfygmxmbbqruvkai2s",
         )
-        check.equal(parsed_data[0]["TextHashe"], "")
+        check.equal(data_dict[0]["TextHashe"], "")
 
     @pytest.mark.skip(reason="в текущей реализации среды для тестов не реализовано")
     def test_response_array_1(self):
         data_dict = r.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
-        check.equal(parsed_data[1]["FileID"], "{15289097-192F-7255-7E9E-0088F81529B0}")
+        check.equal(data_dict[1]["FileID"], "{15289097-192F-7255-7E9E-0088F81529B0}")
         check.equal(
-            parsed_data[1]["FileName"],
+            data_dict[1]["FileName"],
             "C:\\Users\\m.bondar\\Documents\\Документы для фингерпринтов\\INVITATION TO BIDS-Toyota.doc",
         )
         check.equal(
-            parsed_data[1]["BinHashe"],
+            data_dict[1]["BinHashe"],
             "aimk3brllyikv3vftumku4iedxzedq5bruszuyqqxn2sxjmtruy403fwgwduhzi3kmvmk4wvkj"
             "ia5n4msmbn4hqj5tztg0tt25drf2od2hymrr00i0ivihyiwc3ptxvphpiozmauacvqh1frjsbky"
             "jozbgesz05fb01vxkcdbjfmhl5x0qfumqov3fotp0v33frc53oxaocl2",
         )
         check.equal(
-            parsed_data[1]["TextHashe"],
+            data_dict[1]["TextHashe"],
             "u241mjvwp4j3rsmkjohsffpzss44tydsrd43kgmz4srua110cufabuhnb0tcklshuyh4kw2v5"
             "lmaz1q5pkqt5ooepu5jb0attsc435gbjnenpbdrc5wj01po10yhxijikpausa2k3dhlpe5sk2ozse"
             "xf2xgnxwwcyf2ytqnmumjuppur22mejk1cdrzvmoy4rsi3finjjgggt",

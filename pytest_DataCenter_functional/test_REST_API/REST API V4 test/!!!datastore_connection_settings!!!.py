@@ -34,15 +34,13 @@ def test_response_time():
 
 def test_datastore_connection_setting():
     data_dict = r.json()
-    data_str = json.dumps(data_dict)
-    parsed_data = json.loads(data_str)
-    check.equal(parsed_data[0]["product_id"], 0)
-    check.equal(parsed_data[0]["server_id"], "bea25266-8417-42ec-bb9f-2c2398ce97d0")
-    check.equal(parsed_data[0]["name"], "config")
-    check.equal(parsed_data[0]["custom_id"], "91484937-80aa-4d90-857b-dbb71cf15500")
-    check.equal(parsed_data[0]["value_id"], "6965b1d2-78af-4559-8aca-3e1f7c212ae2")
+    check.equal(data_dict[0]["product_id"], 0)
+    check.equal(data_dict[0]["server_id"], "bea25266-8417-42ec-bb9f-2c2398ce97d0")
+    check.equal(data_dict[0]["name"], "config")
+    check.equal(data_dict[0]["custom_id"], "91484937-80aa-4d90-857b-dbb71cf15500")
+    check.equal(data_dict[0]["value_id"], "6965b1d2-78af-4559-8aca-3e1f7c212ae2")
     check.equal(
-        parsed_data[0]["value"],
+        data_dict[0]["value"],
         "eyJzeW5jLWZyb20iOjYsImF0dHJpYnV0ZS1kYi1wYXJhbSI6IlRnQWdBQklBQUFBSUFEZ0FCZ0"
         "I3QURNQVFRQTJBRFlBUWdBeEFEY0FPQUF0QURFQVFnQTBBRUVBTFFBMEFHRUFPQUF3QUMwQU9B"
         "QXdBRVlBTVFBdEFEa0FOd0F5QUVVQU13QTFBRUVBTUFBNEFEWUFOQUExQUgwQUFBQkVBR2tBWn"
@@ -51,7 +49,7 @@ def test_datastore_connection_setting():
         "JRQkVBRUVBTVFCQ0FEa0FOd0ExQURBQVFRQTNBRGtBQUFCT0FHOEFBQUE9IiwibG9nLWxldmVs"
         "IjoidHJhY2UiLCJlbmFibGVkIjoidHJ1ZSJ9",
     )
-    check.equal(parsed_data[0]["timestamp"], 1656073941)
+    check.equal(data_dict[0]["timestamp"], 1656073941)
 
 
 def test_schema():

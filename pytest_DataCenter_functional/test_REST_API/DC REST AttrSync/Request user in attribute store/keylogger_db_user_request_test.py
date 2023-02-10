@@ -38,9 +38,7 @@ class TestRequestUserInAttributeStoreByDB:
     @allure.title("Ограничение на кол-во возвращаемых данных")
     def test_number_of_strings(self):
         data_dict = r.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
-        check.equal(len(parsed_data), 0)
+        check.equal(len(data_dict), 0)
 
     @allure.title("Проверка возвращаемой схемы JSON")
     def test_schema(self):

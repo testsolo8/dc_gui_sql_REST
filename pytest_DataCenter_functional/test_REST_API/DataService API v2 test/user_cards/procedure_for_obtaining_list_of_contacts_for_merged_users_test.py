@@ -40,136 +40,120 @@ class TestProcedureForObtainingListContactsForMergedUsers:
     @allure.title("Контакт 1")
     def test_list_of_merged_contact_1(self, dc_api: DcApiWithToken):
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Тип аккаунта - UC_AccountsType"):
-            check.equal(parsed_data["data"][0]["accountTypeID"], 1)
+            check.equal(data_dict["data"][0]["accountTypeID"], 1)
         with allure.step("Тип контакта: 3 Мессенджеры, 4 Соц.Сети"):
-            check.equal(parsed_data["data"][0]["contactTypeID"], 2)
+            check.equal(data_dict["data"][0]["contactTypeID"], 2)
         with allure.step("Имя контакта"):
             check.equal(
-                parsed_data["data"][0]["displayName"],
+                data_dict["data"][0]["displayName"],
                 "REST_test_user_кириллик@test.lan",
             )
         with allure.step("Идентификатор пользователя"):
-            check.equal(parsed_data["data"][0]["userID"], 1)
+            check.equal(data_dict["data"][0]["userID"], 1)
 
     @allure.title("Контакт 2")
     def test_list_of_merged_contact_2(self, dc_api: DcApiWithToken):
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Тип аккаунта - UC_AccountsType"):
-            check.equal(parsed_data["data"][1]["accountTypeID"], 1)
+            check.equal(data_dict["data"][1]["accountTypeID"], 1)
         with allure.step("Тип контакта: 3 Мессенджеры, 4 Соц.Сети"):
-            check.equal(parsed_data["data"][1]["contactTypeID"], 2)
+            check.equal(data_dict["data"][1]["contactTypeID"], 2)
         with allure.step("Имя контакта"):
             check.equal(
-                parsed_data["data"][1]["displayName"],
+                data_dict["data"][1]["displayName"],
                 "REST_test_user_diff_param@test.lan",
             )
         with allure.step("Идентификатор пользователя"):
-            check.equal(parsed_data["data"][1]["userID"], 7)
+            check.equal(data_dict["data"][1]["userID"], 7)
 
     @allure.title("Контакт 3")
     def test_list_of_merged_contact_3(self, dc_api: DcApiWithToken):
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Тип аккаунта - UC_AccountsType"):
-            check.equal(parsed_data["data"][2]["accountTypeID"], 13)
+            check.equal(data_dict["data"][2]["accountTypeID"], 13)
         with allure.step("Тип контакта: 3 Мессенджеры, 4 Соц.Сети"):
-            check.equal(parsed_data["data"][2]["contactTypeID"], 3)
+            check.equal(data_dict["data"][2]["contactTypeID"], 3)
         with allure.step("Имя контакта"):
             check.equal(
-                parsed_data["data"][2]["displayName"],
+                data_dict["data"][2]["displayName"],
                 "WhatsApp_REST_test_user_cyrillic",
             )
         with allure.step("Идентификатор пользователя"):
-            check.equal(parsed_data["data"][2]["userID"], 1)
+            check.equal(data_dict["data"][2]["userID"], 1)
 
     @allure.title("Контакт 4")
     def test_list_of_merged_contact_4(self, dc_api: DcApiWithToken):
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Тип аккаунта - UC_AccountsType"):
-            check.equal(parsed_data["data"][3]["accountTypeID"], 5)
+            check.equal(data_dict["data"][3]["accountTypeID"], 5)
         with allure.step("Тип контакта: 3 Мессенджеры, 4 Соц.Сети"):
-            check.equal(parsed_data["data"][3]["contactTypeID"], 3)
+            check.equal(data_dict["data"][3]["contactTypeID"], 3)
         with allure.step("Имя контакта"):
             check.equal(
-                parsed_data["data"][3]["displayName"],
+                data_dict["data"][3]["displayName"],
                 "Mail.ru Agent_REST_test_user_cyrillic",
             )
         with allure.step("Идентификатор пользователя"):
-            check.equal(parsed_data["data"][3]["userID"], 1)
+            check.equal(data_dict["data"][3]["userID"], 1)
 
     @allure.title("Контакт 5")
     def test_list_of_merged_contact_5(self, dc_api: DcApiWithToken):
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Тип аккаунта - UC_AccountsType"):
-            check.equal(parsed_data["data"][4]["accountTypeID"], 3)
+            check.equal(data_dict["data"][4]["accountTypeID"], 3)
         with allure.step("Тип контакта: 3 Мессенджеры, 4 Соц.Сети"):
-            check.equal(parsed_data["data"][4]["contactTypeID"], 3)
+            check.equal(data_dict["data"][4]["contactTypeID"], 3)
         with allure.step("Имя контакта"):
             check.equal(
-                parsed_data["data"][4]["displayName"], "Viber_REST_test_user_cyrillic"
+                data_dict["data"][4]["displayName"], "Viber_REST_test_user_cyrillic"
             )
         with allure.step("Идентификатор пользователя"):
-            check.equal(parsed_data["data"][4]["userID"], 1)
+            check.equal(data_dict["data"][4]["userID"], 1)
 
     @allure.title("Контакт 6")
     def test_list_of_merged_contact_6(self, dc_api: DcApiWithToken):
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Тип аккаунта - UC_AccountsType"):
-            check.equal(parsed_data["data"][5]["accountTypeID"], 7)
+            check.equal(data_dict["data"][5]["accountTypeID"], 7)
         with allure.step("Тип контакта: 3 Мессенджеры, 4 Соц.Сети"):
-            check.equal(parsed_data["data"][5]["contactTypeID"], 4)
+            check.equal(data_dict["data"][5]["contactTypeID"], 4)
         with allure.step("Имя контакта"):
             check.equal(
-                parsed_data["data"][5]["displayName"], "Mamba_REST_test_user_cyrillic"
+                data_dict["data"][5]["displayName"], "Mamba_REST_test_user_cyrillic"
             )
         with allure.step("Идентификатор пользователя"):
-            check.equal(parsed_data["data"][5]["userID"], 1)
+            check.equal(data_dict["data"][5]["userID"], 1)
 
     @allure.title("Контакт 7")
     def test_list_of_merged_contact_7(self, dc_api: DcApiWithToken):
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Тип аккаунта - UC_AccountsType"):
-            check.equal(parsed_data["data"][6]["accountTypeID"], 5)
+            check.equal(data_dict["data"][6]["accountTypeID"], 5)
         with allure.step("Тип контакта: 3 Мессенджеры, 4 Соц.Сети"):
-            check.equal(parsed_data["data"][6]["contactTypeID"], 4)
+            check.equal(data_dict["data"][6]["contactTypeID"], 4)
         with allure.step("Имя контакта"):
             check.equal(
-                parsed_data["data"][6]["displayName"],
+                data_dict["data"][6]["displayName"],
                 "Linkedln_REST_test_user_cyrillic",
             )
         with allure.step("Идентификатор пользователя"):
-            check.equal(parsed_data["data"][6]["userID"], 1)
+            check.equal(data_dict["data"][6]["userID"], 1)
 
     @allure.title("Контакт 8")
     def test_list_of_merged_contact_8(self, dc_api: DcApiWithToken):
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Тип аккаунта - UC_AccountsType"):
-            check.equal(parsed_data["data"][7]["accountTypeID"], 3)
+            check.equal(data_dict["data"][7]["accountTypeID"], 3)
         with allure.step("Тип контакта: 3 Мессенджеры, 4 Соц.Сети"):
-            check.equal(parsed_data["data"][7]["contactTypeID"], 4)
+            check.equal(data_dict["data"][7]["contactTypeID"], 4)
         with allure.step("Имя контакта"):
             check.equal(
-                parsed_data["data"][7]["displayName"],
+                data_dict["data"][7]["displayName"],
                 "Facebook_REST_test_user_cyrillic",
             )
         with allure.step("Идентификатор пользователя"):
-            check.equal(parsed_data["data"][7]["userID"], 1)
+            check.equal(data_dict["data"][7]["userID"], 1)
 
     @allure.title("Проверка возвращаемой схемы JSON")
     def test_schema(self, dc_api: DcApiWithToken):

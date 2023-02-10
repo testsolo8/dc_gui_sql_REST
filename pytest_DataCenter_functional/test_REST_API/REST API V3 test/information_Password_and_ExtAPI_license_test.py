@@ -49,38 +49,30 @@ class TestInformationPasswordExtAPILicense:
     @allure.title("Информация о лицензии Password")
     def test_information_about_password_license(self):
         data_dict = r_password.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Окончание лицензии"):
             check.greater(
-                datetime.utcfromtimestamp(parsed_data["Expire_Date"]), datetime.now()
+                datetime.utcfromtimestamp(data_dict["Expire_Date"]), datetime.now()
             )
         with allure.step("Начало лицензии"):
-            check.equal(parsed_data["Start_Date"], 0)
+            check.equal(data_dict["Start_Date"], 0)
         with allure.step("UniqueID продукта Password"):
-            check.equal(
-                parsed_data["UniqueID"], "{456ED2B8-A757-11DE-9196-988056D89593}"
-            )
+            check.equal(data_dict["UniqueID"], "{456ED2B8-A757-11DE-9196-988056D89593}")
         with allure.step("Колличество лицензий"):
-            check.equal(parsed_data["LicensesCount"], 1000)
+            check.equal(data_dict["LicensesCount"], 1000)
 
     @allure.title("Информация о лицензии ExternalAPI")
     def test_information_about_externalAPI_license(self):
         data_dict = r_ExternalAPI.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Окончание лицензии"):
             check.greater(
-                datetime.utcfromtimestamp(parsed_data["Expire_Date"]), datetime.now()
+                datetime.utcfromtimestamp(data_dict["Expire_Date"]), datetime.now()
             )
         with allure.step("Начало лицензии"):
-            check.equal(parsed_data["Start_Date"], 0)
+            check.equal(data_dict["Start_Date"], 0)
         with allure.step("UniqueID продукта Password"):
-            check.equal(
-                parsed_data["UniqueID"], "{2D7BD076-0E24-403C-97F1-449705B1F976}"
-            )
+            check.equal(data_dict["UniqueID"], "{2D7BD076-0E24-403C-97F1-449705B1F976}")
         with allure.step("Колличество лицензий"):
-            check.equal(parsed_data["LicensesCount"], 1)
+            check.equal(data_dict["LicensesCount"], 1)
 
     @allure.title("Проверка возвращаемой схемы JSON")
     def test_schema(self):

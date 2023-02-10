@@ -39,11 +39,8 @@ class TestDataFromTaskOnGossopka:
     @allure.title("Данные по Госсопке из задачи 23")
     def test_task_id_23(self, dc_api: DcApiWithToken):
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with check.check, allure.step("JSON с данными"):
-            assert_that(
-                parsed_data["data"][0]["data"]).is_equal_to(
+            assert_that(data_dict["data"][0]["data"]).is_equal_to(
                 '{"uuid":"d9b75c84-3674-4d52-84ee-59c8290095bd","identifier":"22-04-20",'
                 '"category":"Уведомление о компьютерном инциденте","type":"Вовлечение контролируемого ресурса в инфраструктуру ВПО"'
                 ',"activitystatus":"Меры приняты","eventdescription":"тут краткое описание проблемы",'
@@ -55,11 +52,8 @@ class TestDataFromTaskOnGossopka:
     def test_task_id_25(self, dc_api: DcApiWithToken):
         url_tail = "/api/v2/task_management/gossopka?taskID=25"
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with check.check, allure.step("JSON с данными"):
-            assert_that(
-                parsed_data["data"][0]["data"]).is_equal_to(
+            assert_that(data_dict["data"][0]["data"]).is_equal_to(
                 '{"uuid":"30dab63a-1066-48b0-91d3-d55e023d2593","identifier":"22-04-19",'
                 '"category":"Уведомление о компьютерном инциденте","type":"Заражение ВПО","activitystatus":"",'
                 '"eventdescription":"zxbvzxcv","detecttime":"2022-04-20T20:59:00.000Z","tlp":"TLP:AMBER",'

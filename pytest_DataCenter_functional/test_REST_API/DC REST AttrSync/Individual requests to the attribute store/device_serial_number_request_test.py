@@ -40,21 +40,17 @@ class TestRequestDeviceSerialNumberInAttributeStoreByIndexes:
     @allure.title("Ограничение на кол-во возвращаемых данных")
     def test_number_of_strings(self):
         data_dict = r.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
-        check.greater_equal(len(parsed_data), 1)
-        check.less_equal(len(parsed_data), 1000)
+        check.greater_equal(len(data_dict), 1)
+        check.less_equal(len(data_dict), 1000)
 
     @allure.title("Возвращаемые данные")
     def test_return_data(self):
         data = ["615cf00c"]
         data_dict = r.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Возвращаемые данные"):
-            check.is_true(set(data).issubset(parsed_data))
+            check.is_true(set(data).issubset(data_dict))
         with allure.step("Кол-во данных"):
-            check.equal(len(parsed_data), 1)
+            check.equal(len(data_dict), 1)
 
     @allure.title("Проверка возвращаемой схемы JSON")
     def test_schema(self):

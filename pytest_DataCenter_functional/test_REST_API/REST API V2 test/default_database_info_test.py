@@ -38,12 +38,10 @@ class TestDefaultDatabaseInfo:
     @allure.title("Имена БД по умолчанию")
     def test_default_db(self):
         data_dict = r.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("DefaultPG"):
-            check.equal(parsed_data["DefaultPG"][0], "DC-AUTOTest")
+            check.equal(data_dict["DefaultPG"][0], "DC-AUTOTest")
         with allure.step("DefaultMSSQL"):
-            check.equal(parsed_data["DefaultMSSQL"][0], "DC-AUTOTest")
+            check.equal(data_dict["DefaultMSSQL"][0], "DC-AUTOTest")
 
     @allure.title("Проверка возвращаемой схемы JSON")
     def test_schema(self):

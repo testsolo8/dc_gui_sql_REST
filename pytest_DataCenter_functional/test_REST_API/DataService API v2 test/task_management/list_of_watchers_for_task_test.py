@@ -38,30 +38,24 @@ class TestListOfWatchersForTask:
     @allure.title("Список наблюдателей по задаче 1")
     def test_list_of_watchers_task_1(self, dc_api: DcApiWithToken):
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with check.check, allure.step("Идентификатор пользователя 1"):
-            check.equal(parsed_data["data"][0]["userID"], 7886)
+            check.equal(data_dict["data"][0]["userID"], 7886)
         with check.check, allure.step("Идентификатор пользователя 2"):
-            check.equal(parsed_data["data"][1]["userID"], 60705)
+            check.equal(data_dict["data"][1]["userID"], 60705)
 
     @allure.title("Список наблюдателей по задаче 23")
     def test_list_of_watchers_task_23(self, dc_api: DcApiWithToken):
         url_tail = "/api/v2/task_management/watchers?taskID=23"
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with check.check, allure.step("Идентификатор пользователя 1"):
-            check.equal(parsed_data["data"][0]["userID"], 60705)
+            check.equal(data_dict["data"][0]["userID"], 60705)
 
     @allure.title("Список наблюдателей по задаче 34")
     def test_list_of_watchers_task_34(self, dc_api: DcApiWithToken):
         url_tail = "/api/v2/task_management/watchers?taskID=34"
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with check.check, allure.step("Идентификатор пользователя 1"):
-            check.equal(parsed_data["data"][0]["userID"], 61724)
+            check.equal(data_dict["data"][0]["userID"], 61724)
 
     @allure.title("Проверка возвращаемой схемы JSON")
     def test_schema(self, dc_api: DcApiWithToken):

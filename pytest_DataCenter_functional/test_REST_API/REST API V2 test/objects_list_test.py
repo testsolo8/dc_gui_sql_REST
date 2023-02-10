@@ -41,134 +41,120 @@ class TestObjectsList:
     @allure.title("Атрибуты объекта домен")
     def test_object_DN(self):
         data_dict = r.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("SID"):
             check.equal(
-                parsed_data["objects"][2]["SID"],
+                data_dict["objects"][2]["SID"],
                 "S-1-5-21-4141237049-2453287432-1636914503",
             )
         with allure.step("DisplayName"):
-            check.equal(parsed_data["objects"][2]["DisplayName"], "autotest.lan")
+            check.equal(data_dict["objects"][2]["DisplayName"], "autotest.lan")
         with allure.step("GUID"):
             check.equal(
-                parsed_data["objects"][2]["GUID"],
+                data_dict["objects"][2]["GUID"],
                 "BC925BAC-F94F-405D-B94B-5FE29498645C",
             )
         with allure.step("Тип объекта"):
-            check.equal(parsed_data["objects"][2]["ObjectType"], "dn")
+            check.equal(data_dict["objects"][2]["ObjectType"], "dn")
 
     @allure.title("Атрибуты объекта контейнер Active Directory")
     def test_object_CN(self):
         data_dict = r.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("DisplayName"):
-            check.equal(parsed_data["objects"][7]["DisplayName"], "Users")
+            check.equal(data_dict["objects"][7]["DisplayName"], "Users")
         with allure.step("Name"):
-            check.equal(parsed_data["objects"][7]["Name"], "Users")
+            check.equal(data_dict["objects"][7]["Name"], "Users")
         with allure.step("GUID"):
             check.equal(
-                parsed_data["objects"][7]["GUID"],
+                data_dict["objects"][7]["GUID"],
                 "2315D583-A472-400F-9128-C9F90B9EE2CB",
             )
         with allure.step("Тип объекта"):
-            check.equal(parsed_data["objects"][6]["ObjectType"], "cn")
+            check.equal(data_dict["objects"][6]["ObjectType"], "cn")
 
     @allure.title("Атрибуты объекта подразделение Active Directory")
     def test_object_OU(self):
         data_dict = r.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("DisplayName"):
-            check.equal(parsed_data["objects"][9]["DisplayName"], "Domain Controllers")
+            check.equal(data_dict["objects"][9]["DisplayName"], "Domain Controllers")
         with allure.step("GUID"):
             check.equal(
-                parsed_data["objects"][9]["GUID"],
+                data_dict["objects"][9]["GUID"],
                 "25A7CE81-54E6-4D02-AD7C-DC21C8B9B159",
             )
         with allure.step("Тип объекта"):
-            check.equal(parsed_data["objects"][9]["ObjectType"], "ou")
+            check.equal(data_dict["objects"][9]["ObjectType"], "ou")
 
     @allure.title("Атрибуты объекта группа")
     def test_object_GP(self):
         data_dict = r.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("UPN"):
             check.equal(
-                parsed_data["objects"][15]["UPN"], "Администраторы домена@autotest.lan"
+                data_dict["objects"][15]["UPN"], "Администраторы домена@autotest.lan"
             )
         with allure.step("SID"):
             check.equal(
-                parsed_data["objects"][15]["SID"],
+                data_dict["objects"][15]["SID"],
                 "S-1-5-21-4141237049-2453287432-1636914503-512",
             )
         with allure.step("DisplayName"):
             check.equal(
-                parsed_data["objects"][15]["DisplayName"], "Администраторы домена"
+                data_dict["objects"][15]["DisplayName"], "Администраторы домена"
             )
         with allure.step("Name"):
-            check.equal(parsed_data["objects"][15]["Name"], "Администраторы домена")
+            check.equal(data_dict["objects"][15]["Name"], "Администраторы домена")
         with allure.step("GUID"):
             check.equal(
-                parsed_data["objects"][15]["GUID"],
+                data_dict["objects"][15]["GUID"],
                 "29427C48-4AB1-40B1-97E5-29F76E41E00F",
             )
         with allure.step("Тип объекта"):
-            check.equal(parsed_data["objects"][15]["ObjectType"], "gp")
+            check.equal(data_dict["objects"][15]["ObjectType"], "gp")
 
     @allure.title("Атрибуты объекта пользователь")
     def test_object_US(self):
         data_dict = r.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("UPN"):
             check.equal(
-                parsed_data["objects"][81]["UPN"], "REST_test_user_admin@autotest.lan"
+                data_dict["objects"][81]["UPN"], "REST_test_user_admin@autotest.lan"
             )
         with allure.step("SID"):
             check.equal(
-                parsed_data["objects"][81]["SID"],
+                data_dict["objects"][81]["SID"],
                 "S-1-5-21-4141237049-2453287432-1636914503-3103",
             )
         with allure.step("DisplayName"):
-            check.equal(
-                parsed_data["objects"][81]["DisplayName"], "REST_test_user_admin"
-            )
+            check.equal(data_dict["objects"][81]["DisplayName"], "REST_test_user_admin")
         with allure.step("Name"):
-            check.equal(parsed_data["objects"][81]["Name"], "REST_test_user_admin")
+            check.equal(data_dict["objects"][81]["Name"], "REST_test_user_admin")
         with allure.step("GUID"):
             check.equal(
-                parsed_data["objects"][81]["GUID"],
+                data_dict["objects"][81]["GUID"],
                 "01279DC6-381E-4F6A-9E86-60AEA3514067",
             )
         with allure.step("Тип объекта"):
-            check.equal(parsed_data["objects"][81]["ObjectType"], "us")
+            check.equal(data_dict["objects"][81]["ObjectType"], "us")
 
     @allure.title("Атрибуты объекта компьютер")
     def test_object_PC(self):
         data_dict = r.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("SID"):
             check.equal(
-                parsed_data["objects"][62]["SID"],
+                data_dict["objects"][62]["SID"],
                 "S-1-5-21-4141237049-2453287432-1636914503-1906",
             )
         with allure.step("DNS"):
-            check.equal(parsed_data["objects"][63]["DNS"], "DC.autotest.lan")
+            check.equal(data_dict["objects"][63]["DNS"], "DC.autotest.lan")
         with allure.step("DisplayName"):
-            check.equal(parsed_data["objects"][63]["DisplayName"], "DC")
+            check.equal(data_dict["objects"][63]["DisplayName"], "DC")
         with allure.step("Name"):
-            check.equal(parsed_data["objects"][63]["Name"], "DC")
+            check.equal(data_dict["objects"][63]["Name"], "DC")
         with allure.step("GUID"):
             check.equal(
-                parsed_data["objects"][63]["GUID"],
+                data_dict["objects"][63]["GUID"],
                 "07F69C41-692C-405B-A295-2D5A1426C52D",
             )
         with allure.step("Тип объекта"):
-            check.equal(parsed_data["objects"][63]["ObjectType"], "pc")
+            check.equal(data_dict["objects"][63]["ObjectType"], "pc")
 
     @allure.title("Проверка возвращаемой схемы JSON")
     def test_schema(self):

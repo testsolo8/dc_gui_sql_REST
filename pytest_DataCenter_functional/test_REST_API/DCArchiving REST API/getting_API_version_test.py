@@ -37,12 +37,10 @@ class TestGettingAPIVersion:
     @allure.title("Получение версии API")
     def test_api_version(self):
         data_dict = r.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Минимальная поддерживаемая версия"):
-            check.equal(parsed_data["MinSupported"], 1)
+            check.equal(data_dict["MinSupported"], 1)
         with allure.step("Максимальная поддерживаемая версия"):
-            check.equal(parsed_data["MaxSupported"], 1)
+            check.equal(data_dict["MaxSupported"], 1)
 
     @allure.title("Проверка возвращаемой схемы JSON")
     def test_schema(self):

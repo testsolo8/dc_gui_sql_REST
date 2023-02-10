@@ -41,12 +41,10 @@ class TestDCServerVersion:
     @allure.title("Версия сервера ДЦ")
     def test_version(self):
         data_dict = r.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Версия сервера"):
             path = r"c:\Program Files (x86)\SearchInform\SearchInform DataCenter\DCServer.exe"
             file_version = get_file_version(path)
-            check.equal(parsed_data["Version"], file_version)
+            check.equal(data_dict["Version"], file_version)
 
     @allure.title("Проверка возвращаемой схемы JSON")
     def test_schema(self):

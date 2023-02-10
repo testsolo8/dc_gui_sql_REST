@@ -38,68 +38,62 @@ class TestListOfUserGroups:
     @allure.title("Группа Users")
     def test_users_group(self, dc_api: DcApiWithToken):
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step(
             "Тип ветки: 1 Internal Group, 2 External Group, 3 Custom Group, 4 Specials Control Groups"
         ):
-            check.equal(parsed_data["data"][0]["branch"], 1)
+            check.equal(data_dict["data"][0]["branch"], 1)
         with allure.step("Цвет профиля"):
-            check.equal(parsed_data["data"][0]["color"], 0)
+            check.equal(data_dict["data"][0]["color"], 0)
         with allure.step("Имя группы"):
-            check.equal(parsed_data["data"][0]["displayName"], "Users")
+            check.equal(data_dict["data"][0]["displayName"], "Users")
         with allure.step("Идентификатор группы"):
-            check.equal(parsed_data["data"][0]["groupID"], 74)
+            check.equal(data_dict["data"][0]["groupID"], 74)
         with allure.step("Флаг, находится ли пользователь в группе"):
-            check.is_true(parsed_data["data"][0]["inGroup"])
+            check.is_true(data_dict["data"][0]["inGroup"])
         with allure.step("Родитель группы"):
-            check.equal(parsed_data["data"][0]["parentID"], 32)
+            check.equal(data_dict["data"][0]["parentID"], 32)
         with allure.step("Тип группы"):
-            check.equal(parsed_data["data"][0]["type"], 2)
+            check.equal(data_dict["data"][0]["type"], 2)
 
     @allure.title("Группа Пользователи домена")
     def test_domain_users_group(self, dc_api: DcApiWithToken):
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step(
             "Тип ветки: 1 Internal Group, 2 External Group, 3 Custom Group, 4 Specials Control Groups"
         ):
-            check.equal(parsed_data["data"][1]["branch"], 1)
+            check.equal(data_dict["data"][1]["branch"], 1)
         with allure.step("Цвет профиля"):
-            check.equal(parsed_data["data"][1]["color"], 0)
+            check.equal(data_dict["data"][1]["color"], 0)
         with allure.step("Имя группы"):
-            check.equal(parsed_data["data"][1]["displayName"], "Пользователи домена")
+            check.equal(data_dict["data"][1]["displayName"], "Пользователи домена")
         with allure.step("Идентификатор группы"):
-            check.equal(parsed_data["data"][1]["groupID"], 67)
+            check.equal(data_dict["data"][1]["groupID"], 67)
         with allure.step("Флаг, находится ли пользователь в группе"):
-            check.is_true(parsed_data["data"][1]["inGroup"])
+            check.is_true(data_dict["data"][1]["inGroup"])
         with allure.step("Родитель группы"):
-            check.equal(parsed_data["data"][1]["parentID"], 74)
+            check.equal(data_dict["data"][1]["parentID"], 74)
         with allure.step("Тип группы"):
-            check.equal(parsed_data["data"][1]["type"], 4)
+            check.equal(data_dict["data"][1]["type"], 4)
 
     @allure.title("Группа Пользователи домена 2")
     def test_domain_users_group2(self, dc_api: DcApiWithToken):
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step(
             "Тип ветки: 1 Internal Group, 2 External Group, 3 Custom Group, 4 Specials Control Groups"
         ):
-            check.equal(parsed_data["data"][2]["branch"], 1)
+            check.equal(data_dict["data"][2]["branch"], 1)
         with allure.step("Цвет профиля"):
-            check.equal(parsed_data["data"][2]["color"], 0)
+            check.equal(data_dict["data"][2]["color"], 0)
         with allure.step("Имя группы"):
-            check.equal(parsed_data["data"][2]["displayName"], "Пользователи домена")
+            check.equal(data_dict["data"][2]["displayName"], "Пользователи домена")
         with allure.step("Идентификатор группы"):
-            check.equal(parsed_data["data"][2]["groupID"], 67)
+            check.equal(data_dict["data"][2]["groupID"], 67)
         with allure.step("Флаг, находится ли пользователь в группе"):
-            check.is_true(parsed_data["data"][2]["inGroup"])
+            check.is_true(data_dict["data"][2]["inGroup"])
         with allure.step("Родитель группы"):
-            check.equal(parsed_data["data"][2]["parentID"], 86)
+            check.equal(data_dict["data"][2]["parentID"], 86)
         with allure.step("Тип группы"):
-            check.equal(parsed_data["data"][2]["type"], 4)
+            check.equal(data_dict["data"][2]["type"], 4)
 
     @allure.title("Проверка возвращаемой схемы JSON")
     def test_schema(self, dc_api: DcApiWithToken):

@@ -38,40 +38,36 @@ class TestListOfTaskTypes:
     @allure.title("Тип задачи 1")
     def test_task_type_1(self, dc_api: DcApiWithToken):
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with check.check, allure.step("Описание типа"):
             check.equal(
-                parsed_data["data"][0]["description"], "Task not related to any type"
+                data_dict["data"][0]["description"], "Task not related to any type"
             )
         with check.check, allure.step("Счетчик внутренней нумерации"):
-            check.equal(parsed_data["data"][0]["enumerator"], 45)
+            check.equal(data_dict["data"][0]["enumerator"], 45)
         with check.check, allure.step("Префикс нумерации задач"):
-            check.equal(parsed_data["data"][0]["prefix"], "GEN")
+            check.equal(data_dict["data"][0]["prefix"], "GEN")
         with check.check, allure.step("Идентификатор типа"):
-            check.equal(parsed_data["data"][0]["typeID"], 1)
+            check.equal(data_dict["data"][0]["typeID"], 1)
         with check.check, allure.step("Идентификатор иконки типа задачи"):
-            check.equal(parsed_data["data"][0]["typeIconID"], 1)
+            check.equal(data_dict["data"][0]["typeIconID"], 1)
         with check.check, allure.step("Название типа задачи"):
-            check.equal(parsed_data["data"][0]["typeName"], "Common task")
+            check.equal(data_dict["data"][0]["typeName"], "Common task")
 
     @allure.title("Тип задачи 2")
     def test_task_type_2(self, dc_api: DcApiWithToken):
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with check.check, allure.step("Описание типа"):
-            check.equal(parsed_data["data"][1]["description"], "")
+            check.equal(data_dict["data"][1]["description"], "")
         with check.check, allure.step("Счетчик внутренней нумерации"):
-            check.equal(parsed_data["data"][1]["enumerator"], 4)
+            check.equal(data_dict["data"][1]["enumerator"], 4)
         with check.check, allure.step("Префикс нумерации задач"):
-            check.equal(parsed_data["data"][1]["prefix"], "INC")
+            check.equal(data_dict["data"][1]["prefix"], "INC")
         with check.check, allure.step("Идентификатор типа"):
-            check.equal(parsed_data["data"][1]["typeID"], 2)
+            check.equal(data_dict["data"][1]["typeID"], 2)
         with check.check, allure.step("Идентификатор иконки типа задачи"):
-            check.equal(parsed_data["data"][1]["typeIconID"], 2)
+            check.equal(data_dict["data"][1]["typeIconID"], 2)
         with check.check, allure.step("Название типа задачи"):
-            check.equal(parsed_data["data"][1]["typeName"], "Information Security")
+            check.equal(data_dict["data"][1]["typeName"], "Information Security")
 
     @allure.title("Проверка возвращаемой схемы JSON")
     def test_schema(self, dc_api: DcApiWithToken):

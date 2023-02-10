@@ -37,9 +37,7 @@ class TestInformationAboutLocationSeaweedMaster:
     @allure.title("Расположение мастер-сервера Seaweed")
     def test_seaweed_location(self):
         data_dict = r.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
-        assert parsed_data["master"] == "http://sql2019:9333"
+        assert data_dict["master"] == "http://sql2019:9333"
 
     @allure.title("Проверка возвращаемой схемы JSON")
     def test_schema(self):

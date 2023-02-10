@@ -38,26 +38,24 @@ class TestListOfTags:
     @allure.title("Список меток")
     def test_list_of_tags(self, dc_api: DcApiWithToken):
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with check.check, allure.step("Цвет метки (Important)"):
-            check.equal(parsed_data["data"][0]["tagColor"], 1)
+            check.equal(data_dict["data"][0]["tagColor"], 1)
         with check.check, allure.step("Идентификатор метки (Important)"):
-            check.equal(parsed_data["data"][0]["tagID"], 1)
+            check.equal(data_dict["data"][0]["tagID"], 1)
         with check.check, allure.step("Название метки (Important)"):
-            check.equal(parsed_data["data"][0]["tagName"], "Important")
+            check.equal(data_dict["data"][0]["tagName"], "Important")
         with check.check, allure.step("Цвет метки (Verify)"):
-            check.equal(parsed_data["data"][1]["tagColor"], 2)
+            check.equal(data_dict["data"][1]["tagColor"], 2)
         with check.check, allure.step("Идентификатор метки (Verify)"):
-            check.equal(parsed_data["data"][1]["tagID"], 2)
+            check.equal(data_dict["data"][1]["tagID"], 2)
         with check.check, allure.step("Название метки (Verify)"):
-            check.equal(parsed_data["data"][1]["tagName"], "Verify")
+            check.equal(data_dict["data"][1]["tagName"], "Verify")
         with check.check, allure.step("Цвет метки (Note)"):
-            check.equal(parsed_data["data"][2]["tagColor"], 3)
+            check.equal(data_dict["data"][2]["tagColor"], 3)
         with check.check, allure.step("Идентификатор метки (Note)"):
-            check.equal(parsed_data["data"][2]["tagID"], 3)
+            check.equal(data_dict["data"][2]["tagID"], 3)
         with check.check, allure.step("Название метки (Note)"):
-            check.equal(parsed_data["data"][2]["tagName"], "Note")
+            check.equal(data_dict["data"][2]["tagName"], "Note")
 
     @allure.title("Проверка возвращаемой схемы JSON")
     def test_schema(self, dc_api: DcApiWithToken):

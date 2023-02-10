@@ -40,20 +40,18 @@ class TestGettingCurrentServiceConfiguration:
     @allure.title("Получение текущей конфигурации сервиса архивирования")
     def test_service_configuration(self):
         data_dict = r.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Хост почтового сервиса 'dcmailservice'"):
-            check.equal(parsed_data["MailServiceHost"], "localhost")
+            check.equal(data_dict["MailServiceHost"], "localhost")
         with allure.step("Порт почтового сервиса 'dcmailservice'"):
-            check.equal(parsed_data["MailServicePort"], 9083)
+            check.equal(data_dict["MailServicePort"], 9083)
         with allure.step("Количество одновременно выполняемых задач"):
-            check.equal(parsed_data["WorkerCount"], 4)
+            check.equal(data_dict["WorkerCount"], 4)
         with allure.step(
             "Количество секунд ожидания до успешного начала операции с удаленным файлом"
         ):
-            check.equal(parsed_data["RemoteOperationTimeout"], 10)
+            check.equal(data_dict["RemoteOperationTimeout"], 10)
         with allure.step("DefaultDBAgentPort"):
-            check.equal(parsed_data["DefaultDBAgentPort"], 9085)
+            check.equal(data_dict["DefaultDBAgentPort"], 9085)
 
     @allure.title("Проверка возвращаемой схемы JSON")
     def test_schema(self):

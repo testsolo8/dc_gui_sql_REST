@@ -33,5 +33,5 @@ def test_response_time():
 def test_checking_no_revoked_Skype_licenses():
     data_dict = r.json()
     data_str = json.dumps(data_dict)
-    parsed_data = json.loads(data_str)
-    assert parsed_data is None
+    data_dict = json.loads(data_str)
+    assert data_dict is None

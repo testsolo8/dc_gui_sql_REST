@@ -38,59 +38,53 @@ class TestListWorkCalendarRules:
     @allure.title("Рабочий календарь Пользователь рабочих групп")
     def test_list_of_work_calendar_workgrupuser(self, dc_api: DcApiWithToken):
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Идентификатор правила рабочего календаря"):
-            check.equal(parsed_data["data"][0]["calendarID"], 3)
+            check.equal(data_dict["data"][0]["calendarID"], 3)
         with allure.step("Включено/выключено правило"):
-            check.is_true(parsed_data["data"][0]["checked"])
+            check.is_true(data_dict["data"][0]["checked"])
         with allure.step("Данные правила в JSON формате"):
             check.equal(
-                parsed_data["data"][0]["jsonData"],
+                data_dict["data"][0]["jsonData"],
                 r'{"checked":true,"days":[{"isWork":true,"begin":32400,"end":64800,"breaks":[{"begin":46800,"end":50400,"description":"Перерыв"}]},{"isWork":true,"begin":32400,"end":64800,"breaks":[{"begin":46800,"end":50400,"description":"Перерыв"}]},{"isWork":true,"begin":32400,"end":64800,"breaks":[{"begin":46800,"end":50400,"description":"Перерыв"}]},{"isWork":true,"begin":32400,"end":64800,"breaks":[]}],"typeWorkingWeek":1,"allDaysWeek":true,"startCalculation":1640908800,"displayName":"Пользователь рабочих групп"}',
             )
         with allure.step("Название правила"):
-            check.equal(parsed_data["data"][0]["name"], "Пользователь рабочих групп")
+            check.equal(data_dict["data"][0]["name"], "Пользователь рабочих групп")
         with allure.step("Приоритет правила"):
-            check.equal(parsed_data["data"][0]["orderID"], 3)
+            check.equal(data_dict["data"][0]["orderID"], 3)
 
     @allure.title("Рабочий календарь По выходным")
     def test_list_of_work_calendar_weekends(self, dc_api: DcApiWithToken):
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Идентификатор правила рабочего календаря"):
-            check.equal(parsed_data["data"][1]["calendarID"], 2)
+            check.equal(data_dict["data"][1]["calendarID"], 2)
         with allure.step("Включено/выключено правило"):
-            check.is_true(parsed_data["data"][1]["checked"])
+            check.is_true(data_dict["data"][1]["checked"])
         with allure.step("Данные правила в JSON формате"):
             check.equal(
-                parsed_data["data"][1]["jsonData"],
+                data_dict["data"][1]["jsonData"],
                 r'{"checked":true,"days":[{"isWork":true,"begin":32400,"end":64800,"breaks":[{"begin":46800,"end":50400,"description":"Перерыв"}]},{"isWork":true,"begin":32400,"end":64800,"breaks":[{"begin":46800,"end":50400,"description":"Перерыв"}]},{"isWork":false,"begin":0,"end":86399,"breaks":[]},{"isWork":false,"begin":0,"end":86399,"breaks":[]}],"typeWorkingWeek":1,"allDaysWeek":false,"startCalculation":1640908800,"displayName":"По выходным"}',
             )
         with allure.step("Название правила"):
-            check.equal(parsed_data["data"][1]["name"], "По выходным")
+            check.equal(data_dict["data"][1]["name"], "По выходным")
         with allure.step("Приоритет правила"):
-            check.equal(parsed_data["data"][1]["orderID"], 2)
+            check.equal(data_dict["data"][1]["orderID"], 2)
 
     @allure.title("Рабочий календарь default")
     def test_list_of_work_calendar_default(self, dc_api: DcApiWithToken):
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Идентификатор правила рабочего календаря"):
-            check.equal(parsed_data["data"][2]["calendarID"], 1)
+            check.equal(data_dict["data"][2]["calendarID"], 1)
         with allure.step("Включено/выключено правило"):
-            check.is_true(parsed_data["data"][2]["checked"])
+            check.is_true(data_dict["data"][2]["checked"])
         with allure.step("Данные правила в JSON формате"):
             check.equal(
-                parsed_data["data"][2]["jsonData"],
+                data_dict["data"][2]["jsonData"],
                 r'{"days":[{"isWork":true,"begin":32400,"end":64800,"breaks":[{"begin":46800,"end":50400,"description":"Перерыв"}]},{"isWork":true,"begin":32400,"end":64800,"breaks":[{"begin":46800,"end":50400,"description":"Перерыв"}]},{"isWork":true,"begin":32400,"end":64800,"breaks":[{"begin":46800,"end":50400,"description":"Перерыв"}]},{"isWork":true,"begin":32400,"end":64800,"breaks":[{"begin":46800,"end":50400,"description":"Перерыв"}]},{"isWork":true,"begin":32400,"end":64800,"breaks":[{"begin":46800,"end":50400,"description":"Перерыв"}]},{"isWork":true,"begin":32400,"end":64800,"breaks":[{"begin":46800,"end":50400,"description":"Перерыв"}]},{"isWork":false,"begin":0,"end":86399,"breaks":[]},{"isWork":false,"begin":0,"end":86399,"breaks":[]}],"activity":18000,"inOut":10,"typeWorkingWeek":0,"allDaysWeek":true,"startCalculation":1609459200,"holidays":[{"date":1661472000,"dayType":1,"displayName":"","isWork":true,"begin":32400,"end":64800,"breaks":[{"begin":46800,"end":50400,"description":"Перерыв"}]},{"date":1661558400,"dayType":2,"displayName":"","isWork":true,"begin":32400,"end":64800,"breaks":[{"begin":46800,"end":50400,"description":"Перерыв"}]}],"checked":true,"displayName":"По умолчанию"}',
             )
         with allure.step("Название правила"):
-            check.equal(parsed_data["data"][2]["name"], "default")
+            check.equal(data_dict["data"][2]["name"], "default")
         with allure.step("Приоритет правила"):
-            check.equal(parsed_data["data"][2]["orderID"], 1)
+            check.equal(data_dict["data"][2]["orderID"], 1)
 
     @allure.title("Проверка возвращаемой схемы JSON")
     def test_schema(self, dc_api: DcApiWithToken):

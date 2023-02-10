@@ -38,12 +38,10 @@ class TestAPIVersion:
     @allure.title("Минимальная и масимальная поддерживаемая версия API")
     def test_min_max_supported(self):
         data_dict = r.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("MinSupported"):
-            check.equal(parsed_data["MinSupported"], 2)
+            check.equal(data_dict["MinSupported"], 2)
         with allure.step("MaxSupported"):
-            check.equal(parsed_data["MaxSupported"], 2)
+            check.equal(data_dict["MaxSupported"], 2)
 
     @allure.title("Проверка возвращаемой схемы JSON")
     def test_schema(self):

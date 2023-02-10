@@ -43,101 +43,85 @@ class TestRightsUserDiffParam:
     @allure.title("Продукты КИБ разрешенные к просмотру")
     def test_product_rights(self):
         data_dict = r.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
-        assert parsed_data["productrights"]["AllowedProducts"] == 29891870639
+        assert data_dict["productrights"]["AllowedProducts"] == 29891870639
 
     @allure.title(
         "Функции разрешенные к просмотру в разрешенных продуктах КИБ (список проверяется не полностью)"
     )
     def test_feature_rights(self):
         data_dict = r.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Разрешения для SearchServer"):
-            check.is_true(parsed_data["featurerights"]["SS"]["CanChangeLogin"])
-            check.is_true(parsed_data["featurerights"]["SS"]["CanViewLogin"])
+            check.is_true(data_dict["featurerights"]["SS"]["CanChangeLogin"])
+            check.is_true(data_dict["featurerights"]["SS"]["CanViewLogin"])
         with allure.step("Разрешения для NetworkController"):
-            check.is_true(
-                parsed_data["featurerights"]["NS"]["CanChangeSMTPIntegration"]
-            )
-            check.is_true(parsed_data["featurerights"]["NS"]["CanViewSMTPIntegration"])
-            check.is_true(
-                parsed_data["featurerights"]["NS"]["CanChangeSynchronization"]
-            )
-            check.is_true(parsed_data["featurerights"]["NS"]["CanViewSynchronization"])
-            check.is_true(parsed_data["featurerights"]["NS"]["CanChangeLicence"])
-            check.is_true(parsed_data["featurerights"]["NS"]["CanViewLicence"])
+            check.is_true(data_dict["featurerights"]["NS"]["CanChangeSMTPIntegration"])
+            check.is_true(data_dict["featurerights"]["NS"]["CanViewSMTPIntegration"])
+            check.is_true(data_dict["featurerights"]["NS"]["CanChangeSynchronization"])
+            check.is_true(data_dict["featurerights"]["NS"]["CanViewSynchronization"])
+            check.is_true(data_dict["featurerights"]["NS"]["CanChangeLicence"])
+            check.is_true(data_dict["featurerights"]["NS"]["CanViewLicence"])
         with allure.step("Разрешения для EndpointController"):
             check.is_true(
-                parsed_data["featurerights"]["ES"]["CanViewPendingListsOnServer"]
+                data_dict["featurerights"]["ES"]["CanViewPendingListsOnServer"]
+            )
+            check.is_true(data_dict["featurerights"]["ES"]["CanViewAgentsRequestsLog"])
+            check.is_true(
+                data_dict["featurerights"]["ES"]["CanChangePendingListsOnServer"]
             )
             check.is_true(
-                parsed_data["featurerights"]["ES"]["CanViewAgentsRequestsLog"]
+                data_dict["featurerights"]["ES"]["CanChangeAgentsRequestsLog"]
             )
             check.is_true(
-                parsed_data["featurerights"]["ES"]["CanChangePendingListsOnServer"]
+                data_dict["featurerights"]["ES"]["CanViewPendingListsOnAgents"]
             )
             check.is_true(
-                parsed_data["featurerights"]["ES"]["CanChangeAgentsRequestsLog"]
-            )
-            check.is_true(
-                parsed_data["featurerights"]["ES"]["CanViewPendingListsOnAgents"]
-            )
-            check.is_true(
-                parsed_data["featurerights"]["ES"]["CanChangePendingListsOnAgents"]
+                data_dict["featurerights"]["ES"]["CanChangePendingListsOnAgents"]
             )
         with allure.step("Разрешения для DataCenter"):
             check.is_true(
-                parsed_data["featurerights"]["DC"]["CanChangeRVisionGosSOPKASettings"]
+                data_dict["featurerights"]["DC"]["CanChangeRVisionGosSOPKASettings"]
             )
             check.is_true(
-                parsed_data["featurerights"]["DC"]["CanViewFingerprintSettings"]
+                data_dict["featurerights"]["DC"]["CanViewFingerprintSettings"]
             )
             check.is_true(
-                parsed_data["featurerights"]["DC"]["CanViewComponentsManagement"]
+                data_dict["featurerights"]["DC"]["CanViewComponentsManagement"]
             )
             check.is_true(
-                parsed_data["featurerights"]["DC"]["CanChangeTaskManagementSettings"]
+                data_dict["featurerights"]["DC"]["CanChangeTaskManagementSettings"]
             )
             check.is_true(
-                parsed_data["featurerights"]["DC"]["CanViewRVisionGosSOPKASettings"]
+                data_dict["featurerights"]["DC"]["CanViewRVisionGosSOPKASettings"]
             )
             check.is_true(
-                parsed_data["featurerights"]["DC"]["CanChangeComponentsManagement"]
+                data_dict["featurerights"]["DC"]["CanChangeComponentsManagement"]
             )
         with allure.step("Разрешения для AnalyticConsole"):
-            check.is_true(parsed_data["featurerights"]["CA"]["CanChangeLiveView"])
+            check.is_true(data_dict["featurerights"]["CA"]["CanChangeLiveView"])
             check.is_true(
-                parsed_data["featurerights"]["CA"][
-                    "CanChangeAccessNotificationsReports"
-                ]
+                data_dict["featurerights"]["CA"]["CanChangeAccessNotificationsReports"]
             )
-            check.is_true(parsed_data["featurerights"]["CA"]["CanViewTMDescriptions"])
-            check.is_true(parsed_data["featurerights"]["CA"]["CanChangeActivity"])
+            check.is_true(data_dict["featurerights"]["CA"]["CanViewTMDescriptions"])
+            check.is_true(data_dict["featurerights"]["CA"]["CanChangeActivity"])
             check.is_true(
-                parsed_data["featurerights"]["CA"]["CanViewGosSOPKAInteraction"]
+                data_dict["featurerights"]["CA"]["CanViewGosSOPKAInteraction"]
             )
-            check.is_true(parsed_data["featurerights"]["CA"]["CanChangeLiveCam"])
+            check.is_true(data_dict["featurerights"]["CA"]["CanChangeLiveCam"])
         with allure.step("Разрешения для AlertCenter"):
-            check.is_true(parsed_data["featurerights"]["AC"]["CanViewLoginToConsole"])
-            check.is_true(parsed_data["featurerights"]["AC"]["CanViewUseWebAccess"])
-            check.is_true(parsed_data["featurerights"]["AC"]["CanChangeUseWebAccess"])
-            check.is_true(parsed_data["featurerights"]["AC"]["CanChangeLoginToConsole"])
+            check.is_true(data_dict["featurerights"]["AC"]["CanViewLoginToConsole"])
+            check.is_true(data_dict["featurerights"]["AC"]["CanViewUseWebAccess"])
+            check.is_true(data_dict["featurerights"]["AC"]["CanChangeUseWebAccess"])
+            check.is_true(data_dict["featurerights"]["AC"]["CanChangeLoginToConsole"])
         with allure.step("Разрешения для SIEM"):
             check.is_true(
-                parsed_data["featurerights"]["SIEM"][
-                    "CanChangeCrossCorrelationOfEvents"
-                ]
+                data_dict["featurerights"]["SIEM"]["CanChangeCrossCorrelationOfEvents"]
             )
-            check.is_true(parsed_data["featurerights"]["SIEM"]["CanViewDashboardTab"])
-            check.is_true(parsed_data["featurerights"]["SIEM"]["CanChangeDashboardTab"])
+            check.is_true(data_dict["featurerights"]["SIEM"]["CanViewDashboardTab"])
+            check.is_true(data_dict["featurerights"]["SIEM"]["CanChangeDashboardTab"])
+            check.is_true(data_dict["featurerights"]["SIEM"]["CanChangeExclusionLists"])
+            check.is_true(data_dict["featurerights"]["SIEM"]["CanViewExclusionLists"])
             check.is_true(
-                parsed_data["featurerights"]["SIEM"]["CanChangeExclusionLists"]
-            )
-            check.is_true(parsed_data["featurerights"]["SIEM"]["CanViewExclusionLists"])
-            check.is_true(
-                parsed_data["featurerights"]["SIEM"]["CanViewCrossCorrelationOfEvents"]
+                data_dict["featurerights"]["SIEM"]["CanViewCrossCorrelationOfEvents"]
             )
 
     @allure.title(
@@ -145,90 +129,86 @@ class TestRightsUserDiffParam:
     )
     def test_data_rights(self):
         data_dict = r.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Данные доступные к просмотру по компьютерам"):
             check.equal(
-                parsed_data["datarights"]["ComputersList"][0]["SID"],
+                data_dict["datarights"]["ComputersList"][0]["SID"],
                 "S-1-5-21-4141237049-2453287432-1636914503-1000",
             )
             check.equal(
-                parsed_data["datarights"]["ComputersList"][0]["DNS"], "DC.autotest.lan"
+                data_dict["datarights"]["ComputersList"][0]["DNS"], "DC.autotest.lan"
             )
             check.equal(
-                parsed_data["datarights"]["ComputersList"][0]["DisplayName"], "DC"
+                data_dict["datarights"]["ComputersList"][0]["DisplayName"], "DC"
             )
-            check.equal(parsed_data["datarights"]["ComputersList"][0]["Name"], "DC")
+            check.equal(data_dict["datarights"]["ComputersList"][0]["Name"], "DC")
             check.equal(
-                parsed_data["datarights"]["ComputersList"][0]["GUID"],
+                data_dict["datarights"]["ComputersList"][0]["GUID"],
                 "{07F69C41-692C-405B-A295-2D5A1426C52D}",
             )
             check.equal(
-                parsed_data["datarights"]["ComputersList"][1]["SID"],
+                data_dict["datarights"]["ComputersList"][1]["SID"],
                 "S-1-5-21-4141237049-2453287432-1636914503-2608",
             )
             check.equal(
-                parsed_data["datarights"]["ComputersList"][1]["DNS"], "dc2.autotest.lan"
+                data_dict["datarights"]["ComputersList"][1]["DNS"], "dc2.autotest.lan"
             )
             check.equal(
-                parsed_data["datarights"]["ComputersList"][1]["DisplayName"], "DC2"
+                data_dict["datarights"]["ComputersList"][1]["DisplayName"], "DC2"
             )
-            check.equal(parsed_data["datarights"]["ComputersList"][1]["Name"], "DC2")
+            check.equal(data_dict["datarights"]["ComputersList"][1]["Name"], "DC2")
             check.equal(
-                parsed_data["datarights"]["ComputersList"][1]["GUID"],
+                data_dict["datarights"]["ComputersList"][1]["GUID"],
                 "{81CC5FE5-2A02-4EEB-BA3E-C059145C9DAA}",
             )
         with allure.step("Данные доступные к просмотру по пользователям"):
             check.equal(
-                parsed_data["datarights"]["UsersList"][0]["UPN"],
+                data_dict["datarights"]["UsersList"][0]["UPN"],
                 "REST_test_user_cyrillic@autotest.lan",
             )
             check.equal(
-                parsed_data["datarights"]["UsersList"][0]["SID"],
+                data_dict["datarights"]["UsersList"][0]["SID"],
                 "S-1-5-21-4141237049-2453287432-1636914503-3106",
             )
             check.equal(
-                parsed_data["datarights"]["UsersList"][0]["DisplayName"],
+                data_dict["datarights"]["UsersList"][0]["DisplayName"],
                 "REST_test_user_кириллик",
             )
             check.equal(
-                parsed_data["datarights"]["UsersList"][0]["Name"],
+                data_dict["datarights"]["UsersList"][0]["Name"],
                 "REST_test_user_кириллик",
             )
             check.equal(
-                parsed_data["datarights"]["UsersList"][0]["GUID"],
+                data_dict["datarights"]["UsersList"][0]["GUID"],
                 "{2BFADC91-4BD5-44FE-853D-15E4814CC0D8}",
             )
             check.equal(
-                parsed_data["datarights"]["UsersList"][1]["UPN"],
+                data_dict["datarights"]["UsersList"][1]["UPN"],
                 "REST_test_user_admin@autotest.lan",
             )
             check.equal(
-                parsed_data["datarights"]["UsersList"][1]["SID"],
+                data_dict["datarights"]["UsersList"][1]["SID"],
                 "S-1-5-21-4141237049-2453287432-1636914503-3103",
             )
             check.equal(
-                parsed_data["datarights"]["UsersList"][1]["DisplayName"],
+                data_dict["datarights"]["UsersList"][1]["DisplayName"],
                 "REST_test_user_admin",
             )
             check.equal(
-                parsed_data["datarights"]["UsersList"][1]["Name"],
+                data_dict["datarights"]["UsersList"][1]["Name"],
                 "REST_test_user_admin",
             )
             check.equal(
-                parsed_data["datarights"]["UsersList"][1]["GUID"],
+                data_dict["datarights"]["UsersList"][1]["GUID"],
                 "{01279DC6-381E-4F6A-9E86-60AEA3514067}",
             )
             with allure.step("Тип доступа 'Разрешено смотреть только указанных'"):
-                check.equal(parsed_data["datarights"]["AccessMode"], 3)
+                check.equal(data_dict["datarights"]["AccessMode"], 3)
 
     @allure.title("Сервера КИБ разрешенные к просмотру")
     def test_server_rights(self):
         data_dict = r.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         check.equal(
-            parsed_data["serverrights"][1], "342042FB-E791-482B-98F4-61E78B1B1715"
+            data_dict["serverrights"][1], "342042FB-E791-482B-98F4-61E78B1B1715"
         )
 
     def test_schema(self):

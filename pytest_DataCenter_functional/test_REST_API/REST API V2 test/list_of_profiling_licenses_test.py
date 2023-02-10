@@ -40,17 +40,15 @@ class TestListProfilingLicenses:
     @allure.title("Основные настройки")
     def test_general_settings(self):
         data_dict = r.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Кол-во неиспользованных лицензий"):
-            check.equal(parsed_data["License"]["FreeCount"], 1000)
+            check.equal(data_dict["License"]["FreeCount"], 1000)
         with allure.step("Окончание лицензии"):
             check.greater(
-                datetime.utcfromtimestamp(parsed_data["License"]["ExpireDate"]),
+                datetime.utcfromtimestamp(data_dict["License"]["ExpireDate"]),
                 datetime.now(),
             )
         with allure.step("Колличество лицензий"):
-            check.equal(parsed_data["License"]["Count"], 1000)
+            check.equal(data_dict["License"]["Count"], 1000)
 
     @allure.title("Проверка возвращаемой схемы JSON")
     def test_schema(self):

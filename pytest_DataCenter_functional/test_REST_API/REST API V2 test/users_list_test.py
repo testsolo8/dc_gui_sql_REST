@@ -39,53 +39,47 @@ class TestUsersList:
     @allure.title("Пользователь REST_test_user_cyrillic")
     def test_REST_test_user_cyrillic(self):
         data_dict = r.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("UPN"):
             check.equal(
-                parsed_data["users"][2]["UPN"], "REST_test_user_cyrillic@autotest.lan"
+                data_dict["users"][2]["UPN"], "REST_test_user_cyrillic@autotest.lan"
             )
         with allure.step("SID"):
             check.equal(
-                parsed_data["users"][2]["SID"],
+                data_dict["users"][2]["SID"],
                 "S-1-5-21-4141237049-2453287432-1636914503-3106",
             )
         with allure.step("Статус пользователя"):
-            check.equal(parsed_data["users"][2]["UserState"], 1)
+            check.equal(data_dict["users"][2]["UserState"], 1)
         with allure.step("DisplayName"):
-            check.equal(
-                parsed_data["users"][2]["DisplayName"], "REST_test_user_кириллик"
-            )
+            check.equal(data_dict["users"][2]["DisplayName"], "REST_test_user_кириллик")
         with allure.step("Name"):
-            check.equal(parsed_data["users"][2]["Name"], "REST_test_user_кириллик")
+            check.equal(data_dict["users"][2]["Name"], "REST_test_user_кириллик")
         with allure.step("GUID"):
             check.equal(
-                parsed_data["users"][2]["GUID"], "2BFADC91-4BD5-44FE-853D-15E4814CC0D8"
+                data_dict["users"][2]["GUID"], "2BFADC91-4BD5-44FE-853D-15E4814CC0D8"
             )
 
     @allure.title("Пользователь REST_test_user_admin")
     def test_REST_test_user_admin(self):
         data_dict = r.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("UPN"):
             check.equal(
-                parsed_data["users"][6]["UPN"], "REST_test_user_admin@autotest.lan"
+                data_dict["users"][6]["UPN"], "REST_test_user_admin@autotest.lan"
             )
         with allure.step("SID"):
             check.equal(
-                parsed_data["users"][6]["SID"],
+                data_dict["users"][6]["SID"],
                 "S-1-5-21-4141237049-2453287432-1636914503-3103",
             )
         with allure.step("Статус пользователя"):
-            check.equal(parsed_data["users"][6]["UserState"], 1)
+            check.equal(data_dict["users"][6]["UserState"], 1)
         with allure.step("DisplayName"):
-            check.equal(parsed_data["users"][6]["DisplayName"], "REST_test_user_admin")
+            check.equal(data_dict["users"][6]["DisplayName"], "REST_test_user_admin")
         with allure.step("Name"):
-            check.equal(parsed_data["users"][6]["Name"], "REST_test_user_admin")
+            check.equal(data_dict["users"][6]["Name"], "REST_test_user_admin")
         with allure.step("GUID"):
             check.equal(
-                parsed_data["users"][6]["GUID"], "01279DC6-381E-4F6A-9E86-60AEA3514067"
+                data_dict["users"][6]["GUID"], "01279DC6-381E-4F6A-9E86-60AEA3514067"
             )
 
     @allure.title("Проверка возвращаемой схемы JSON")

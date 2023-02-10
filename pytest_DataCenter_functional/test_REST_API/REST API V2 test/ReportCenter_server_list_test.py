@@ -44,43 +44,39 @@ class TestReportCenterServerList:
     @allure.title("Параметры подключения")
     def test_ReportCenter_server_list_request(self):
         data_dict = r.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("UID сервера"):
-            check.equal(parsed_data[0]["UID"], "{0F919916-9E7C-408F-BD2B-CCF1B499D0F5}")
+            check.equal(data_dict[0]["UID"], "{0F919916-9E7C-408F-BD2B-CCF1B499D0F5}")
         with allure.step("DNSHostName сервера"):
-            check.is_in("AUTOTEST", parsed_data[0]["DNSHostName"])
+            check.is_in("AUTOTEST", data_dict[0]["DNSHostName"])
         with allure.step("HostName сервера"):
-            check.is_in("AUTOTEST", parsed_data[0]["HostName"])
+            check.is_in("AUTOTEST", data_dict[0]["HostName"])
         with allure.step("Port сервера"):
-            check.equal(parsed_data[0]["Port"], 9099)
+            check.equal(data_dict[0]["Port"], 9099)
         with allure.step("Версия сервера"):
             path = r"c:\Program Files (x86)\SearchInform\SearchInform ReportCenter\RC_Sync.exe"
             file_version = get_file_version(path)
-            check.equal(parsed_data[0]["Version"], file_version)
+            check.equal(data_dict[0]["Version"], file_version)
 
     @allure.title("Параметры подключения со строкой подключения к БД")
     def test_ReportCenter_server_list_request_with_dbParam(self):
         data_dict = requests.get(path_with_dbParam, verify=False).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("UID сервера"):
-            check.equal(parsed_data[0]["UID"], "{0F919916-9E7C-408F-BD2B-CCF1B499D0F5}")
+            check.equal(data_dict[0]["UID"], "{0F919916-9E7C-408F-BD2B-CCF1B499D0F5}")
         with allure.step("DNSHostName сервера"):
-            check.is_in("AUTOTEST", parsed_data[0]["DNSHostName"])
+            check.is_in("AUTOTEST", data_dict[0]["DNSHostName"])
         with allure.step("Параметры подключения к БД"):
             check.equal(
-                parsed_data[0]["DBParams"],
+                data_dict[0]["DBParams"],
                 "TgAsACAAAAAGACgABgB7ADMAQQA2ADYAQgAxADcAOAAtADEAQgA0AEEALQA0AGEAOAAwAC0AOAAwAEYAMQAtADkANwAyAEUAMwA1AEEAMAA4ADYANAA1AH0AAABSAGUAcABvAHIAdABDAGUAbgB0AGUAcgBfAGYAbwByAF8AUgBFAFMAVAAAAFcASQBOAC0ARQBFAEMAUwBUAEMAQQBTAEEATgBTAAAAcwBhAAAAAQBDADgAQQA4AEMAMQAzADgANgAxADAAQQBFAEEARgA4AEUANQAAAE4AbwAAAA==",
             )
         with allure.step("HostName сервера"):
-            check.is_in("AUTOTEST", parsed_data[0]["HostName"])
+            check.is_in("AUTOTEST", data_dict[0]["HostName"])
         with allure.step("Port сервера"):
-            check.equal(parsed_data[0]["Port"], 9099)
+            check.equal(data_dict[0]["Port"], 9099)
         with allure.step("Версия сервера"):
             path = r"c:\Program Files (x86)\SearchInform\SearchInform ReportCenter\RC_Sync.exe"
             file_version = get_file_version(path)
-            check.equal(parsed_data[0]["Version"], file_version)
+            check.equal(data_dict[0]["Version"], file_version)
 
     @allure.title("Проверка возвращаемой схемы JSON")
     def test_schema(self):

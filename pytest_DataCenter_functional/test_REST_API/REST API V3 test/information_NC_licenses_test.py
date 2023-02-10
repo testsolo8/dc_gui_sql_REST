@@ -52,65 +52,59 @@ class TestInformationNCLicenses:
     @pytest.mark.skip(reason="в текущей реализации среды для тестов не реализовано")
     def test_count_component_license(self):
         data_dict = r.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
-        assert len(parsed_data["88033CCD-6360-41F0-98CA-BDDB08532119"]["Licenses"]) == 6
+        assert len(data_dict["88033CCD-6360-41F0-98CA-BDDB08532119"]["Licenses"]) == 6
 
     @pytest.mark.skip(reason="в текущей реализации среды для тестов не реализовано")
     def test_information_about_NC_license(self):
         data_dict = r.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         check.equal(
-            parsed_data["88033CCD-6360-41F0-98CA-BDDB08532119"]["Date"], tomorrow_str
+            data_dict["88033CCD-6360-41F0-98CA-BDDB08532119"]["Date"], tomorrow_str
         )
-        check.equal(parsed_data["88033CCD-6360-41F0-98CA-BDDB08532119"]["Mode"], 2)
+        check.equal(data_dict["88033CCD-6360-41F0-98CA-BDDB08532119"]["Mode"], 2)
         check.greater_equal(
-            parsed_data["88033CCD-6360-41F0-98CA-BDDB08532119"]["Expiration"], 1
+            data_dict["88033CCD-6360-41F0-98CA-BDDB08532119"]["Expiration"], 1
         )
         check.equal(
-            parsed_data["88033CCD-6360-41F0-98CA-BDDB08532119"]["SupportTo"],
+            data_dict["88033CCD-6360-41F0-98CA-BDDB08532119"]["SupportTo"],
             "2113-01-01T02:59:59+03:00",
         )
 
     @pytest.mark.skip(reason="в текущей реализации среды для тестов не реализовано")
     def test_information_about_mail_integration_license(self):
         data_dict = r.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         check.equal(
-            parsed_data["88033CCD-6360-41F0-98CA-BDDB08532119"]["Licenses"][
+            data_dict["88033CCD-6360-41F0-98CA-BDDB08532119"]["Licenses"][
                 "0047A5B7-8195-4A5F-BAEA-D01708EDE0C5"
             ]["StartDate"],
             "0001-01-01T00:00:00Z",
         )
         check.equal(
-            parsed_data["88033CCD-6360-41F0-98CA-BDDB08532119"]["Licenses"][
+            data_dict["88033CCD-6360-41F0-98CA-BDDB08532119"]["Licenses"][
                 "0047A5B7-8195-4A5F-BAEA-D01708EDE0C5"
             ]["EndDate"],
             "2113-01-01T02:59:59+03:00",
         )
         check.equal(
-            parsed_data["88033CCD-6360-41F0-98CA-BDDB08532119"]["Licenses"][
+            data_dict["88033CCD-6360-41F0-98CA-BDDB08532119"]["Licenses"][
                 "0047A5B7-8195-4A5F-BAEA-D01708EDE0C5"
             ]["ProductName"],
             "MailController (Integration)",
         )
         check.equal(
-            parsed_data["88033CCD-6360-41F0-98CA-BDDB08532119"]["Licenses"][
+            data_dict["88033CCD-6360-41F0-98CA-BDDB08532119"]["Licenses"][
                 "0047A5B7-8195-4A5F-BAEA-D01708EDE0C5"
             ]["ProductID"],
             6,
         )
         check.equal(
-            parsed_data["88033CCD-6360-41F0-98CA-BDDB08532119"]["Licenses"][
+            data_dict["88033CCD-6360-41F0-98CA-BDDB08532119"]["Licenses"][
                 "0047A5B7-8195-4A5F-BAEA-D01708EDE0C5"
             ]["Coefficient"],
             3,
         )
         check.greater(
             len(
-                parsed_data["88033CCD-6360-41F0-98CA-BDDB08532119"]["Products"][
+                data_dict["88033CCD-6360-41F0-98CA-BDDB08532119"]["Products"][
                     "0047A5B7-8195-4A5F-BAEA-D01708EDE0C5"
                 ]
             ),

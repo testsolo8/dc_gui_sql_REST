@@ -37,10 +37,8 @@ class TestChainRequest:
     @pytest.mark.skip(reason="в текущей реализации среды для тестов не реализовано")
     def test_index_and_db_are_exists(self):
         data_dict = r.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
-        check.greater_equal(len(parsed_data["Indexes"]), 1)
-        check.greater_equal(len(parsed_data["DataBases"]), 1)
+        check.greater_equal(len(data_dict["Indexes"]), 1)
+        check.greater_equal(len(data_dict["DataBases"]), 1)
 
     @pytest.mark.skip(reason="в текущей реализации среды для тестов не реализовано")
     def test_schema(self):

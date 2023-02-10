@@ -41,34 +41,34 @@ class TestResolveSIDForUser:
     @allure.title("Данные по REST_test_user_admin")
     def test_SID_REST_test_user_admin_test(self, dc_api: DcApiWithToken):
         data_dict = dc_api.req_post(url=url_tail, body=body).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Входные данные, название группы / UPN пользователя"):
-            check.equal(parsed_data["data"][0]["inputName"], "REST_test_user_admin@autotest.lan")
-        with allure.step("Флаг группы"):
-            check.equal(parsed_data["data"][0]["isGroup"], 0)
-        with allure.step("Идентификатор пользователя / группы в карточке"):
             check.equal(
-                parsed_data["data"][0]["objectID"], 5)
+                data_dict["data"][0]["inputName"], "REST_test_user_admin@autotest.lan"
+            )
+        with allure.step("Флаг группы"):
+            check.equal(data_dict["data"][0]["isGroup"], 0)
+        with allure.step("Идентификатор пользователя / группы в карточке"):
+            check.equal(data_dict["data"][0]["objectID"], 5)
         with allure.step("уникальный идентификатор пользователя / группы SID"):
-            check.equal(parsed_data["data"][0]["sID"], "S-1-5-21-4141237049-2453287432-1636914503-3103")
-
+            check.equal(
+                data_dict["data"][0]["sID"],
+                "S-1-5-21-4141237049-2453287432-1636914503-3103",
+            )
 
     @allure.title("Данные по группе Администраторы домена")
     def test_group_adminisnrators_domen_test(self, dc_api: DcApiWithToken):
         data_dict = dc_api.req_post(url=url_tail, body=body).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Входные данные, название группы / UPN пользователя"):
-            check.equal(parsed_data["data"][1]["inputName"], "Администраторы домена")
+            check.equal(data_dict["data"][1]["inputName"], "Администраторы домена")
         with allure.step("Флаг группы"):
-            check.equal(parsed_data["data"][1]["isGroup"], 1)
+            check.equal(data_dict["data"][1]["isGroup"], 1)
         with allure.step("Идентификатор пользователя / группы в карточке"):
-            check.equal(
-                parsed_data["data"][1]["objectID"], 38)
+            check.equal(data_dict["data"][1]["objectID"], 38)
         with allure.step("уникальный идентификатор пользователя / группы SID"):
-            check.equal(parsed_data["data"][1]["sID"], "S-1-5-21-4141237049-2453287432-1636914503-512")
-
+            check.equal(
+                data_dict["data"][1]["sID"],
+                "S-1-5-21-4141237049-2453287432-1636914503-512",
+            )
 
     @allure.title("Проверка возвращаемой схемы JSON")
     def test_schema(self, dc_api: DcApiWithToken):

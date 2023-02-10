@@ -37,9 +37,7 @@ class TestProxyStatus:
     @allure.title("Статус прокси (не включен)")
     def test_enable_false(self):
         data_dict = r.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
-        assert parsed_data["Enabled"] == False
+        assert data_dict["Enabled"] == False
 
     @allure.title("Проверка возвращаемой схемы JSON")
     def test_schema(self):

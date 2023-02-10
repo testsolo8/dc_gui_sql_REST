@@ -43,20 +43,18 @@ class TestWebAnalyticServerList:
     @allure.title("Параметры подключения")
     def test_WebAnalytic_server_list_request(self):
         data_dict = r.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("UID сервера"):
-            check.equal(parsed_data[0]["UID"], "{0F919916-9E7C-408F-BD2B-CCF1B499D0F5}")
+            check.equal(data_dict[0]["UID"], "{0F919916-9E7C-408F-BD2B-CCF1B499D0F5}")
         with allure.step("DNSHostName сервера"):
-            check.is_in("AUTOTEST", parsed_data[0]["DNSHostName"])
+            check.is_in("AUTOTEST", data_dict[0]["DNSHostName"])
         with allure.step("HostName сервера"):
-            check.is_in("AUTOTEST", parsed_data[0]["HostName"])
+            check.is_in("AUTOTEST", data_dict[0]["HostName"])
         with allure.step("Port сервера"):
-            check.equal(parsed_data[0]["Port"], 9111)
+            check.equal(data_dict[0]["Port"], 9111)
         with allure.step("Версия сервера"):
             path = r"c:\Program Files\SearchInform\SearchInform WebAnalytic\DataService.exe"
             file_version = get_file_version(path)
-            check.equal(parsed_data[0]["Version"], file_version)
+            check.equal(data_dict[0]["Version"], file_version)
 
     @allure.title("Проверка возвращаемой схемы JSON")
     def test_schema(self):

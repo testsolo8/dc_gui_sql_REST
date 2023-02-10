@@ -38,10 +38,8 @@ class TestRequestFilenameInAttributeStoreByIndexes:
     @allure.title("Ограничение на кол-во возвращаемых данных")
     def test_number_of_strings(self):
         data_dict = r.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
-        check.greater_equal(len(parsed_data), 1)
-        check.less_equal(len(parsed_data), 1000)
+        check.greater_equal(len(data_dict), 1)
+        check.less_equal(len(data_dict), 1000)
 
     @allure.title("Возвращаемые данные")
     def test_return_data(self):
@@ -61,12 +59,10 @@ class TestRequestFilenameInAttributeStoreByIndexes:
             "/загрузки/soft_huawei-modem-3.5_(04.12.2014).rar:soft huawei modem 3.5.exe:data.bin:common\\driver\\driver\\x64\\ew_juwwanecm.inf",
         ]
         data_dict = r.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Возвращаемые данные"):
-            check.is_true(set(data).issubset(parsed_data))
+            check.is_true(set(data).issubset(data_dict))
         with allure.step("Кол-во данных"):
-            check.greater_equal(len(parsed_data), 1000)
+            check.greater_equal(len(data_dict), 1000)
 
     @allure.title("Проверка возвращаемой схемы JSON")
     def test_schema(self):

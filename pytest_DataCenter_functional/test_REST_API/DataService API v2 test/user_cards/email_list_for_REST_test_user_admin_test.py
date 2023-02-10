@@ -40,66 +40,60 @@ class TestEmailListForUser:
     @allure.title("Почтовый адрес gmail.com")
     def test_gmail_com(self, dc_api: DcApiWithToken):
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Идентификатор документа в индексе"):
-            check.is_none(parsed_data["data"][0]["docID"])
+            check.is_none(data_dict["data"][0]["docID"])
         with allure.step("Отображать в шапке"):
-            check.is_none(parsed_data["data"][0]["inHeader"])
+            check.is_none(data_dict["data"][0]["inHeader"])
         with allure.step("Почтовый адрес"):
             check.equal(
-                parsed_data["data"][0]["mailAddress"], "REST_test_user_admin@gmail.com"
+                data_dict["data"][0]["mailAddress"], "REST_test_user_admin@gmail.com"
             )
         with allure.step("Идентификатор почтового адреса"):
-            check.equal(parsed_data["data"][0]["mailID"], 5)
+            check.equal(data_dict["data"][0]["mailID"], 5)
         with allure.step("Тип почтового адреса"):
-            check.equal(parsed_data["data"][0]["mailType"], 1)
+            check.equal(data_dict["data"][0]["mailType"], 1)
         with allure.step("UDL документа"):
-            check.is_none(parsed_data["data"][0]["signID"])
+            check.is_none(data_dict["data"][0]["signID"])
 
     @allure.title("Почтовый адрес test.lan")
     def test_test_lan(self, dc_api: DcApiWithToken):
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Идентификатор документа в индексе"):
             check.equal(
-                parsed_data["data"][1]["docID"], "01279DC6-381E-4F6A-9E86-60AEA3514067"
+                data_dict["data"][1]["docID"], "01279DC6-381E-4F6A-9E86-60AEA3514067"
             )
         with allure.step("Отображать в шапке"):
-            check.is_true(parsed_data["data"][1]["inHeader"])
+            check.is_true(data_dict["data"][1]["inHeader"])
         with allure.step("Почтовый адрес"):
             check.equal(
-                parsed_data["data"][1]["mailAddress"], "REST_test_user_admin@test.lan"
+                data_dict["data"][1]["mailAddress"], "REST_test_user_admin@test.lan"
             )
         with allure.step("Идентификатор почтового адреса"):
-            check.equal(parsed_data["data"][1]["mailID"], 1)
+            check.equal(data_dict["data"][1]["mailID"], 1)
         with allure.step("Тип почтового адреса"):
-            check.equal(parsed_data["data"][1]["mailType"], 1)
+            check.equal(data_dict["data"][1]["mailType"], 1)
         with allure.step("UDL документа"):
             check.equal(
-                parsed_data["data"][1]["signID"], "01279DC6-381E-4F6A-9E86-60AEA3514067"
+                data_dict["data"][1]["signID"], "01279DC6-381E-4F6A-9E86-60AEA3514067"
             )
 
     @allure.title("Почтовый адрес ya.ru")
     def test_ya_ru(self, dc_api: DcApiWithToken):
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Идентификатор документа в индексе"):
-            check.is_none(parsed_data["data"][2]["docID"])
+            check.is_none(data_dict["data"][2]["docID"])
         with allure.step("Отображать в шапке"):
-            check.is_none(parsed_data["data"][2]["inHeader"])
+            check.is_none(data_dict["data"][2]["inHeader"])
         with allure.step("Почтовый адрес"):
             check.equal(
-                parsed_data["data"][2]["mailAddress"], "REST_test_user_admin@ya.ru"
+                data_dict["data"][2]["mailAddress"], "REST_test_user_admin@ya.ru"
             )
         with allure.step("Идентификатор почтового адреса"):
-            check.equal(parsed_data["data"][2]["mailID"], 4)
+            check.equal(data_dict["data"][2]["mailID"], 4)
         with allure.step("Тип почтового адреса"):
-            check.equal(parsed_data["data"][2]["mailType"], 1)
+            check.equal(data_dict["data"][2]["mailType"], 1)
         with allure.step("UDL документа"):
-            check.is_none(parsed_data["data"][2]["signID"])
+            check.is_none(data_dict["data"][2]["signID"])
 
     @allure.title("Проверка возвращаемой схемы JSON")
     def test_schema(self, dc_api: DcApiWithToken):

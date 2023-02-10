@@ -38,252 +38,234 @@ class TestListUsersGroupsForWorkCalendarRules:
     @allure.title("Рабочий календарь группы WorkGroups")
     def test_data_group_WorkGroups(self, dc_api: DcApiWithToken):
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Идентификатор правила рабочего календаря"):
-            check.equal(parsed_data["data"][0]["calendarID"], 3)
+            check.equal(data_dict["data"][0]["calendarID"], 3)
         with allure.step("Количество объектов внутри группы"):
-            check.equal(parsed_data["data"][0]["childCount"], 1)
+            check.equal(data_dict["data"][0]["childCount"], 1)
         with allure.step("Цвет профиля"):
-            check.equal(parsed_data["data"][0]["color"], 0)
+            check.equal(data_dict["data"][0]["color"], 0)
         with allure.step("Список идентификаторов привязанных пользователей"):
-            check.is_none(parsed_data["data"][0]["concatList"])
+            check.is_none(data_dict["data"][0]["concatList"])
         with allure.step("Имя группы или пользователя"):
-            check.equal(parsed_data["data"][0]["displayName"], "WorkGroups")
+            check.equal(data_dict["data"][0]["displayName"], "WorkGroups")
         with allure.step("Группа или пользователь исключены из набора"):
-            check.is_false(parsed_data["data"][0]["exclude"])
+            check.is_false(data_dict["data"][0]["exclude"])
         with allure.step("Уникальный идентификатор пользователя/группы"):
             check.equal(
-                parsed_data["data"][0]["guid"], "576F726B-0000-0000-0000-47726F757073"
+                data_dict["data"][0]["guid"], "576F726B-0000-0000-0000-47726F757073"
             )
         with allure.step("Идентификатор группы или пользователя"):
-            check.equal(parsed_data["data"][0]["id"], 93)
+            check.equal(data_dict["data"][0]["id"], 93)
         with allure.step("Флаг группы"):
-            check.equal(parsed_data["data"][0]["isGroup"], 1)
+            check.equal(data_dict["data"][0]["isGroup"], 1)
         with allure.step("UPN пользователя"):
-            check.is_none(parsed_data["data"][0]["principalName"])
+            check.is_none(data_dict["data"][0]["principalName"])
         with allure.step("Номер строки"):
-            check.equal(parsed_data["data"][0]["rowNum"], 1)
+            check.equal(data_dict["data"][0]["rowNum"], 1)
         with allure.step("Статус пользователя 1 Enabled, 2 Disabled, 3 Deleted"):
-            check.equal(parsed_data["data"][0]["state"], 1)
+            check.equal(data_dict["data"][0]["state"], 1)
         with allure.step("Тип группы или пользователя"):
-            check.equal(parsed_data["data"][0]["type"], 1)
+            check.equal(data_dict["data"][0]["type"], 1)
         with allure.step(
             "Тип пользователя: 1 AD, 2 Manual, 3 Index, 4 OldUserCard, 5 IndexUnknown, 6 ReportCenter, 7 EndpointController, 8 ProgramSniffer"
         ):
-            check.is_none(parsed_data["data"][0]["userType"])
+            check.is_none(data_dict["data"][0]["userType"])
 
     @allure.title("Рабочий календарь пользователя REST_test_user_cyrillic")
     def test_data_user_REST_test_user_cyrillic(self, dc_api: DcApiWithToken):
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Идентификатор правила рабочего календаря"):
-            check.equal(parsed_data["data"][1]["calendarID"], 2)
+            check.equal(data_dict["data"][1]["calendarID"], 2)
         with allure.step("Количество объектов внутри группы"):
-            check.is_none(parsed_data["data"][1]["childCount"])
+            check.is_none(data_dict["data"][1]["childCount"])
         with allure.step("Цвет профиля"):
-            check.equal(parsed_data["data"][1]["color"], 0)
+            check.equal(data_dict["data"][1]["color"], 0)
         with allure.step("Список идентификаторов привязанных пользователей"):
-            check.is_none(parsed_data["data"][1]["concatList"])
+            check.is_none(data_dict["data"][1]["concatList"])
         with allure.step("Имя группы или пользователя"):
-            check.equal(
-                parsed_data["data"][1]["displayName"], "REST_test_user_кириллик"
-            )
+            check.equal(data_dict["data"][1]["displayName"], "REST_test_user_кириллик")
         with allure.step("Группа или пользователь исключены из набора"):
-            check.is_false(parsed_data["data"][1]["exclude"])
+            check.is_false(data_dict["data"][1]["exclude"])
         with allure.step("Уникальный идентификатор пользователя/группы"):
             check.equal(
-                parsed_data["data"][1]["guid"], "2BFADC91-4BD5-44FE-853D-15E4814CC0D8"
+                data_dict["data"][1]["guid"], "2BFADC91-4BD5-44FE-853D-15E4814CC0D8"
             )
         with allure.step("Идентификатор группы или пользователя"):
-            check.equal(parsed_data["data"][1]["id"], 1)
+            check.equal(data_dict["data"][1]["id"], 1)
         with allure.step("Флаг группы"):
-            check.equal(parsed_data["data"][1]["isGroup"], 0)
+            check.equal(data_dict["data"][1]["isGroup"], 0)
         with allure.step("UPN пользователя"):
             check.equal(
-                parsed_data["data"][1]["principalName"],
+                data_dict["data"][1]["principalName"],
                 "REST_test_user_cyrillic@autotest.lan",
             )
         with allure.step("Номер строки"):
-            check.equal(parsed_data["data"][1]["rowNum"], 2)
+            check.equal(data_dict["data"][1]["rowNum"], 2)
         with allure.step("Статус пользователя 1 Enabled, 2 Disabled, 3 Deleted"):
-            check.equal(parsed_data["data"][1]["state"], 1)
+            check.equal(data_dict["data"][1]["state"], 1)
         with allure.step("Тип группы или пользователя"):
-            check.equal(parsed_data["data"][1]["type"], 6)
+            check.equal(data_dict["data"][1]["type"], 6)
         with allure.step(
             "Тип пользователя: 1 AD, 2 Manual, 3 Index, 4 OldUserCard, 5 IndexUnknown, 6 ReportCenter, 7 EndpointController, 8 ProgramSniffer"
         ):
-            check.equal(parsed_data["data"][1]["userType"], 1)
+            check.equal(data_dict["data"][1]["userType"], 1)
 
     @allure.title("Рабочий календарь пользователя REST_test_user_admin")
     def test_data_user_REST_test_user_admin(self, dc_api: DcApiWithToken):
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Идентификатор правила рабочего календаря"):
-            check.equal(parsed_data["data"][2]["calendarID"], 2)
+            check.equal(data_dict["data"][2]["calendarID"], 2)
         with allure.step("Количество объектов внутри группы"):
-            check.is_none(parsed_data["data"][2]["childCount"])
+            check.is_none(data_dict["data"][2]["childCount"])
         with allure.step("Цвет профиля"):
-            check.equal(parsed_data["data"][2]["color"], 9)
+            check.equal(data_dict["data"][2]["color"], 9)
         with allure.step("Список идентификаторов привязанных пользователей"):
-            check.is_none(parsed_data["data"][2]["concatList"])
+            check.is_none(data_dict["data"][2]["concatList"])
         with allure.step("Имя группы или пользователя"):
-            check.equal(parsed_data["data"][2]["displayName"], "REST_test_user_admin")
+            check.equal(data_dict["data"][2]["displayName"], "REST_test_user_admin")
         with allure.step("Группа или пользователь исключены из набора"):
-            check.is_false(parsed_data["data"][2]["exclude"])
+            check.is_false(data_dict["data"][2]["exclude"])
         with allure.step("Уникальный идентификатор пользователя/группы"):
             check.equal(
-                parsed_data["data"][2]["guid"], "01279DC6-381E-4F6A-9E86-60AEA3514067"
+                data_dict["data"][2]["guid"], "01279DC6-381E-4F6A-9E86-60AEA3514067"
             )
         with allure.step("Идентификатор группы или пользователя"):
-            check.equal(parsed_data["data"][2]["id"], 5)
+            check.equal(data_dict["data"][2]["id"], 5)
         with allure.step("Флаг группы"):
-            check.equal(parsed_data["data"][2]["isGroup"], 0)
+            check.equal(data_dict["data"][2]["isGroup"], 0)
         with allure.step("UPN пользователя"):
             check.equal(
-                parsed_data["data"][2]["principalName"],
+                data_dict["data"][2]["principalName"],
                 "REST_test_user_admin@autotest.lan",
             )
         with allure.step("Номер строки"):
-            check.equal(parsed_data["data"][2]["rowNum"], 3)
+            check.equal(data_dict["data"][2]["rowNum"], 3)
         with allure.step("Статус пользователя 1 Enabled, 2 Disabled, 3 Deleted"):
-            check.equal(parsed_data["data"][2]["state"], 1)
+            check.equal(data_dict["data"][2]["state"], 1)
         with allure.step("Тип группы или пользователя"):
-            check.equal(parsed_data["data"][2]["type"], 6)
+            check.equal(data_dict["data"][2]["type"], 6)
         with allure.step(
             "Тип пользователя: 1 AD, 2 Manual, 3 Index, 4 OldUserCard, 5 IndexUnknown, 6 ReportCenter, 7 EndpointController, 8 ProgramSniffer"
         ):
-            check.equal(parsed_data["data"][2]["userType"], 1)
+            check.equal(data_dict["data"][2]["userType"], 1)
 
     @allure.title("Рабочий календарь пользователя REST_test_user_diff_param")
     def test_data_user_REST_test_user_diff_param(self, dc_api: DcApiWithToken):
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Идентификатор правила рабочего календаря"):
-            check.equal(parsed_data["data"][3]["calendarID"], 2)
+            check.equal(data_dict["data"][3]["calendarID"], 2)
         with allure.step("Количество объектов внутри группы"):
-            check.is_none(parsed_data["data"][3]["childCount"])
+            check.is_none(data_dict["data"][3]["childCount"])
         with allure.step("Цвет профиля"):
-            check.equal(parsed_data["data"][3]["color"], 0)
+            check.equal(data_dict["data"][3]["color"], 0)
         with allure.step("Список идентификаторов привязанных пользователей"):
-            check.is_none(parsed_data["data"][3]["concatList"])
+            check.is_none(data_dict["data"][3]["concatList"])
         with allure.step("Имя группы или пользователя"):
             check.equal(
-                parsed_data["data"][3]["displayName"], "REST_test_user_diff_param"
+                data_dict["data"][3]["displayName"], "REST_test_user_diff_param"
             )
         with allure.step("Группа или пользователь исключены из набора"):
-            check.is_false(parsed_data["data"][3]["exclude"])
+            check.is_false(data_dict["data"][3]["exclude"])
         with allure.step("Уникальный идентификатор пользователя/группы"):
             check.equal(
-                parsed_data["data"][3]["guid"], "188F9AC6-91A0-42E6-9962-94B06B93236A"
+                data_dict["data"][3]["guid"], "188F9AC6-91A0-42E6-9962-94B06B93236A"
             )
         with allure.step("Идентификатор группы или пользователя"):
-            check.equal(parsed_data["data"][3]["id"], 7)
+            check.equal(data_dict["data"][3]["id"], 7)
         with allure.step("Флаг группы"):
-            check.equal(parsed_data["data"][3]["isGroup"], 0)
+            check.equal(data_dict["data"][3]["isGroup"], 0)
         with allure.step("UPN пользователя"):
             check.equal(
-                parsed_data["data"][3]["principalName"], "REST_diff_param@autotest.lan"
+                data_dict["data"][3]["principalName"], "REST_diff_param@autotest.lan"
             )
         with allure.step("Номер строки"):
-            check.equal(parsed_data["data"][3]["rowNum"], 4)
+            check.equal(data_dict["data"][3]["rowNum"], 4)
         with allure.step("Статус пользователя 1 Enabled, 2 Disabled, 3 Deleted"):
-            check.equal(parsed_data["data"][3]["state"], 1)
+            check.equal(data_dict["data"][3]["state"], 1)
         with allure.step("Тип группы или пользователя"):
-            check.equal(parsed_data["data"][3]["type"], 6)
+            check.equal(data_dict["data"][3]["type"], 6)
         with allure.step(
             "Тип пользователя: 1 AD, 2 Manual, 3 Index, 4 OldUserCard, 5 IndexUnknown, 6 ReportCenter, 7 EndpointController, 8 ProgramSniffer"
         ):
-            check.equal(parsed_data["data"][3]["userType"], 1)
+            check.equal(data_dict["data"][3]["userType"], 1)
 
     @allure.title("Рабочий календарь пользователя REST_test_user_internal")
     def test_data_user_REST_test_user_internal(self, dc_api: DcApiWithToken):
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Идентификатор правила рабочего календаря"):
-            check.equal(parsed_data["data"][4]["calendarID"], 2)
+            check.equal(data_dict["data"][4]["calendarID"], 2)
         with allure.step("Количество объектов внутри группы"):
-            check.is_none(parsed_data["data"][4]["childCount"])
+            check.is_none(data_dict["data"][4]["childCount"])
         with allure.step("Цвет профиля"):
-            check.equal(parsed_data["data"][4]["color"], 0)
+            check.equal(data_dict["data"][4]["color"], 0)
         with allure.step("Список идентификаторов привязанных пользователей"):
-            check.is_none(parsed_data["data"][4]["concatList"])
+            check.is_none(data_dict["data"][4]["concatList"])
         with allure.step("Имя группы или пользователя"):
-            check.equal(
-                parsed_data["data"][4]["displayName"], "REST_test_user_internal"
-            )
+            check.equal(data_dict["data"][4]["displayName"], "REST_test_user_internal")
         with allure.step("Группа или пользователь исключены из набора"):
-            check.is_false(parsed_data["data"][4]["exclude"])
+            check.is_false(data_dict["data"][4]["exclude"])
         with allure.step("Уникальный идентификатор пользователя/группы"):
             check.equal(
-                parsed_data["data"][4]["guid"], "BE223A92-19EC-4A69-89DD-B7C840865A1A"
+                data_dict["data"][4]["guid"], "BE223A92-19EC-4A69-89DD-B7C840865A1A"
             )
         with allure.step("Идентификатор группы или пользователя"):
-            check.equal(parsed_data["data"][4]["id"], 14)
+            check.equal(data_dict["data"][4]["id"], 14)
         with allure.step("Флаг группы"):
-            check.equal(parsed_data["data"][4]["isGroup"], 0)
+            check.equal(data_dict["data"][4]["isGroup"], 0)
         with allure.step("UPN пользователя"):
             check.equal(
-                parsed_data["data"][4]["principalName"],
+                data_dict["data"][4]["principalName"],
                 "REST_test_user_internal@Internal.ISC",
             )
         with allure.step("Номер строки"):
-            check.equal(parsed_data["data"][4]["rowNum"], 5)
+            check.equal(data_dict["data"][4]["rowNum"], 5)
         with allure.step("Статус пользователя 1 Enabled, 2 Disabled, 3 Deleted"):
-            check.equal(parsed_data["data"][4]["state"], 1)
+            check.equal(data_dict["data"][4]["state"], 1)
         with allure.step("Тип группы или пользователя"):
-            check.equal(parsed_data["data"][4]["type"], 6)
+            check.equal(data_dict["data"][4]["type"], 6)
         with allure.step(
             "Тип пользователя: 1 AD, 2 Manual, 3 Index, 4 OldUserCard, 5 IndexUnknown, 6 ReportCenter, 7 EndpointController, 8 ProgramSniffer"
         ):
-            check.equal(parsed_data["data"][4]["userType"], 1)
+            check.equal(data_dict["data"][4]["userType"], 1)
 
     @allure.title("Рабочий календарь пользователя workgroup_user")
     def test_data_user_workgroup_user(self, dc_api: DcApiWithToken):
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Идентификатор правила рабочего календаря"):
-            check.equal(parsed_data["data"][5]["calendarID"], 3)
+            check.equal(data_dict["data"][5]["calendarID"], 3)
         with allure.step("Количество объектов внутри группы"):
-            check.is_none(parsed_data["data"][5]["childCount"])
+            check.is_none(data_dict["data"][5]["childCount"])
         with allure.step("Цвет профиля"):
-            check.equal(parsed_data["data"][5]["color"], 0)
+            check.equal(data_dict["data"][5]["color"], 0)
         with allure.step("Список идентификаторов привязанных пользователей"):
-            check.is_none(parsed_data["data"][5]["concatList"])
+            check.is_none(data_dict["data"][5]["concatList"])
         with allure.step("Имя группы или пользователя"):
-            check.equal(
-                parsed_data["data"][5]["displayName"], "REST_test_workgroup_user"
-            )
+            check.equal(data_dict["data"][5]["displayName"], "REST_test_workgroup_user")
         with allure.step("Группа или пользователь исключены из набора"):
-            check.is_true(parsed_data["data"][5]["exclude"])
+            check.is_true(data_dict["data"][5]["exclude"])
         with allure.step("Уникальный идентификатор пользователя/группы"):
             check.equal(
-                parsed_data["data"][5]["guid"], "0C900037-025E-460A-9D02-4840AD39036B"
+                data_dict["data"][5]["guid"], "0C900037-025E-460A-9D02-4840AD39036B"
             )
         with allure.step("Идентификатор группы или пользователя"):
-            check.equal(parsed_data["data"][5]["id"], 15)
+            check.equal(data_dict["data"][5]["id"], 15)
         with allure.step("Флаг группы"):
-            check.equal(parsed_data["data"][5]["isGroup"], 0)
+            check.equal(data_dict["data"][5]["isGroup"], 0)
         with allure.step("UPN пользователя"):
             check.equal(
-                parsed_data["data"][5]["principalName"],
+                data_dict["data"][5]["principalName"],
                 "REST_test_workgroup_user@autotest",
             )
         with allure.step("Номер строки"):
-            check.equal(parsed_data["data"][5]["rowNum"], 6)
+            check.equal(data_dict["data"][5]["rowNum"], 6)
         with allure.step("Статус пользователя 1 Enabled, 2 Disabled, 3 Deleted"):
-            check.equal(parsed_data["data"][5]["state"], 1)
+            check.equal(data_dict["data"][5]["state"], 1)
         with allure.step("Тип группы или пользователя"):
-            check.equal(parsed_data["data"][5]["type"], 6)
+            check.equal(data_dict["data"][5]["type"], 6)
         with allure.step(
             "Тип пользователя: 1 AD, 2 Manual, 3 Index, 4 OldUserCard, 5 IndexUnknown, 6 ReportCenter, 7 EndpointController, 8 ProgramSniffer"
         ):
-            check.equal(parsed_data["data"][5]["userType"], 1)
+            check.equal(data_dict["data"][5]["userType"], 1)
 
     def test_schema(self, dc_api: DcApiWithToken):
         schema = {

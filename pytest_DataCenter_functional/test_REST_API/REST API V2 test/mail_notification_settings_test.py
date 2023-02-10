@@ -39,24 +39,22 @@ class TestMailNotificationSettings:
     @allure.title("Основные настройки")
     def test_main_settings(self):
         data_dict = r.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Уведомления по SearchServer не настроены"):
-            check.is_false(parsed_data["SearchServer"]["Enabled"])
+            check.is_false(data_dict["SearchServer"]["Enabled"])
         with allure.step("Уведомления по Endpoint не настроены"):
-            check.is_false(parsed_data["Endpoint"]["Enabled"])
+            check.is_false(data_dict["Endpoint"]["Enabled"])
         with allure.step("Уведомления по IntegrationSMTP не настроены"):
-            check.is_false(parsed_data["IntegrationSMTP"]["Enabled"])
+            check.is_false(data_dict["IntegrationSMTP"]["Enabled"])
         with allure.step("Уведомления по IntegrationMail не настроены"):
-            check.is_false(parsed_data["IntegrationMail"]["Enabled"])
+            check.is_false(data_dict["IntegrationMail"]["Enabled"])
         with allure.step("Уведомления по Network не настроены"):
-            check.is_false(parsed_data["Network"]["Enabled"])
+            check.is_false(data_dict["Network"]["Enabled"])
         with allure.step("Уведомления не включены"):
-            check.is_false(parsed_data["Enabled"])
+            check.is_false(data_dict["Enabled"])
         with allure.step("Адрес отправки уведомлений"):
-            check.equal(parsed_data["AddressTo"], "b@test.com")
+            check.equal(data_dict["AddressTo"], "b@test.com")
         with allure.step("Язык отправки уведомлений"):
-            check.equal(parsed_data["LanguageID"], "RUS")
+            check.equal(data_dict["LanguageID"], "RUS")
 
     @allure.title("Проверка возвращаемой схемы JSON")
     def test_schema(self):

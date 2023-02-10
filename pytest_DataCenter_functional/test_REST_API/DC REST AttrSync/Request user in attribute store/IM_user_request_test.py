@@ -38,18 +38,14 @@ class TestRequestUserInAttributeStoreByIndexes:
     @allure.title("Ограничение на кол-во возвращаемых данных")
     def test_number_of_strings(self):
         data_dict = r.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
-        check.greater_equal(len(parsed_data), 1)
-        check.less_equal(len(parsed_data), 1000)
+        check.greater_equal(len(data_dict), 1)
+        check.less_equal(len(data_dict), 1000)
 
     @allure.title("Возвращаемые данные")
     def test_return_data(self):
         data = ["admin3@test.net", "<unknown>", "admin1@test.net", "admin2@test.net"]
         data_dict = r.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
-        check.equal(set(data), set(parsed_data))
+        check.equal(set(data), set(data_dict))
 
     @allure.title("Проверка возвращаемой схемы JSON")
     def test_schema(self):

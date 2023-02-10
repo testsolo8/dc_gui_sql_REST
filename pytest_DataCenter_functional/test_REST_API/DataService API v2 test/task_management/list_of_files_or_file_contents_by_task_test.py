@@ -39,118 +39,110 @@ class TestListFilesOrFileContentsByTask:
     @allure.title("Задача 1")
     def test_task_id_1(self, dc_api: DcApiWithToken):
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with check.check, allure.step("Дата создания (файл 1)"):
-            assert_that(parsed_data["data"][0]["createDateTime"]).is_equal_to(1662713423)
+            assert_that(data_dict["data"][0]["createDateTime"]).is_equal_to(1662713423)
         with check.check, allure.step("Комментарий (файл 1)"):
-            assert_that(parsed_data["data"][0]["description"]).is_equal_to("файл vxd")
+            assert_that(data_dict["data"][0]["description"]).is_equal_to("файл vxd")
         with check.check, allure.step("Идентификатор аккаунта (файл 1)"):
-            assert_that(parsed_data["data"][0]["fileID"]).is_equal_to(12)
+            assert_that(data_dict["data"][0]["fileID"]).is_equal_to(12)
         with check.check, allure.step("Имя файла (файл 1)"):
-            assert_that(parsed_data["data"][0]["fileName"]).is_equal_to("CGLPT9X.VXD")
+            assert_that(data_dict["data"][0]["fileName"]).is_equal_to("CGLPT9X.VXD")
         with check.check, allure.step("Размер файла (файл 1)"):
-            assert_that(parsed_data["data"][0]["fileSize"]).is_equal_to(7259)
+            assert_that(data_dict["data"][0]["fileSize"]).is_equal_to(7259)
         with check.check, allure.step("Дата создания (файл 2)"):
-            assert_that(parsed_data["data"][1]["createDateTime"]).is_equal_to(1662713423)
+            assert_that(data_dict["data"][1]["createDateTime"]).is_equal_to(1662713423)
         with check.check, allure.step("Комментарий (файл 2)"):
-            assert_that(parsed_data["data"][1]["description"]).is_equal_to("файл bat")
+            assert_that(data_dict["data"][1]["description"]).is_equal_to("файл bat")
         with check.check, allure.step("Идентификатор аккаунта (файл 2)"):
-            assert_that(parsed_data["data"][1]["fileID"]).is_equal_to(13)
+            assert_that(data_dict["data"][1]["fileID"]).is_equal_to(13)
         with check.check, allure.step("Имя файла (файл 2)"):
-            assert_that(parsed_data["data"][1]["fileName"]).is_equal_to("WinInteg.bat")
+            assert_that(data_dict["data"][1]["fileName"]).is_equal_to("WinInteg.bat")
         with check.check, allure.step("Размер файла (файл 2)"):
-            assert_that(parsed_data["data"][1]["fileSize"]).is_equal_to(9892)
+            assert_that(data_dict["data"][1]["fileSize"]).is_equal_to(9892)
 
     @allure.title("Задача 3")
     def test_task_id_3(self, dc_api: DcApiWithToken):
         url_tail = "/api/v2/task_management/attached_files?taskID=3"
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with check.check, allure.step("Дата создания (файл 1)"):
-            assert_that(parsed_data["data"][0]["createDateTime"]).is_equal_to(1660570428)
+            assert_that(data_dict["data"][0]["createDateTime"]).is_equal_to(1660570428)
         with check.check, allure.step("Комментарий (файл 1)"):
-            assert_that(parsed_data["data"][0]["description"]).is_equal_to("")
+            assert_that(data_dict["data"][0]["description"]).is_equal_to("")
         with check.check, allure.step("Идентификатор аккаунта (файл 1)"):
-            assert_that(parsed_data["data"][0]["fileID"]).is_equal_to(5)
+            assert_that(data_dict["data"][0]["fileID"]).is_equal_to(5)
         with check.check, allure.step("Имя файла (файл 1)"):
-            assert_that(parsed_data["data"][0]["fileName"]).is_equal_to("7z.dll")
+            assert_that(data_dict["data"][0]["fileName"]).is_equal_to("7z.dll")
         with check.check, allure.step("Размер файла (файл 1)"):
-            assert_that(parsed_data["data"][0]["fileSize"]).is_equal_to(1236480)
+            assert_that(data_dict["data"][0]["fileSize"]).is_equal_to(1236480)
         with check.check, allure.step("Дата создания (файл 2)"):
-            assert_that(parsed_data["data"][1]["createDateTime"]).is_equal_to(1660570717)
+            assert_that(data_dict["data"][1]["createDateTime"]).is_equal_to(1660570717)
         with check.check, allure.step("Комментарий (файл 2)"):
-            assert_that(parsed_data["data"][1]["description"]).is_equal_to("")
+            assert_that(data_dict["data"][1]["description"]).is_equal_to("")
         with check.check, allure.step("Идентификатор аккаунта (файл 2)"):
-            assert_that(parsed_data["data"][1]["fileID"]).is_equal_to(9)
+            assert_that(data_dict["data"][1]["fileID"]).is_equal_to(9)
         with check.check, allure.step("Имя файла (файл 2)"):
-            assert_that(parsed_data["data"][1]["fileName"]).is_equal_to("7z64.dll")
+            assert_that(data_dict["data"][1]["fileName"]).is_equal_to("7z64.dll")
         with check.check, allure.step("Размер файла (файл 2)"):
-            assert_that(parsed_data["data"][1]["fileSize"]).is_equal_to(1814016)
+            assert_that(data_dict["data"][1]["fileSize"]).is_equal_to(1814016)
         with check.check, allure.step("Дата создания (файл 3)"):
-            assert_that(parsed_data["data"][2]["createDateTime"]).is_equal_to(1660570717)
+            assert_that(data_dict["data"][2]["createDateTime"]).is_equal_to(1660570717)
         with check.check, allure.step("Комментарий (файл 3)"):
-            assert_that(parsed_data["data"][2]["description"]).is_equal_to("")
+            assert_that(data_dict["data"][2]["description"]).is_equal_to("")
         with check.check, allure.step("Идентификатор аккаунта (файл 3)"):
-            assert_that(parsed_data["data"][2]["fileID"]).is_equal_to(10)
+            assert_that(data_dict["data"][2]["fileID"]).is_equal_to(10)
         with check.check, allure.step("Имя файла (файл 3)"):
-            assert_that(parsed_data["data"][2]["fileName"]).is_equal_to("7z64.dll")
+            assert_that(data_dict["data"][2]["fileName"]).is_equal_to("7z64.dll")
         with check.check, allure.step("Размер файла (файл 3)"):
-            assert_that(parsed_data["data"][2]["fileSize"]).is_equal_to(1814016)
+            assert_that(data_dict["data"][2]["fileSize"]).is_equal_to(1814016)
         with check.check, allure.step("Дата создания (файл 4)"):
-            assert_that(parsed_data["data"][3]["createDateTime"]).is_equal_to(1660570482)
+            assert_that(data_dict["data"][3]["createDateTime"]).is_equal_to(1660570482)
         with check.check, allure.step("Комментарий (файл 4)"):
-            assert_that(parsed_data["data"][3]["description"]).is_equal_to("")
+            assert_that(data_dict["data"][3]["description"]).is_equal_to("")
         with check.check, allure.step("Идентификатор аккаунта (файл 4)"):
-            assert_that(parsed_data["data"][3]["fileID"]).is_equal_to(7)
+            assert_that(data_dict["data"][3]["fileID"]).is_equal_to(7)
         with check.check, allure.step("Имя файла (файл 4)"):
-            assert_that(parsed_data["data"][3]["fileName"]).is_equal_to("operations.txt")
+            assert_that(data_dict["data"][3]["fileName"]).is_equal_to("operations.txt")
         with check.check, allure.step("Размер файла (файл 4)"):
-            assert_that(parsed_data["data"][3]["fileSize"]).is_equal_to(395)
+            assert_that(data_dict["data"][3]["fileSize"]).is_equal_to(395)
         with check.check, allure.step("Дата создания (файл 5)"):
-            assert_that(parsed_data["data"][4]["createDateTime"]).is_equal_to(1660570482)
+            assert_that(data_dict["data"][4]["createDateTime"]).is_equal_to(1660570482)
         with check.check, allure.step("Комментарий (файл 5)"):
-            assert_that(parsed_data["data"][4]["description"]).is_equal_to("")
+            assert_that(data_dict["data"][4]["description"]).is_equal_to("")
         with check.check, allure.step("Идентификатор аккаунта (файл 5)"):
-            assert_that(parsed_data["data"][4]["fileID"]).is_equal_to(8)
+            assert_that(data_dict["data"][4]["fileID"]).is_equal_to(8)
         with check.check, allure.step("Имя файла (файл 5)"):
-            assert_that(parsed_data["data"][4]["fileName"]).is_equal_to("siissproc.dll")
+            assert_that(data_dict["data"][4]["fileName"]).is_equal_to("siissproc.dll")
         with check.check, allure.step("Размер файла (файл 5)"):
-            assert_that(parsed_data["data"][4]["fileSize"]).is_equal_to(496136)
+            assert_that(data_dict["data"][4]["fileSize"]).is_equal_to(496136)
 
     @allure.title("Задача 23")
     def test_task_id_23(self, dc_api: DcApiWithToken):
         url_tail = "/api/v2/task_management/attached_files?taskID=23"
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with check.check, allure.step("Дата создания (файл 1)"):
-            assert_that(parsed_data["data"][0]["createDateTime"]).is_equal_to(1657101040)
+            assert_that(data_dict["data"][0]["createDateTime"]).is_equal_to(1657101040)
         with check.check, allure.step("Комментарий (файл 1)"):
-            assert_that(parsed_data["data"][0]["description"]).is_equal_to("")
+            assert_that(data_dict["data"][0]["description"]).is_equal_to("")
         with check.check, allure.step("Идентификатор аккаунта (файл 1)"):
-            assert_that(parsed_data["data"][0]["fileID"]).is_equal_to(1)
+            assert_that(data_dict["data"][0]["fileID"]).is_equal_to(1)
         with check.check, allure.step("Имя файла (файл 1)"):
-            assert_that(
-                parsed_data["data"][0]["fileName"]).is_equal_to(
+            assert_that(data_dict["data"][0]["fileName"]).is_equal_to(
                 "dsk0002.company.net_user2_company.net_06_06_2022 92745_06_06_2022 93111_5_2.vid",
             )
         with check.check, allure.step("Размер файла (файл 1)"):
-            assert_that(parsed_data["data"][0]["fileSize"]).is_equal_to(37999)
+            assert_that(data_dict["data"][0]["fileSize"]).is_equal_to(37999)
         with check.check, allure.step("Дата создания (файл 2)"):
-            assert_that(parsed_data["data"][1]["createDateTime"]).is_equal_to(1657101040)
+            assert_that(data_dict["data"][1]["createDateTime"]).is_equal_to(1657101040)
         with check.check, allure.step("Комментарий (файл 2)"):
-            assert_that(parsed_data["data"][1]["description"]).is_equal_to("")
+            assert_that(data_dict["data"][1]["description"]).is_equal_to("")
         with check.check, allure.step("Идентификатор аккаунта (файл 2)"):
-            assert_that(parsed_data["data"][1]["fileID"]).is_equal_to(2)
+            assert_that(data_dict["data"][1]["fileID"]).is_equal_to(2)
         with check.check, allure.step("Имя файла (файл 2)"):
-            assert_that(
-                parsed_data["data"][1]["fileName"]).is_equal_to(
+            assert_that(data_dict["data"][1]["fileName"]).is_equal_to(
                 "Троицкий _ Исследование paботы сварного рамного узла _выборочно_ _1977_.pdf",
             )
         with check.check, allure.step("Размер файла (файл 2)"):
-            assert_that(parsed_data["data"][1]["fileSize"]).is_equal_to(1549366)
+            assert_that(data_dict["data"][1]["fileSize"]).is_equal_to(1549366)
 
     @allure.title("Проверка возвращаемой схемы JSON")
     def test_schema(self, dc_api: DcApiWithToken):

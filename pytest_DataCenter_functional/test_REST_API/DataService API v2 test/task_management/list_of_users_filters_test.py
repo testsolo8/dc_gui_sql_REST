@@ -38,17 +38,15 @@ class TestListOfUsersFilters:
     @allure.title("Фильтр")
     def test_filter(self, dc_api: DcApiWithToken):
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with check.check, allure.step("Описание фильтра"):
-            check.equal(parsed_data["data"][0]["description"], "тест для реста")
+            check.equal(data_dict["data"][0]["description"], "тест для реста")
         with check.check, allure.step("Идентификатор типа"):
-            check.equal(parsed_data["data"][0]["filterID"], 1)
+            check.equal(data_dict["data"][0]["filterID"], 1)
         with check.check, allure.step("Название типа задачи"):
-            check.equal(parsed_data["data"][0]["filterName"], "test for rest")
+            check.equal(data_dict["data"][0]["filterName"], "test for rest")
         with check.check, allure.step("Параметры фильтра Base64"):
             check.equal(
-                parsed_data["data"][0]["value"],
+                data_dict["data"][0]["value"],
                 "eyJwYXJlbnRUYXNrSUQiOjAsInNlYXJjaFRleHQiOiIiLCJ0YXNrU3RhdGVJRExpc3QiOiIxLDIiLCJwcmlvcml0eUlETGlzdCI6I"
                 "jEsMiw1IiwidGFnSURMaXN0IjoiMSwyIiwidGFza1R5cGVJRExpc3QiOiIyIiwiZXhlY1VzZXJJRExpc3QiOlsxNSwxNCw1LDddLCJj"
                 "cmVhdGVVc2VySURMaXN0IjpbMTVdLCJwZXJzb25JRExpc3QiOlsxMCw2LDgsMTMsMiw0LDUsNywxLDMsMTIsMTEsOV0sImNyZW"

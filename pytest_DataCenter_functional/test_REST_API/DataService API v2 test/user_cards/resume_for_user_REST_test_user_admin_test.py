@@ -36,10 +36,8 @@ class TestResumeForUser:
     @allure.title("Данные резюме пользователя REST_test_user_admin")
     def test_resume_REST_test_user_admin(self, dc_api: DcApiWithToken):
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         assert (
-            parsed_data["data"][0]["jsonData"]
+            data_dict["data"][0]["jsonData"]
             == '{"keySkills":{"languageLevel":[{"name":"English","level":"b1"}],"professionalSkills":"","drivingExperience":"","skills":[{"skill":"UC.summary.professionalSkills","description":"Those '
             "same professional "
             'skills"}]},"education":[{"level":"higher","year":"2020","name":"Those same '

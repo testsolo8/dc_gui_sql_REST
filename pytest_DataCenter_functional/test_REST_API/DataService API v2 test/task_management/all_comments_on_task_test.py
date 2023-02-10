@@ -39,101 +39,93 @@ class TestAllCommentsOnTask:
     @allure.title("Задача 23")
     def test_task_id_23(self, dc_api: DcApiWithToken):
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with check.check, allure.step("Идентификатор комментария (комментарий 1)"):
-            assert_that(parsed_data["data"][0]["commentID"]).is_equal_to(3)
+            assert_that(data_dict["data"][0]["commentID"]).is_equal_to(3)
         with check.check, allure.step("Дата создания (комментарий 1)"):
-            assert_that(parsed_data["data"][0]["createDateTime"]).is_equal_to(1650378045)
+            assert_that(data_dict["data"][0]["createDateTime"]).is_equal_to(1650378045)
         with check.check, allure.step("Текст комментария (комментарий 1)"):
-            assert_that(parsed_data["data"][0]["msg"]).is_equal_to("комментарий 1")
+            assert_that(data_dict["data"][0]["msg"]).is_equal_to("комментарий 1")
         with check.check, allure.step("Идентификатор пользователя (комментарий 1)"):
-            assert_that(parsed_data["data"][0]["userID"]).is_equal_to(60705)
+            assert_that(data_dict["data"][0]["userID"]).is_equal_to(60705)
         with check.check, allure.step("Идентификатор комментария (комментарий 2)"):
-            assert_that(parsed_data["data"][1]["commentID"]).is_equal_to(4)
+            assert_that(data_dict["data"][1]["commentID"]).is_equal_to(4)
         with check.check, allure.step("Дата создания (комментарий 2)"):
-            assert_that(parsed_data["data"][1]["createDateTime"]).is_equal_to(1650378045)
+            assert_that(data_dict["data"][1]["createDateTime"]).is_equal_to(1650378045)
         with check.check, allure.step("Текст комментария (комментарий 2)"):
-            assert_that(parsed_data["data"][1]["msg"]).is_equal_to("комментарий 2")
+            assert_that(data_dict["data"][1]["msg"]).is_equal_to("комментарий 2")
         with check.check, allure.step("Идентификатор пользователя (комментарий 2)"):
-            assert_that(parsed_data["data"][1]["userID"]).is_equal_to(60705)
+            assert_that(data_dict["data"][1]["userID"]).is_equal_to(60705)
 
     @allure.title("Задача 28")
     def test_task_id_28(self, dc_api: DcApiWithToken):
         url_tail = "/api/v2/task_management/comments?taskID=28"
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with check.check, allure.step("Идентификатор комментария (комментарий 1)"):
-            assert_that(parsed_data["data"][0]["commentID"]).is_equal_to(7)
+            assert_that(data_dict["data"][0]["commentID"]).is_equal_to(7)
         with check.check, allure.step("Дата создания (комментарий 1)"):
-            assert_that(parsed_data["data"][0]["createDateTime"]).is_equal_to(1660571204)
+            assert_that(data_dict["data"][0]["createDateTime"]).is_equal_to(1660571204)
         with check.check, allure.step("Текст комментария (комментарий 1)"):
-            assert_that(parsed_data["data"][0]["msg"]).is_equal_to("\nплополб")
+            assert_that(data_dict["data"][0]["msg"]).is_equal_to("\nплополб")
         with check.check, allure.step("Идентификатор пользователя (комментарий 1)"):
-            assert_that(parsed_data["data"][0]["userID"]).is_equal_to(7886)
+            assert_that(data_dict["data"][0]["userID"]).is_equal_to(7886)
         with check.check, allure.step("Идентификатор комментария (комментарий 2)"):
-            assert_that(parsed_data["data"][1]["commentID"]).is_equal_to(8)
+            assert_that(data_dict["data"][1]["commentID"]).is_equal_to(8)
         with check.check, allure.step("Дата создания (комментарий 2)"):
-            assert_that(parsed_data["data"][1]["createDateTime"]).is_equal_to(1660571229)
+            assert_that(data_dict["data"][1]["createDateTime"]).is_equal_to(1660571229)
         with check.check, allure.step("Текст комментария (комментарий 2)"):
-            assert_that(parsed_data["data"][1]["msg"]).is_equal_to("смпррм\n")
+            assert_that(data_dict["data"][1]["msg"]).is_equal_to("смпррм\n")
         with check.check, allure.step("Идентификатор пользователя (комментарий 2)"):
-            assert_that(parsed_data["data"][1]["userID"]).is_equal_to(7886)
+            assert_that(data_dict["data"][1]["userID"]).is_equal_to(7886)
         with check.check, allure.step("Идентификатор комментария (комментарий 3)"):
-            assert_that(parsed_data["data"][2]["commentID"]).is_equal_to(9)
+            assert_that(data_dict["data"][2]["commentID"]).is_equal_to(9)
         with check.check, allure.step("Дата создания (комментарий 3)"):
-            assert_that(parsed_data["data"][2]["createDateTime"]).is_equal_to(1660571737)
+            assert_that(data_dict["data"][2]["createDateTime"]).is_equal_to(1660571737)
         with check.check, allure.step("Текст комментария (комментарий 3)"):
-            assert_that(
-                parsed_data["data"][2]["msg"]).is_equal_to(
+            assert_that(data_dict["data"][2]["msg"]).is_equal_to(
                 "рпоап\nапропро\nмоьрмрои\n\nпрмролор\n\nопрьор\n\n\nрмо\n\n\nрмомоло\nололо\n\nлоло\n\n\nорморло\n",
             )
         with check.check, allure.step("Идентификатор пользователя (комментарий 3)"):
-            assert_that(parsed_data["data"][2]["userID"]).is_equal_to(7886)
+            assert_that(data_dict["data"][2]["userID"]).is_equal_to(7886)
         with check.check, allure.step("Идентификатор комментария (комментарий 4)"):
-            assert_that(parsed_data["data"][3]["commentID"]).is_equal_to(10)
+            assert_that(data_dict["data"][3]["commentID"]).is_equal_to(10)
         with check.check, allure.step("Дата создания (комментарий 4)"):
-            assert_that(parsed_data["data"][3]["createDateTime"]).is_equal_to(1660571737)
+            assert_that(data_dict["data"][3]["createDateTime"]).is_equal_to(1660571737)
         with check.check, allure.step("Текст комментария (комментарий 4)"):
-            assert_that(
-                parsed_data["data"][3]["msg"]).is_equal_to(
+            assert_that(data_dict["data"][3]["msg"]).is_equal_to(
                 "1\n2\n3\n4\n5\n6\nолоооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооо",
             )
         with check.check, allure.step("Идентификатор пользователя (комментарий 4)"):
-            assert_that(parsed_data["data"][3]["userID"]).is_equal_to(7886)
+            assert_that(data_dict["data"][3]["userID"]).is_equal_to(7886)
         with check.check, allure.step("Идентификатор комментария (комментарий 5)"):
-            assert_that(parsed_data["data"][4]["commentID"]).is_equal_to(11)
+            assert_that(data_dict["data"][4]["commentID"]).is_equal_to(11)
         with check.check, allure.step("Дата создания (комментарий 5)"):
-            assert_that(parsed_data["data"][4]["createDateTime"]).is_equal_to(1660571737)
+            assert_that(data_dict["data"][4]["createDateTime"]).is_equal_to(1660571737)
         with check.check, allure.step("Текст комментария (комментарий 5)"):
-            assert_that(
-                parsed_data["data"][4]["msg"]).is_equal_to(
+            assert_that(data_dict["data"][4]["msg"]).is_equal_to(
                 "ывапыва ывапывапыв аавыпаывапиывап ывап ывапы вап ывапыва ывап ывап ывап ывапывапыва ыва пывап ыва пывап ыва пывап ывап ывап ывап ывап ывап ",
             )
         with check.check, allure.step("Идентификатор пользователя (комментарий 5)"):
-            assert_that(parsed_data["data"][4]["userID"]).is_equal_to(7886)
+            assert_that(data_dict["data"][4]["userID"]).is_equal_to(7886)
         with check.check, allure.step("Идентификатор комментария (комментарий 6)"):
-            assert_that(parsed_data["data"][5]["commentID"]).is_equal_to(12)
+            assert_that(data_dict["data"][5]["commentID"]).is_equal_to(12)
         with check.check, allure.step("Дата создания (комментарий 6)"):
-            assert_that(parsed_data["data"][5]["createDateTime"]).is_equal_to(1660571737)
+            assert_that(data_dict["data"][5]["createDateTime"]).is_equal_to(1660571737)
         with check.check, allure.step("Текст комментария (комментарий 6)"):
-            assert_that(
-                parsed_data["data"][5]["msg"]).is_equal_to(
+            assert_that(data_dict["data"][5]["msg"]).is_equal_to(
                 "ыавпывап\nывпа\nыапы\nап\nып\nы\nапы\nп\nы\nп\nып\nы\nп\nы\nпы\nпа\nы\nпаы\nп\n\nып\nы\nп\nы\nп\nы\nпы\nп\nы\nпа\nы\nпы\nп\nы\nапы\nап\nы\nап\nцкп\nцы\nавп\nцк\nп",
             )
         with check.check, allure.step("Идентификатор пользователя (комментарий 6)"):
-            assert_that(parsed_data["data"][5]["userID"]).is_equal_to(7886)
+            assert_that(data_dict["data"][5]["userID"]).is_equal_to(7886)
         with check.check, allure.step("Идентификатор комментария (комментарий 7)"):
-            assert_that(parsed_data["data"][6]["commentID"]).is_equal_to(13)
+            assert_that(data_dict["data"][6]["commentID"]).is_equal_to(13)
         with check.check, allure.step("Дата создания (комментарий 7)"):
-            assert_that(parsed_data["data"][6]["createDateTime"]).is_equal_to(1660571737)
+            assert_that(data_dict["data"][6]["createDateTime"]).is_equal_to(1660571737)
         with check.check, allure.step("Текст комментария (комментарий 7)"):
-            assert_that(
-                parsed_data["data"][6]["msg"]).is_equal_to("фмачыамм ыапаывпыапыпыпыпыапы\nыы"
+            assert_that(data_dict["data"][6]["msg"]).is_equal_to(
+                "фмачыамм ыапаывпыапыпыпыпыапы\nыы"
             )
         with check.check, allure.step("Идентификатор пользователя (комментарий 7)"):
-            assert_that(parsed_data["data"][6]["userID"]).is_equal_to(7886)
+            assert_that(data_dict["data"][6]["userID"]).is_equal_to(7886)
 
     @allure.title("Проверка возвращаемой схемы JSON")
     def test_schema(self, dc_api: DcApiWithToken):

@@ -42,74 +42,62 @@ class TestESNSLicensingSettings:
     @allure.title("Лицензия на вычитку паролей из данных перехвата")
     def test_password_license(self):
         data_dict = r.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Окончание лицензии"):
             check.greater(
-                datetime.utcfromtimestamp(
-                    parsed_data["PasswordLicense"]["Expire_Date"]
-                ),
+                datetime.utcfromtimestamp(data_dict["PasswordLicense"]["Expire_Date"]),
                 datetime.now(),
             )
         with allure.step("UniqueID лицензии"):
             check.equal(
-                parsed_data["PasswordLicense"]["UniqueID"],
+                data_dict["PasswordLicense"]["UniqueID"],
                 "{456ED2B8-A757-11DE-9196-988056D89593}",
             )
         with allure.step("Колличество лицензий"):
-            check.equal(parsed_data["PasswordLicense"]["LicensesCount"], 1000)
+            check.equal(data_dict["PasswordLicense"]["LicensesCount"], 1000)
 
     @allure.title("Лицензия на распознавание перехвата микрофона")
     def test_microphone_to_text(self):
         data_dict = r.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Окончание лицензии"):
             check.greater(
-                datetime.utcfromtimestamp(
-                    parsed_data["MicrophoneToText"]["Expire_Date"]
-                ),
+                datetime.utcfromtimestamp(data_dict["MicrophoneToText"]["Expire_Date"]),
                 datetime.now(),
             )
         with allure.step("UniqueID лицензии"):
             check.equal(
-                parsed_data["MicrophoneToText"]["UniqueID"],
+                data_dict["MicrophoneToText"]["UniqueID"],
                 "{ACC50121-7668-4FB2-AAA1-D085152B9953}",
             )
         with allure.step("Колличество лицензий"):
-            check.equal(parsed_data["PasswordLicense"]["LicensesCount"], 1000)
+            check.equal(data_dict["PasswordLicense"]["LicensesCount"], 1000)
 
     @allure.title("Лицензия на external API")
     def test_external_API_license(self):
         data_dict = r.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Окончание лицензии"):
             check.greater(
                 datetime.utcfromtimestamp(
-                    parsed_data["ExternalAPILicense"]["Expire_Date"]
+                    data_dict["ExternalAPILicense"]["Expire_Date"]
                 ),
                 datetime.now(),
             )
         with allure.step("UniqueID лицензии"):
             check.equal(
-                parsed_data["ExternalAPILicense"]["UniqueID"],
+                data_dict["ExternalAPILicense"]["UniqueID"],
                 "{2D7BD076-0E24-403C-97F1-449705B1F976}",
             )
         with allure.step("Колличество лицензий"):
-            check.equal(parsed_data["ExternalAPILicense"]["LicensesCount"], 1)
+            check.equal(data_dict["ExternalAPILicense"]["LicensesCount"], 1)
 
     @allure.title("Другие параметры запроса")
     def test_other_data(self):
         data_dict = r.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Тех. поддержка до"):
             check.greater(
-                datetime.utcfromtimestamp(parsed_data["SupportTo"]), datetime.now()
+                datetime.utcfromtimestamp(data_dict["SupportTo"]), datetime.now()
             )
         with allure.step("E-mail тех. поддержки"):
-            check.equal(parsed_data["Contact_Person_EMail"], "test@test.com")
+            check.equal(data_dict["Contact_Person_EMail"], "test@test.com")
 
     @allure.title("Проверка возвращаемой схемы JSON")
     def test_schema(self):

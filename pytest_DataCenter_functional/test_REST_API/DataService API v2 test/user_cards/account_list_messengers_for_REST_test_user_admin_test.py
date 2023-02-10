@@ -38,86 +38,76 @@ class TestAccountListMessengersForUser:
     @allure.title("Skype аккаунт")
     def test_skype_account(self, dc_api: DcApiWithToken):
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Идентификатор аккаунта"):
-            check.equal(parsed_data["data"][0]["accountID"], 3)
+            check.equal(data_dict["data"][0]["accountID"], 3)
         with allure.step("Логин"):
             check.equal(
-                parsed_data["data"][0]["accountName"], "Skype_REST_test_user_admin"
+                data_dict["data"][0]["accountName"], "Skype_REST_test_user_admin"
             )
         with allure.step("Тип аккаунта - UC_AccountsType"):
-            check.equal(parsed_data["data"][0]["accountTypeID"], 2)
+            check.equal(data_dict["data"][0]["accountTypeID"], 2)
         with allure.step("Тип контакта: 3 Мессенджеры, 4 Соц.Сети, 5 Другие"):
-            check.equal(parsed_data["data"][0]["contactTypeID"], 3)
+            check.equal(data_dict["data"][0]["contactTypeID"], 3)
         with allure.step("Имя аккаунта"):
             check.equal(
-                parsed_data["data"][0]["displayName"], "Skype_REST_test_user_admin"
+                data_dict["data"][0]["displayName"], "Skype_REST_test_user_admin"
             )
         with allure.step("Идентификатор документа в индексе"):
-            check.is_none(parsed_data["data"][0]["docID"])
+            check.is_none(data_dict["data"][0]["docID"])
         with allure.step("Отображать в шапке"):
-            check.is_true(parsed_data["data"][0]["inHeader"])
+            check.is_true(data_dict["data"][0]["inHeader"])
         with allure.step("Дата последнего входа"):
-            check.is_none(parsed_data["data"][0]["lastLogon"])
+            check.is_none(data_dict["data"][0]["lastLogon"])
         with allure.step("UDL документа"):
-            check.is_none(parsed_data["data"][0]["signID"])
+            check.is_none(data_dict["data"][0]["signID"])
 
     @allure.title("ICQ аккаунт")
     def test_icq_account(self, dc_api: DcApiWithToken):
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Идентификатор аккаунта"):
-            check.equal(parsed_data["data"][1]["accountID"], 2)
+            check.equal(data_dict["data"][1]["accountID"], 2)
         with allure.step("Логин"):
-            check.equal(
-                parsed_data["data"][1]["accountName"], "ICQ_REST_test_user_admin"
-            )
+            check.equal(data_dict["data"][1]["accountName"], "ICQ_REST_test_user_admin")
         with allure.step("Тип аккаунта - UC_AccountsType"):
-            check.equal(parsed_data["data"][1]["accountTypeID"], 4)
+            check.equal(data_dict["data"][1]["accountTypeID"], 4)
         with allure.step("Тип контакта: 3 Мессенджеры, 4 Соц.Сети, 5 Другие"):
-            check.equal(parsed_data["data"][1]["contactTypeID"], 3)
+            check.equal(data_dict["data"][1]["contactTypeID"], 3)
         with allure.step("Имя аккаунта"):
-            check.equal(
-                parsed_data["data"][1]["displayName"], "ICQ_REST_test_user_admin"
-            )
+            check.equal(data_dict["data"][1]["displayName"], "ICQ_REST_test_user_admin")
         with allure.step("Идентификатор документа в индексе"):
-            check.is_none(parsed_data["data"][1]["docID"])
+            check.is_none(data_dict["data"][1]["docID"])
         with allure.step("Отображать в шапке"):
-            check.is_none(parsed_data["data"][1]["inHeader"])
+            check.is_none(data_dict["data"][1]["inHeader"])
         with allure.step("Дата последнего входа"):
-            check.is_none(parsed_data["data"][1]["lastLogon"])
+            check.is_none(data_dict["data"][1]["lastLogon"])
         with allure.step("UDL документа"):
-            check.is_none(parsed_data["data"][1]["signID"])
+            check.is_none(data_dict["data"][1]["signID"])
 
     @allure.title("Telegram аккаунт")
     def test_icq_account(self, dc_api: DcApiWithToken):
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Идентификатор аккаунта"):
-            check.equal(parsed_data["data"][2]["accountID"], 1)
+            check.equal(data_dict["data"][2]["accountID"], 1)
         with allure.step("Логин"):
             check.equal(
-                parsed_data["data"][2]["accountName"], "Telegram_REST_test_user_admin"
+                data_dict["data"][2]["accountName"], "Telegram_REST_test_user_admin"
             )
         with allure.step("Тип аккаунта - UC_AccountsType"):
-            check.equal(parsed_data["data"][2]["accountTypeID"], 7)
+            check.equal(data_dict["data"][2]["accountTypeID"], 7)
         with allure.step("Тип контакта: 3 Мессенджеры, 4 Соц.Сети, 5 Другие"):
-            check.equal(parsed_data["data"][2]["contactTypeID"], 3)
+            check.equal(data_dict["data"][2]["contactTypeID"], 3)
         with allure.step("Имя аккаунта"):
             check.equal(
-                parsed_data["data"][2]["displayName"], "Telegram_REST_test_user_admin"
+                data_dict["data"][2]["displayName"], "Telegram_REST_test_user_admin"
             )
         with allure.step("Идентификатор документа в индексе"):
-            check.is_none(parsed_data["data"][2]["docID"])
+            check.is_none(data_dict["data"][2]["docID"])
         with allure.step("Отображать в шапке"):
-            check.is_none(parsed_data["data"][2]["inHeader"])
+            check.is_none(data_dict["data"][2]["inHeader"])
         with allure.step("Дата последнего входа"):
-            check.is_none(parsed_data["data"][2]["lastLogon"])
+            check.is_none(data_dict["data"][2]["lastLogon"])
         with allure.step("UDL документа"):
-            check.is_none(parsed_data["data"][2]["signID"])
+            check.is_none(data_dict["data"][2]["signID"])
 
     @allure.title("Другие аккаунты")
     def test_another_account(self, dc_api: DcApiWithToken):
@@ -125,32 +115,30 @@ class TestAccountListMessengersForUser:
             "/api/v2/data_center/user_cards/contacts/accounts?userID=5&contactTypeID=5"
         )
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Идентификатор аккаунта"):
-            check.equal(parsed_data["data"][0]["accountID"], 14)
+            check.equal(data_dict["data"][0]["accountID"], 14)
         with allure.step("Логин"):
             check.equal(
-                parsed_data["data"][0]["accountName"],
+                data_dict["data"][0]["accountName"],
                 "Another contact REST_test_user_admin",
             )
         with allure.step("Тип аккаунта - UC_AccountsType"):
-            check.equal(parsed_data["data"][0]["accountTypeID"], 1)
+            check.equal(data_dict["data"][0]["accountTypeID"], 1)
         with allure.step("Тип контакта: 3 Мессенджеры, 4 Соц.Сети, 5 Другие"):
-            check.equal(parsed_data["data"][0]["contactTypeID"], 5)
+            check.equal(data_dict["data"][0]["contactTypeID"], 5)
         with allure.step("Имя аккаунта"):
             check.equal(
-                parsed_data["data"][0]["displayName"],
+                data_dict["data"][0]["displayName"],
                 "Another contact REST_test_user_admin",
             )
         with allure.step("Идентификатор документа в индексе"):
-            check.is_none(parsed_data["data"][0]["docID"])
+            check.is_none(data_dict["data"][0]["docID"])
         with allure.step("Отображать в шапке"):
-            check.is_none(parsed_data["data"][0]["inHeader"])
+            check.is_none(data_dict["data"][0]["inHeader"])
         with allure.step("Дата последнего входа"):
-            check.is_none(parsed_data["data"][0]["lastLogon"])
+            check.is_none(data_dict["data"][0]["lastLogon"])
         with allure.step("UDL документа"):
-            check.is_none(parsed_data["data"][0]["signID"])
+            check.is_none(data_dict["data"][0]["signID"])
 
     @allure.title("Проверка возвращаемой схемы JSON")
     def test_schema(self, dc_api: DcApiWithToken):

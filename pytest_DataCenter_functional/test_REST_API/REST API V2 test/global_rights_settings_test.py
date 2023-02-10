@@ -37,9 +37,7 @@ class TestGlobalRightsSettings:
     @allure.title("Статус прав доступа (включены)")
     def test_global_rights(self):
         data_dict = r.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
-        assert parsed_data["settings"]["AccessRightsEnabled"] == True
+        assert data_dict["settings"]["AccessRightsEnabled"] == True
 
     @allure.title("Проверка возвращаемой схемы JSON")
     def test_schema(self):

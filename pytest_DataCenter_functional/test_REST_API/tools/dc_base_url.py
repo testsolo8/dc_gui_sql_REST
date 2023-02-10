@@ -57,4 +57,6 @@ class DcApiWithToken:
         if self.token is None:
             self.auth()
         api_call_headers = {"Authorization": "Bearer " + self.token}
-        return requests.post(url=path, json=body, headers=api_call_headers, verify=False)
+        return requests.post(
+            url=path, json=body, headers=api_call_headers, verify=False
+        )

@@ -37,26 +37,22 @@ class TestAccessSettingsToRabbitMQBroker:
     @pytest.mark.skip(reason="в текущей реализации среды для тестов не реализовано")
     def test_port_connection(self):
         data_dict = r.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
-        check.equal(parsed_data["WEBUIPort"], "9076")
-        check.equal(parsed_data["AMQPPort"], "9075")
-        check.equal(parsed_data["STOMPPort"], "9077")
+        check.equal(data_dict["WEBUIPort"], "9076")
+        check.equal(data_dict["AMQPPort"], "9075")
+        check.equal(data_dict["STOMPPort"], "9077")
 
     @pytest.mark.skip(reason="в текущей реализации среды для тестов не реализовано")
     def test_connection(self):
         data_dict = r.json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         check.equal(
-            parsed_data["Pwd"],
+            data_dict["Pwd"],
             "AQBEAEUARABBADcANQA2AEIAOQA1AEMAOABFADkAQgBEADIANAA1AEIAMgA1AEQAOAA5ADkANgBDAEIANQAz"
             "AEMANwAyAEYARgAxAEYAMgBEAEIAMgA3AEMAMQA1ADIARQA5ADkAQwBEAEMANQA0AEIANQA1ADkARgA4AEUAQ"
             "QBEADYANQAzAEIAMAAyAEUAOAA",
         )
-        check.equal(parsed_data["VHost"], "DataCenter")
-        check.equal(parsed_data["User"], "SearchinformUser")
-        check.equal(parsed_data["Host"], "DC-RC.minsk.searchinform.net")
+        check.equal(data_dict["VHost"], "DataCenter")
+        check.equal(data_dict["User"], "SearchinformUser")
+        check.equal(data_dict["Host"], "DC-RC.minsk.searchinform.net")
 
     @pytest.mark.skip(reason="в текущей реализации среды для тестов не реализовано")
     def test_schema(self):

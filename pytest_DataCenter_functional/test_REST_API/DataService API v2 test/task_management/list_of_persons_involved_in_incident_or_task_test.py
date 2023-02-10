@@ -38,131 +38,123 @@ class TestListOfPersonsInvolvedInIncidentOrTask:
     @allure.title("Список фигурантов по задаче 1")
     def test_person_for_task_3(self, dc_api: DcApiWithToken):
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with check.check, allure.step(
             "Идентификатор инцидента (0 - фигурант добавлен в задачу вручную) (фигурант 1)"
         ):
-            check.equal(parsed_data["data"][0]["incidentID"], 73)
+            check.equal(data_dict["data"][0]["incidentID"], 73)
         with check.check, allure.step("Идентификатор пользователя (фигурант 1)"):
-            check.equal(parsed_data["data"][0]["userID"], -160121)
+            check.equal(data_dict["data"][0]["userID"], -160121)
         with check.check, allure.step(
             "Идентификатор инцидента (0 - фигурант добавлен в задачу вручную) (фигурант 2)"
         ):
-            check.equal(parsed_data["data"][1]["incidentID"], 73)
+            check.equal(data_dict["data"][1]["incidentID"], 73)
         with check.check, allure.step("Идентификатор пользователя (фигурант 2)"):
-            check.equal(parsed_data["data"][1]["userID"], -160120)
+            check.equal(data_dict["data"][1]["userID"], -160120)
         with check.check, allure.step(
             "Идентификатор инцидента (0 - фигурант добавлен в задачу вручную) (фигурант 3)"
         ):
-            check.equal(parsed_data["data"][2]["incidentID"], 73)
+            check.equal(data_dict["data"][2]["incidentID"], 73)
         with check.check, allure.step("Идентификатор пользователя (фигурант 3)"):
-            check.equal(parsed_data["data"][2]["userID"], -160119)
+            check.equal(data_dict["data"][2]["userID"], -160119)
         with check.check, allure.step(
             "Идентификатор инцидента (0 - фигурант добавлен в задачу вручную) (фигурант 4)"
         ):
-            check.equal(parsed_data["data"][3]["incidentID"], 1)
+            check.equal(data_dict["data"][3]["incidentID"], 1)
         with check.check, allure.step("Идентификатор пользователя (фигурант 4)"):
-            check.equal(parsed_data["data"][3]["userID"], 5)
+            check.equal(data_dict["data"][3]["userID"], 5)
         with check.check, allure.step(
             "Идентификатор инцидента (0 - фигурант добавлен в задачу вручную) (фигурант 5)"
         ):
-            check.equal(parsed_data["data"][4]["incidentID"], 73)
+            check.equal(data_dict["data"][4]["incidentID"], 73)
         with check.check, allure.step("Идентификатор пользователя (фигурант 5)"):
-            check.equal(parsed_data["data"][4]["userID"], 3880)
+            check.equal(data_dict["data"][4]["userID"], 3880)
         with check.check, allure.step(
             "Идентификатор инцидента (0 - фигурант добавлен в задачу вручную) (фигурант 6)"
         ):
-            check.equal(parsed_data["data"][5]["incidentID"], 73)
+            check.equal(data_dict["data"][5]["incidentID"], 73)
         with check.check, allure.step("Идентификатор пользователя (фигурант 6)"):
-            check.equal(parsed_data["data"][5]["userID"], 4082)
+            check.equal(data_dict["data"][5]["userID"], 4082)
         with check.check, allure.step(
             "Идентификатор инцидента (0 - фигурант добавлен в задачу вручную) (фигурант 7)"
         ):
-            check.equal(parsed_data["data"][6]["incidentID"], 73)
+            check.equal(data_dict["data"][6]["incidentID"], 73)
         with check.check, allure.step("Идентификатор пользователя (фигурант 7)"):
-            check.equal(parsed_data["data"][6]["userID"], 4271)
+            check.equal(data_dict["data"][6]["userID"], 4271)
         with check.check, allure.step(
             "Идентификатор инцидента (0 - фигурант добавлен в задачу вручную) (фигурант 8)"
         ):
-            check.equal(parsed_data["data"][7]["incidentID"], 73)
+            check.equal(data_dict["data"][7]["incidentID"], 73)
         with check.check, allure.step("Идентификатор пользователя (фигурант 8)"):
-            check.equal(parsed_data["data"][7]["userID"], 4346)
+            check.equal(data_dict["data"][7]["userID"], 4346)
         with check.check, allure.step(
             "Идентификатор инцидента (0 - фигурант добавлен в задачу вручную) (фигурант 9)"
         ):
-            check.equal(parsed_data["data"][8]["incidentID"], 73)
+            check.equal(data_dict["data"][8]["incidentID"], 73)
         with check.check, allure.step("Идентификатор пользователя (фигурант 9)"):
-            check.equal(parsed_data["data"][8]["userID"], 7068)
+            check.equal(data_dict["data"][8]["userID"], 7068)
         with check.check, allure.step(
             "Идентификатор инцидента (0 - фигурант добавлен в задачу вручную) (фигурант 10)"
         ):
-            check.equal(parsed_data["data"][9]["incidentID"], 73)
+            check.equal(data_dict["data"][9]["incidentID"], 73)
         with check.check, allure.step("Идентификатор пользователя (фигурант 10)"):
-            check.equal(parsed_data["data"][9]["userID"], 7463)
+            check.equal(data_dict["data"][9]["userID"], 7463)
         with check.check, allure.step(
             "Идентификатор инцидента (0 - фигурант добавлен в задачу вручную) (фигурант 11)"
         ):
-            check.equal(parsed_data["data"][10]["incidentID"], 165)
+            check.equal(data_dict["data"][10]["incidentID"], 165)
         with check.check, allure.step("Идентификатор пользователя (фигурант 11)"):
-            check.equal(parsed_data["data"][10]["userID"], 7886)
+            check.equal(data_dict["data"][10]["userID"], 7886)
         with check.check, allure.step(
             "Идентификатор инцидента (0 - фигурант добавлен в задачу вручную) (фигурант 12)"
         ):
-            check.equal(parsed_data["data"][11]["incidentID"], 73)
+            check.equal(data_dict["data"][11]["incidentID"], 73)
         with check.check, allure.step("Идентификатор пользователя (фигурант 12)"):
-            check.equal(parsed_data["data"][11]["userID"], 9543)
+            check.equal(data_dict["data"][11]["userID"], 9543)
 
     @allure.title("Список фигурантов по задаче 7")
     def test_person_for_task_7(self, dc_api: DcApiWithToken):
         url_tail = "/api/v2/task_management/persons?taskID=7"
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with check.check, allure.step(
             "Идентификатор инцидента (0 - фигурант добавлен в задачу вручную) (фигурант 1)"
         ):
-            check.equal(parsed_data["data"][0]["incidentID"], 129)
+            check.equal(data_dict["data"][0]["incidentID"], 129)
         with check.check, allure.step("Идентификатор пользователя (фигурант 1)"):
-            check.equal(parsed_data["data"][0]["userID"], 3016)
+            check.equal(data_dict["data"][0]["userID"], 3016)
         with check.check, allure.step(
             "Идентификатор инцидента (0 - фигурант добавлен в задачу вручную) (фигурант 2)"
         ):
-            check.equal(parsed_data["data"][1]["incidentID"], 129)
+            check.equal(data_dict["data"][1]["incidentID"], 129)
         with check.check, allure.step("Идентификатор пользователя (фигурант 2)"):
-            check.equal(parsed_data["data"][1]["userID"], 7886)
+            check.equal(data_dict["data"][1]["userID"], 7886)
 
     @allure.title("Список фигурантов по задаче 26")
     def test_person_for_task_26(self, dc_api: DcApiWithToken):
         url_tail = "/api/v2/task_management/persons?taskID=26"
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with check.check, allure.step(
             "Идентификатор инцидента (0 - фигурант добавлен в задачу вручную) (фигурант 1)"
         ):
-            check.equal(parsed_data["data"][0]["incidentID"], 178)
+            check.equal(data_dict["data"][0]["incidentID"], 178)
         with check.check, allure.step("Идентификатор пользователя (фигурант 1)"):
-            check.equal(parsed_data["data"][0]["userID"], 6305)
+            check.equal(data_dict["data"][0]["userID"], 6305)
 
     @allure.title("Список фигурантов по задаче 28")
     def test_person_for_task_28(self, dc_api: DcApiWithToken):
         url_tail = "/api/v2/task_management/persons?taskID=28"
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with check.check, allure.step(
             "Идентификатор инцидента (0 - фигурант добавлен в задачу вручную) (фигурант 1)"
         ):
-            check.equal(parsed_data["data"][0]["incidentID"], 187)
+            check.equal(data_dict["data"][0]["incidentID"], 187)
         with check.check, allure.step("Идентификатор пользователя (фигурант 1)"):
-            check.equal(parsed_data["data"][0]["userID"], 6305)
+            check.equal(data_dict["data"][0]["userID"], 6305)
         with check.check, allure.step(
             "Идентификатор инцидента (0 - фигурант добавлен в задачу вручную) (фигурант 2)"
         ):
-            check.equal(parsed_data["data"][1]["incidentID"], 203)
+            check.equal(data_dict["data"][1]["incidentID"], 203)
         with check.check, allure.step("Идентификатор пользователя (фигурант 2)"):
-            check.equal(parsed_data["data"][1]["userID"], 7886)
+            check.equal(data_dict["data"][1]["userID"], 7886)
 
     @allure.title("Проверка возвращаемой схемы JSON")
     def test_schema(self, dc_api: DcApiWithToken):

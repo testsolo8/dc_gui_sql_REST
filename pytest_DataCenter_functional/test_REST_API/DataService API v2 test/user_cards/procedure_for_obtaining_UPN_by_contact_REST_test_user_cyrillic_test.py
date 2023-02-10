@@ -41,39 +41,35 @@ class TestProcedureForObtainingUPNByContact:
     @allure.title("Процедура получения UPN по контакту (AccountTypeID=1)")
     def test_UPN_Mitsko(self, dc_api: DcApiWithToken):
         data_dict = dc_api.req_get(url_tail).json()
-        data_str = json.dumps(data_dict)
-        parsed_data = json.loads(data_str)
         with allure.step("Количество объектов внутри группы"):
-            check.is_none(parsed_data["data"][0]["childCount"])
+            check.is_none(data_dict["data"][0]["childCount"])
         with allure.step("Цвет профиля"):
-            check.equal(parsed_data["data"][0]["color"], 0)
+            check.equal(data_dict["data"][0]["color"], 0)
         with allure.step("Список идентификаторов привязанных пользователей"):
-            check.is_none(parsed_data["data"][0]["concatList"])
+            check.is_none(data_dict["data"][0]["concatList"])
         with allure.step("Имя группы или пользователя"):
-            check.equal(
-                parsed_data["data"][0]["displayName"], "REST_test_user_кириллик"
-            )
+            check.equal(data_dict["data"][0]["displayName"], "REST_test_user_кириллик")
         with allure.step("Уникальный идентификатор группы или пользователя"):
             check.equal(
-                parsed_data["data"][0]["guid"], "2BFADC91-4BD5-44FE-853D-15E4814CC0D8"
+                data_dict["data"][0]["guid"], "2BFADC91-4BD5-44FE-853D-15E4814CC0D8"
             )
         with allure.step("Идентификатор группы или пользователя"):
-            check.equal(parsed_data["data"][0]["id"], 1)
+            check.equal(data_dict["data"][0]["id"], 1)
         with allure.step("Флаг группы"):
-            check.equal(parsed_data["data"][0]["isGroup"], 0)
+            check.equal(data_dict["data"][0]["isGroup"], 0)
         with allure.step("Логин пользователя"):
             check.equal(
-                parsed_data["data"][0]["principalName"],
+                data_dict["data"][0]["principalName"],
                 "REST_test_user_cyrillic@autotest.lan",
             )
         with allure.step("Статус пользователя 1 Enabled, 2 Disabled, 3 Deleted"):
-            check.equal(parsed_data["data"][0]["state"], 1)
+            check.equal(data_dict["data"][0]["state"], 1)
         with allure.step("Тип пользователя или группы (для иконки)"):
-            check.equal(parsed_data["data"][0]["type"], 6)
+            check.equal(data_dict["data"][0]["type"], 6)
         with allure.step(
             "Тип пользователя: 1 AD, 2 Manual, 3 Index, 4 OldUserCard, 5 IndexUnknown, 6 ReportCenter, 7 EndpointController, 8 ProgramSniffer"
         ):
-            check.equal(parsed_data["data"][0]["userType"], 1)
+            check.equal(data_dict["data"][0]["userType"], 1)
 
     @allure.title("Проверка возвращаемой схемы JSON")
     def test_schema(self, dc_api: DcApiWithToken):
