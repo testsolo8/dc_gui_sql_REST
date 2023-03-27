@@ -1,22 +1,22 @@
 class OutlookCalendarsPage:
     cancel = {
-        "title_en": "Cancel",
+        "title_eng": "Cancel",
         "title_es": "Cancelar",
-        "title_ru": "Отменить",
+        "title_rus": "Отменить",
         "control_type": "Button",
     }
 
     apply = {
-        "title_en": "Apply",
+        "title_eng": "Apply",
         "title_es": "Aplicar",
-        "title_ru": "Применить",
+        "title_rus": "Применить",
         "control_type": "Button",
     }
 
     min_1 = {
-        "title_en": "min.",
+        "title_eng": "min.",
         "title_es": "min.",
-        "title_ru": "мин.",
+        "title_rus": "мин.",
         "control_type": "Pane",
         "attribute_en": "min.Pane",
         "attribute_es": "min.Pane",
@@ -24,9 +24,9 @@ class OutlookCalendarsPage:
     }
 
     min_2 = {
-        "title_en": "min.",
+        "title_eng": "min.",
         "title_es": "min.",
-        "title_ru": "Применить",
+        "title_rus": "Применить",
         "control_type": "Pane",
         "attribute_en": "min.Pane2",
         "attribute_es": "min.Pane2",
@@ -34,9 +34,9 @@ class OutlookCalendarsPage:
     }
 
     connection_to_exchange_server = {
-        "title_en": "Connection to the Exchange server",
+        "title_eng": "Connection to the Exchange server",
         "title_es": "Conexión con el servidor Exchange",
-        "title_ru": "Подключение к серверу Exchange",
+        "title_rus": "Подключение к серверу Exchange",
         "control_type": "Pane",
         "attribute_en": "Connection to the Exchange serverPane",
         "attribute_es": "Conexión con el servidor ExchangePane",
@@ -44,9 +44,9 @@ class OutlookCalendarsPage:
     }
 
     server_address = {
-        "title_en": "Server address",
+        "title_eng": "Server address",
         "title_es": "Dirección del servidor",
-        "title_ru": "Адрес сервера",
+        "title_rus": "Адрес сервера",
         "control_type": "Pane",
         "attribute_en": "Server addressPane",
         "attribute_es": "Dirección del servidorPane",
@@ -54,9 +54,9 @@ class OutlookCalendarsPage:
     }
 
     username = {
-        "title_en": "Username",
+        "title_eng": "Username",
         "title_es": "Nombre del usuario",
-        "title_ru": "Имя пользователя",
+        "title_rus": "Имя пользователя",
         "control_type": "Pane",
         "attribute_en": "UsernamePane",
         "attribute_es": "Nombre del usuarioPane",
@@ -64,9 +64,9 @@ class OutlookCalendarsPage:
     }
 
     password = {
-        "title_en": "Password",
+        "title_eng": "Password",
         "title_es": "Contraseña",
-        "title_ru": "Пароль",
+        "title_rus": "Пароль",
         "control_type": "Pane",
         "attribute_en": "PasswordPane",
         "attribute_es": "ContraseñaPane",
@@ -74,9 +74,9 @@ class OutlookCalendarsPage:
     }
 
     maximum_time_of_script_execution = {
-        "title_en": "Maximum time of script execution",
+        "title_eng": "Maximum time of script execution",
         "title_es": "Tiempo máximo de ejecución del script ",
-        "title_ru": "Максимальное время выполнения скрипта",
+        "title_rus": "Максимальное время выполнения скрипта",
         "control_type": "Pane",
         "attribute_en": "Maximum time of script executionPane",
         "attribute_es": "Tiempo máximo de ejecución del script Pane",
@@ -84,9 +84,9 @@ class OutlookCalendarsPage:
     }
 
     read_calendars_every = {
-        "title_en": "Read calendars every",
+        "title_eng": "Read calendars every",
         "title_es": "Leer calendarios cada ",
-        "title_ru": "Вычитывать календари каждые",
+        "title_rus": "Вычитывать календари каждые",
         "control_type": "Pane",
         "attribute_en": "Read calendars everyPane",
         "attribute_es": "Leer calendarios cada Pane",
@@ -94,9 +94,9 @@ class OutlookCalendarsPage:
     }
 
     externalAPI_address = {
-        "title_en": "ExternalAPI address",
+        "title_eng": "ExternalAPI address",
         "title_es": "Dirección de ExternalAPI",
-        "title_ru": "Адрес ExternalAPI",
+        "title_rus": "Адрес ExternalAPI",
         "control_type": "Pane",
         "attribute_en": "ExternalAPI addressPane",
         "attribute_es": "Dirección de ExternalAPIPane",
@@ -104,9 +104,9 @@ class OutlookCalendarsPage:
     }
 
     disabled = {
-        "title_en": "Disabled",
+        "title_eng": "Disabled",
         "title_es": "Deshabilitado",
-        "title_ru": "Выключено",
+        "title_rus": "Выключено",
         "control_type": "Pane",
         "attribute_en": "DisabledPane",
         "attribute_es": "DeshabilitadoPane",
@@ -114,9 +114,9 @@ class OutlookCalendarsPage:
     }
 
     log_level = {
-        "title_en": "Log level  ",
-        "title_es": "Nivel de registro ",
-        "title_ru": "Логирование",
+        "title_eng": "Log level",
+        "title_es": "Nivel de registro",
+        "title_rus": "Логирование",
         "control_type": "Pane",
         "attribute_en": "Log level  Pane",
         "attribute_es": "Nivel de registro Pane",
@@ -124,9 +124,9 @@ class OutlookCalendarsPage:
     }
 
     start_service_of_reading_outlook_calendars = {
-        "title_en": "Start service of reading Outlook calendars",
+        "title_eng": "Start service of reading Outlook calendars",
         "title_es": "Iniciar el servicio de lectura de los calendarios de Outlook",
-        "title_ru": "Включить службу чтения календарей Outlook",
+        "title_rus": "Включить службу чтения календарей Outlook",
         "control_type": "Pane",
         "attribute_en": "Start service of reading Outlook calendarsPane",
         "attribute_es": "Iniciar el servicio de lectura de los calendarios de OutlookPane",
