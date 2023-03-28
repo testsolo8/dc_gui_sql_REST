@@ -17,7 +17,14 @@ class AgentsAndComponentsPage:
     free_space_monitor_button = (
         "Button3"  # __getattribute__("Pane15").__getattribute__("Button5")
     )
-    free_disk_space_monitoring = "Dialog"
+
+    free_disk_space_monitoring = {
+        "control_type": "Dialog",
+        "title_eng": "Free disk space monitoring",
+        "title_es": "Monitoreo del espacio disponible en disco",
+        "title_rus": "Мониторинг свободного пространства на диске",
+        }
+
     enable_monitoring = {
         "title_eng": "Enable monitoring",
         "title_es": "Habilitar monitoreo",
@@ -129,16 +136,22 @@ class AgentsAndComponentsPage:
         "control_type": "Button",
     }
     check_connection = {
-        "title_eng": "Check connectionButton0",
-        "title_es": "Probar conexiónButton0",
-        "title_rus": "Проверить соединениеButton0",
+        "title_eng": "Check connection",
+        "title_es": "Probar conexión",
+        "title_rus": "Проверить соединение",
+        "attribute_eng": "Check connectionButton0",
+        "attribute_es": "Probar conexiónButton0",
+        "attribute_rus": "Проверить соединениеButton0",
         "control_type": "Button",
     }
 
     check_connection2 = {
-        "title_eng": "Check connectionButton0",
-        "title_es": "Probar conexiónButton2",
-        "title_rus": "Проверить соединениеButton2",
+        "title_eng": "Check connection",
+        "title_es": "Probar conexión",
+        "title_rus": "Проверить соединение",
+        "attribute_eng": "Check connectionButton2",
+        "attribute_es": "Probar conexiónButton2",
+        "attribute_rus": "Проверить соединениеButton2",
         "control_type": "Button",
     }
     authentication = {

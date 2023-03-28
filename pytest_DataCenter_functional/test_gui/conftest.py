@@ -15,9 +15,7 @@ class TaskNeedTerminateWatcher(Thread):
         from common.config import task_config
 
         task_cfg = task_config()
-        self.at_api = autotestAPI(
-            task_cfg.server, task_cfg.taskID, task_cfg.taskGUID, task_cfg.destination
-        )
+        self.at_api = autotestAPI(task_cfg.server, task_cfg.taskID, task_cfg.taskGUID, task_cfg.destination)
         self.need_terminate_watcher = need_terminate_watcher
 
     def run(self):
@@ -27,9 +25,7 @@ class TaskNeedTerminateWatcher(Thread):
                 # если флаг уже был установлен, то смысла проверять нет
                 is_task_need_kill = self.at_api.isTaskNeedKill()
                 if is_task_need_kill:
-                    logging.warning(
-                        "The flag of the need to complete the task for testing is set"
-                    )
+                    logging.warning("The flag of the need to complete the task for testing is set")
                     pytest.need_skip_tests = is_task_need_kill
             time.sleep(30)
 

@@ -54,9 +54,9 @@ class RVisionGosSOPKAPage:
         "title_es": "Probar conexión",
         "title_rus": "Проверить соединение",
         "control_type": "Button",
-        "attribute_en": "Check connectionButton1",
+        "attribute_eng": "Check connectionButton1",
         "attribute_es": "Probar conexiónButton1",
-        "attribute_ru": "Проверить соединениеButton1",
+        "attribute_rus": "Проверить соединениеButton1",
     }
 
     token = {
@@ -64,9 +64,9 @@ class RVisionGosSOPKAPage:
         "title_es": "Token",
         "title_rus": "Токен",
         "control_type": "Pane",
-        "attribute_en": "TokenPane1",
+        "attribute_eng": "TokenPane1",
         "attribute_es": "TokenPane1",
-        "attribute_ru": "ТокенPane1",
+        "attribute_rus": "ТокенPane1",
     }
 
     server = {
@@ -81,9 +81,9 @@ class RVisionGosSOPKAPage:
         "title_es": "Ajustes de conexión:",
         "title_rus": "Настройки подключения:",
         "control_type": "Pane",
-        "attribute_en": "Connection settings:Pane1",
+        "attribute_eng": "Connection settings:Pane1",
         "attribute_es": "Ajustes de conexión:Pane1",
-        "attribute_ru": "Настройки подключения:Pane1",
+        "attribute_rus": "Настройки подключения:Pane1",
     }
 
     creation_of_incidents_in_R_Vision = {
@@ -105,9 +105,9 @@ class RVisionGosSOPKAPage:
         "title_es": "Ajustes de conexión:",
         "title_rus": "Настройки подключения:",
         "control_type": "Pane",
-        "attribute_en": "Connection settings:Pane2",
+        "attribute_eng": "Connection settings:Pane2",
         "attribute_es": "Ajustes de conexión:Pane2",
-        "attribute_ru": "Настройки подключения:Pane2",
+        "attribute_rus": "Настройки подключения:Pane2",
     }
 
     category = {
@@ -115,9 +115,9 @@ class RVisionGosSOPKAPage:
         "title_es": "Categoría",
         "title_rus": "Категория",
         "control_type": "Pane",
-        "attribute_en": "CategoryPane0",
+        "attribute_eng": "CategoryPane0",
         "attribute_es": "CategoríaPane0",
-        "attribute_ru": "КатегорияPane0",
+        "attribute_rus": "КатегорияPane0",
     }
 
     company = {
@@ -125,9 +125,9 @@ class RVisionGosSOPKAPage:
         "title_es": "Empresa",
         "title_rus": "Организация",
         "control_type": "Pane",
-        "attribute_en": "Company Pane",
+        "attribute_eng": "Company Pane",
         "attribute_es": "EmpresaPane",
-        "attribute_ru": "ОрганизацияPane",
+        "attribute_rus": "ОрганизацияPane",
     }
 
     category2 = {
@@ -135,9 +135,9 @@ class RVisionGosSOPKAPage:
         "title_es": "Categoría",
         "title_rus": "Категория",
         "control_type": "Pane",
-        "attribute_en": "CategoryPane2",
+        "attribute_eng": "CategoryPane2",
         "attribute_es": "CategoríaPane2",
-        "attribute_ru": "КатегорияPane2",
+        "attribute_rus": "КатегорияPane2",
     }
 
     company2 = {
@@ -145,9 +145,9 @@ class RVisionGosSOPKAPage:
         "title_es": "Empresa",
         "title_rus": "Организация",
         "control_type": "Pane",
-        "attribute_en": "Company Pane2",
+        "attribute_eng": "Company Pane2",
         "attribute_es": "EmpresaPane2",
-        "attribute_ru": "ОрганизацияPane2",
+        "attribute_rus": "ОрганизацияPane2",
     }
 
     siem = {
@@ -162,9 +162,9 @@ class RVisionGosSOPKAPage:
         "title_es": "Categoría",
         "title_rus": "Категория",
         "control_type": "Pane",
-        "attribute_en": "CategoryPane3",
+        "attribute_eng": "CategoryPane3",
         "attribute_es": "CategoríaPane3",
-        "attribute_ru": "КатегорияPane3",
+        "attribute_rus": "КатегорияPane3",
     }
 
     company3 = {
@@ -172,9 +172,9 @@ class RVisionGosSOPKAPage:
         "title_es": "Empresa",
         "title_rus": "Организация",
         "control_type": "Pane",
-        "attribute_en": "Company Pane3",
+        "attribute_eng": "Company Pane3",
         "attribute_es": "EmpresaPane3",
-        "attribute_ru": "ОрганизацияPane3",
+        "attribute_rus": "ОрганизацияPane3",
     }
 
     alert_center = {
@@ -203,9 +203,9 @@ class RVisionGosSOPKAPage:
         "title_es": "Token",
         "title_rus": "Токен",
         "control_type": "Pane",
-        "attribute_en": "TokenPane2",
+        "attribute_eng": "TokenPane2",
         "attribute_es": "TokenPane2",
-        "attribute_ru": "ТокенPane2",
+        "attribute_rus": "ТокенPane2",
     }
 
     check_connection2 = {
@@ -213,9 +213,9 @@ class RVisionGosSOPKAPage:
         "title_es": "Probar conexión",
         "title_rus": "Проверить соединение",
         "control_type": "Button",
-        "attribute_en": "Check connectionButton2",
+        "attribute_eng": "Check connectionButton2",
         "attribute_es": "Probar conexiónButton2",
-        "attribute_ru": "Проверить соединениеButton2",
+        "attribute_rus": "Проверить соединениеButton2",
     }
 
     # Элементы окна добаления контролируемого информационного ресурса
@@ -338,9 +338,9 @@ class RVisionGosSOPKAPage:
         "title_es": "Nombre:",
         "title_rus": "Наименование:",
         "control_type": "Pane",
-        "attribute_en": "Name:Pane1",
+        "attribute_eng": "Name:Pane1",
         "attribute_es": "Nombre:Pane1",
-        "attribute_ru": "Наименование:Pane",
+        "attribute_rus": "Наименование:Pane",
     }
 
     object_owner = {
@@ -391,9 +391,9 @@ class RVisionGosSOPKAPage:
         "title_es": "Nombre:",
         "title_rus": "Наименование КИИ:",
         "control_type": "Pane",
-        "attribute_en": "Name:Pane2",
+        "attribute_eng": "Name:Pane2",
         "attribute_es": "Nombre:Pane2",
-        "attribute_ru": "Наименование КИИ:Pane",
+        "attribute_rus": "Наименование КИИ:Pane",
     }
 
     controlled_information_object = {

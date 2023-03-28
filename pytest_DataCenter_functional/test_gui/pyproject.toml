@@ -8,43 +8,18 @@ markers = [
     "testGUI_VariousIndependentTests_ConfiguringEmailNotificationAddresses: тестирование настройки адресов почтовых уведомлений",
 
 
-
-    "testGUI_TestScreensRU: тест скринов консоли дц (русская версия)",
-    "testGUI_RusVersionDCTest_ScreensTest_Additionalfeatures: тест закладки Additional features (русская версия)",
-    "testGUI_RusVersionDCTest_ScreensTest_Licenses: тест закладки Licenses (русская версия)",
-    "testGUI_RusVersionDCTest_ScreensTest_Management: тест закладки Management (русская версия)",
-    "testGUI_RusVersionDCTest_ScreensTest_Settings: тест закладки Settings (русская версия)",
-
-    "testGUI_TestScreensEN: тест скринов консоли дц (английская версия)",
-    "testGUI_EngVersionDCTest_ScreensTest_Additionalfeatures: тест закладки Additional features (английская версия)",
-    "testGUI_EngVersionDCTest_ScreensTest_Licenses: тест закладки Licenses (английская версия)",
-    "testGUI_EngVersionDCTest_ScreensTest_Management: тест закладки Management (английская версия)",
-    "testGUI_EngVersionDCTest_ScreensTest_Settings: тест закладки Settings (английская версия)",
-
-    "testGUI_TestScreensES: тест скринов консоли дц (испанская версия)",
-    "testGUI_EspVersionDCTest_ScreensTest_Additionalfeatures: тест закладки Additional features (испанская версия)",
-    "testGUI_EspVersionDCTest_ScreensTest_Licenses: тест закладки Licenses (испанская версия)",
-    "testGUI_EspVersionDCTest_ScreensTest_Management: тест закладки Management (испанская версия)",
-    "testGUI_EspVersionDCTest_ScreensTest_Settings: тест закладки Settings (испанская версия)",
+    "testGUI_TestScreens: тест скринов консоли дц",
+    "testGUI_DCTest_ScreensTest_Additionalfeatures: тест закладки Additional features",
+    "testGUI_DCTest_ScreensTest_Licenses: тест закладки Licenses",
+    "testGUI_DCTest_ScreensTest_Management: тест закладки Management",
+    "testGUI_DCTest_ScreensTest_Settings: тест закладки Settings",
 
 
-    "testGUI_TestControlsRU: тест консоли дц (русская версия)",
-    "testGUI_RusVersionDCTest_ControlsTest_Additionalfeatures: тест закладки Additional features (русская версия)",
-    "testGUI_RusVersionDCTest_ControlsTest_Licenses: тест закладки Licenses (русская версия)",
-    "testGUI_RusVersionDCTest_ControlsTest_Management: тест закладки Management (русская версия)",
-    "testGUI_RusVersionDCTest_ControlsTest_Settings: тест закладки Settings (русская версия)",
-
-    "testGUI_TestControlsEN: тест консоли дц (английская версия)",
-    "testGUI_EngVersionDCTest_ControlsTest_Additionalfeatures: тест закладки Additional features (английская версия)",
-    "testGUI_EngVersionDCTest_ControlsTest_Licenses: тест закладки Licenses (английская версия)",
-    "testGUI_EngVersionDCTest_ControlsTest_Management: тест закладки Management (английская версия)",
-    "testGUI_EngVersionDCTest_ControlsTest_Settings: тест закладки Settings (английская версия)",
-
-    "testGUI_TestControlsES: тест консоли дц (испанская версия)",
-    "testGUI_EspVersionDCTest_ControlsTest_Additionalfeatures: тест закладки Additional features (испанская версия)",
-    "testGUI_EspVersionDCTest_ControlsTest_Licenses: тест закладки Licenses (испанская версия)",
-    "testGUI_EspVersionDCTest_ControlsTest_Management: тест закладки Management (испанская версия)",
-    "testGUI_EspVersionDCTest_ControlsTest_Settings: тест закладки Settings (испанская версия)",
+    "testGUI_TestControls: тест консоли дц",
+    "testGUI_DCTest_ControlsTest_Additionalfeatures: тест закладки Additional features",
+    "testGUI_DCTest_ControlsTest_Licenses: тест закладки Licenses",
+    "testGUI_DCTest_ControlsTest_Management: тест закладки Management",
+    "testGUI_DCTest_ControlsTest_Settings: тест закладки Settings",
 ]
 
 [tool.isort]
@@ -59,3 +34,6 @@ known_firstparty = [
 import_heading_firstparty = "My packages"
 import_heading_stdlib = "Standart libraries"
 import_heading_thirdparty = "Third party packages"
+
+[tool.black]
+line-length = 120

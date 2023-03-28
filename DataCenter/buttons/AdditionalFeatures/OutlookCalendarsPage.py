@@ -21,16 +21,18 @@ class OutlookCalendarsPage:
         "attribute_en": "min.Pane",
         "attribute_es": "min.Pane",
         "attribute_ru": "мин.Pane",
+        "found_index": 0,
     }
 
     min_2 = {
         "title_eng": "min.",
         "title_es": "min.",
-        "title_rus": "Применить",
+        "title_rus": "мин.",
         "control_type": "Pane",
         "attribute_en": "min.Pane2",
         "attribute_es": "min.Pane2",
         "attribute_ru": "мин.Pane2",
+        "found_index": 1,
     }
 
     connection_to_exchange_server = {

@@ -14,9 +14,12 @@ class TelegramlNotificationsPage:
     }
 
     check_connection = {
-        "title_eng": "Check connectionButton",
-        "title_es": "Probar conexiónButton",
-        "title_rus": "Проверить соединениеButton",
+        "title_eng": "Check connection",
+        "title_es": "Probar conexión",
+        "title_rus": "Проверить соединение",
+        "attribute_eng": "Check connectionButton",
+        "attribute_es": "Probar conexiónButton",
+        "attribute_rus": "Проверить соединениеButton",
         "control_type": "Button",
     }
 

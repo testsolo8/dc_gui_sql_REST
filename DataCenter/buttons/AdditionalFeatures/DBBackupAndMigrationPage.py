@@ -5,6 +5,7 @@ class DBBackupAndMigrationPage:
         "title_es": "Restaurar",
         "title_rus": "Восстановить",
         "control_type": "Button",
+        "found_index": 0,
     }
     new_rule = {
         "title_eng": "New rule",
@@ -26,101 +27,101 @@ class DBBackupAndMigrationPage:
     }
 
     clear = {
-        "title_eng": "Button0",
-        "title_es": "Button0",
-        "title_rus": "Button0",
+        "title_eng": "Clear",
+        "title_es": "Eliminar",
+        "title_rus": "Очистить",
         "control_type": "Button",
     }
 
     clear2 = {
-        "title_eng": "Button3",
-        "title_es": "Button3",
-        "title_rus": "Button3",
+        "title_eng": "Clear",
+        "title_es": "Eliminar",
+        "title_rus": "Очистить",
         "control_type": "Button",
     }
 
     # Панели
     all_objects = {
-        "title_eng": "All objectsPane0",
-        "title_es": "Todos los objetosPane0",
-        "title_rus": "Все объектыPane0",
+        "title_eng": "All objects",
+        "title_es": "Todos los objetos",
+        "title_rus": "Все объекты",
         "control_type": "Pane",
     }
 
     last_30_days = {
-        "title_eng": "Last 30 daysPane",
-        "title_es": "30 días últimosPane",
-        "title_rus": "Последние 30 днейPane",
+        "title_eng": "Last 30 days",
+        "title_es": "30 días últimos",
+        "title_rus": "Последние 30 дней",
         "control_type": "Pane",
     }
 
     all_rules = {
-        "title_eng": "All rules0",
-        "title_es": "Todas las reglasPane0",
-        "title_rus": "Все правилаPane0",
+        "title_eng": "All rules",
+        "title_es": "Todas las reglas",
+        "title_rus": "Все правила",
         "control_type": "Pane",
     }
 
     all_directories = {
-        "title_eng": "All directoriesPane",
-        "title_es": "Todos los directoriosPane",
-        "title_rus": "Все директорииPane",
+        "title_eng": "All directories",
+        "title_es": "Todos los directorios",
+        "title_rus": "Все директории",
         "control_type": "Pane",
     }
 
     all_servers = {
-        "title_eng": "All ServersPane0",
-        "title_es": "Todos los servidoresPane0",
-        "title_rus": "Все сервераPane0",
+        "title_eng": "All Servers",
+        "title_es": "Todos los servidores",
+        "title_rus": "Все сервера",
         "control_type": "Pane",
     }
 
     all_statuses = {
-        "title_eng": "All statusesPane0",
-        "title_es": "Todos los estadosPane0",
-        "title_rus": "Все статусыPane0",
+        "title_eng": "All statuses",
+        "title_es": "Todos los estados",
+        "title_rus": "Все статусы",
         "control_type": "Pane",
     }
 
     all_products = {
-        "title_eng": "All productsPane0",
-        "title_es": "Todos los productosPane0",
-        "title_rus": "Все продуктыPane0",
+        "title_eng": "All products",
+        "title_es": "Todos los productos",
+        "title_rus": "Все продукты",
         "control_type": "Pane",
     }
 
     all_products2 = {
-        "title_eng": "All productsPane2",
-        "title_es": "Todos los productosPane2",
-        "title_rus": "Все продуктыPane2",
+        "title_eng": "All products",
+        "title_es": "Todos los productos",
+        "title_rus": "Все продукты",
         "control_type": "Pane",
     }
 
     all_statuses2 = {
-        "title_eng": "All statusesPane2",
-        "title_es": "Todos los estadosPane2",
-        "title_rus": "Все статусыPane2",
+        "title_eng": "All statuses",
+        "title_es": "Todos los estados",
+        "title_rus": "Все статусы",
         "control_type": "Pane",
     }
 
     all_servers2 = {
-        "title_eng": "All ServersPane2",
-        "title_es": "Todos los servidoresPane2",
-        "title_rus": "Все сервераPane2",
+        "title_eng": "All Servers",
+        "title_es": "Todos los servidores",
+        "title_rus": "Все сервера",
         "control_type": "Pane",
     }
 
     all_objects2 = {
-        "title_eng": "All objectsPane2",
-        "title_es": "Todos los objetosPane2",
-        "title_rus": "Все объектыPane2",
+        "title_eng": "All objects",
+        "title_es": "Todos los objetos",
+        "title_rus": "Все объекты",
         "control_type": "Pane",
     }
 
     all_rules2 = {
-        "title_eng": "All rulesPane2",
-        "title_es": "Todas las reglasPane2",
-        "title_rus": "Все правилаPane2",
+        "title_eng": "All rules",
+        "title_es": "Todas las reglas",
+        "title_rus": "Все правила",
         "control_type": "Pane",
     }
 

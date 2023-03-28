@@ -8,9 +8,12 @@ class ManagementPage:
     }
 
     logs_size = {
-        "title_eng": "Logs sizePane0",  # "Logs size"
-        "title_es": "Tamaño de registrosPane0",  # "Tamaño de registros"
-        "title_rus": "Размер логовPane0",  # "Размер логов"
+        "attribute_eng": "Logs sizePane0",  # "Logs size"
+        "attribute_es": "Tamaño de registrosPane0",  # "Tamaño de registros"
+        "attribute_rus": "Размер логовPane0",  # "Размер логов"
+        "title_eng": "Logs size",
+        "title_es": "Tamaño de registros",
+        "title_rus": "Размер логов",
         "control_type": "Pane",
     }
 
